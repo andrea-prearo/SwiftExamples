@@ -32,7 +32,7 @@ class MapViewController: UIViewController,
 
         requestLocationPermissions(locationManager)
         setupMapView()
-        for annotation in RegionAnnotationsStore.sharedInstance.annotations {
+        for annotation in RegionAnnotationsStore.sharedInstance.storedItems {
             addRegionMonitoring(annotation, shouldUpdate: false)
         }
 
@@ -69,14 +69,14 @@ class MapViewController: UIViewController,
         mapView.addAnnotation(regionAnnotation)
         startMonitoringGeotification(regionAnnotation)
         if shouldUpdate {
-            RegionAnnotationsStore.sharedInstance.addRegionAnnotation(regionAnnotation)
+            RegionAnnotationsStore.sharedInstance.addStoredItem(regionAnnotation)
         }
     }
     
     func removeRegionMonitoring(regionAnnotation: RegionAnnotation) {
         mapView.removeAnnotation(regionAnnotation)
         locationManager.stopMonitoringForRegion(regionAnnotation.region)
-        RegionAnnotationsStore.sharedInstance.removeRegionAnnotation(regionAnnotation)
+        RegionAnnotationsStore.sharedInstance.removeStoredItem(regionAnnotation)
     }
 
     func startMonitoringGeotification(regionAnnotation: RegionAnnotation) {
@@ -93,11 +93,11 @@ class MapViewController: UIViewController,
     func addRegionNotification(timestamp: NSDate, event: RegionAnnotationEvent, message: String, appStatus: UIApplicationState) {
         let notification = RegionNotification(timestamp: timestamp, event: event, message: message, appStatus: appStatus)
         println("Region Monitoring: \(notification.description)")
-        RegionNotificationsStore.sharedInstance.addRegionNotification(notification)
+        RegionNotificationsStore.sharedInstance.addStoredItem(notification)
     }
 
     func handleRegionEvent(region: CLRegion, regionAnnotationEvent: RegionAnnotationEvent) {
-        if let regionAnnotation = RegionAnnotationsStore.sharedInstance.annotationForRegionIdentifier(region.identifier),
+        if let regionAnnotation = RegionAnnotationsStore.annotationForRegionIdentifier(region.identifier),
             let message = regionAnnotation.notificationMessageForEvent(regionAnnotationEvent)
             where !message.isEmpty {
             let appStatus = UIApplication.sharedApplication().applicationState
