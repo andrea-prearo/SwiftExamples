@@ -19,7 +19,7 @@ class RegionAnnotationsTableViewController: UITableViewController,
 
         title = NSLocalizedString("Monitored Regions", comment: "Monitored Regions")
 
-        regionAnnotations = RegionAnnotationsStore.sharedInstance.annotations
+        regionAnnotations = RegionAnnotationsStore.sharedInstance.storedItems
 
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "regionAnnotationItemsDidChange:",
@@ -76,7 +76,7 @@ class RegionAnnotationsTableViewController: UITableViewController,
     // MARK: NSNotificationCenter Events
 
     @objc func regionAnnotationItemsDidChange(notification: NSNotification) {
-        regionAnnotations = RegionAnnotationsStore.sharedInstance.annotations
+        regionAnnotations = RegionAnnotationsStore.sharedInstance.storedItems
         dispatch_async(dispatch_get_main_queue()) {
             self.tableView.reloadData()
         }

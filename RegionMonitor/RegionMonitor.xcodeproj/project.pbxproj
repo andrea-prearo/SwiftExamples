@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061F87941B139D33008A7BC5 /* GenericStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061F87931B139D33008A7BC5 /* GenericStore.swift */; };
 		06281FF91B0E65100076A839 /* RegionNotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06281FF81B0E65100076A839 /* RegionNotificationsTableViewController.swift */; };
 		0652B37A1B0FC57700731840 /* RegionNotificationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0652B3791B0FC57700731840 /* RegionNotificationsStore.swift */; };
 		0652B37D1B0FC63500731840 /* RegionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0652B37C1B0FC63500731840 /* RegionNotification.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		061F87931B139D33008A7BC5 /* GenericStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericStore.swift; sourceTree = "<group>"; };
 		06281FF81B0E65100076A839 /* RegionNotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionNotificationsTableViewController.swift; sourceTree = "<group>"; };
 		0652B3791B0FC57700731840 /* RegionNotificationsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionNotificationsStore.swift; sourceTree = "<group>"; };
 		0652B37C1B0FC63500731840 /* RegionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionNotification.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				06D1DD341B0DAAA800BA4F67 /* RegionAnnotationsStore.swift */,
 				0652B3791B0FC57700731840 /* RegionNotificationsStore.swift */,
+				061F87931B139D33008A7BC5 /* GenericStore.swift */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				065C3B801B0ACC9300F87CD3 /* RegionAnnotationView.swift in Sources */,
 				06ED36421B0A8D4300D962BC /* MapViewController.swift in Sources */,
 				06ED364A1B0A916B00D962BC /* RegionAnnotation.swift in Sources */,
+				061F87941B139D33008A7BC5 /* GenericStore.swift in Sources */,
 				06D1DD301B0D8DAD00BA4F67 /* UIAlert+SimpleTitleAndMessage.swift in Sources */,
 				06F5D4CF1B0BA3D900E71430 /* RegionAnnotationsTableViewController.swift in Sources */,
 				0652B37D1B0FC63500731840 /* RegionNotification.swift in Sources */,
