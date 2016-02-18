@@ -10,8 +10,8 @@ import UIKit
 
 let LoginToFirstSegue = "LoginToFirstSegue"
 
-class LoginViewController: UIViewController,
-UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate {
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -52,7 +52,7 @@ UITextFieldDelegate {
     // MARK: Keyboard Events
 
     func keyboardWillShow(notification: NSNotification) {
-        if let keyboardHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+        if let keyboardHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
             var contentSize = scrollView.contentSize
             contentSize.height = initialContentSizeHeight + keyboardHeight
             scrollView.contentSize = contentSize
@@ -80,14 +80,23 @@ UITextFieldDelegate {
                                     delegate: nil,
                                     cancelButtonTitle: "OK")
             alert.show()
-            view.endEditing(true)
         }
     }
 
     // MARK: Orientation Changes
 
+    @available(iOS 8.0, *)
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
         didLayoutSubviews = false
     }
+
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+        super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+        guard #available(iOS 8, *) else {
+            didLayoutSubviews = false
+            return
+        }
+    }
+
 }
