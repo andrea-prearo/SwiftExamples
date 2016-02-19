@@ -26,8 +26,8 @@ enum RegionAnnotationEvent: Int {
 class RegionAnnotation: NSObject, MKAnnotation, NSCoding {
     let coordinate: CLLocationCoordinate2D
     let radius: CLLocationDistance
-    let title: String
-    let subtitle: String
+    let title: String?
+    let subtitle: String?
     let onEntryMessage: String
     let onExitMessage: String
 
@@ -52,12 +52,12 @@ class RegionAnnotation: NSObject, MKAnnotation, NSCoding {
 
     // MARK: NSCoding
     
-    required init(coder decoder: NSCoder) {
+    required init?(coder decoder: NSCoder) {
         let location = decoder.decodeObjectForKey(RegionAnnotationCoordinateKey) as! CLLocation
         coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         radius = decoder.decodeDoubleForKey(RegionAnnotationRadiusKey)
-        title = decoder.decodeObjectForKey(RegionAnnotationTitleKey) as! String
-        subtitle = decoder.decodeObjectForKey(RegionAnnotationSubtitleKey) as! String
+        title = decoder.decodeObjectForKey(RegionAnnotationTitleKey) as? String
+        subtitle = decoder.decodeObjectForKey(RegionAnnotationSubtitleKey) as? String
         onEntryMessage = decoder.decodeObjectForKey(RegionAnnotationOnEntryMessageKey) as! String
         onExitMessage = decoder.decodeObjectForKey(RegionAnnotationOnExitMessageKey) as! String
     }
@@ -80,8 +80,6 @@ class RegionAnnotation: NSObject, MKAnnotation, NSCoding {
             return onEntryMessage
         case .Exit:
             return onExitMessage
-        default:
-            return nil
         }
     }
  }

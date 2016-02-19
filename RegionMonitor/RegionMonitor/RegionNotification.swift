@@ -33,7 +33,7 @@ class RegionNotification: NSObject, NSCoding {
 
     // MARK: NSCoding
 
-    required init(coder decoder: NSCoder) {
+    required init?(coder decoder: NSCoder) {
         timestamp = decoder.decodeObjectForKey(RegionNotificationTimestampKey) as! NSDate
         event = RegionAnnotationEvent(rawValue: decoder.decodeIntegerForKey(RegionNotificationEventKey))!
         message = decoder.decodeObjectForKey(RegionNotificationMessageKey) as! String

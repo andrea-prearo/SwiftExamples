@@ -10,8 +10,7 @@ import UIKit
 
 let RegionAnnotationsTableViewCellId = "RegionAnnotationsTableViewCell"
 
-class RegionAnnotationsTableViewController: UITableViewController,
-    UITableViewDataSource {
+class RegionAnnotationsTableViewController: UITableViewController {
     var regionAnnotations: [RegionAnnotation]?
 
     override func viewDidLoad() {
@@ -37,7 +36,7 @@ class RegionAnnotationsTableViewController: UITableViewController,
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(RegionAnnotationsTableViewCellId, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(RegionAnnotationsTableViewCellId, forIndexPath: indexPath) 
         let row = indexPath.row
         let regionAnnotation = regionAnnotations?[row]
         cell.textLabel?.text = regionAnnotation?.subtitle
@@ -62,7 +61,7 @@ class RegionAnnotationsTableViewController: UITableViewController,
             let cell = sender as? UITableViewCell
             let indexPath = tableView.indexPathForCell(cell!)
             let regionAnnotation = regionAnnotations?[indexPath!.row]
-            var regionAnnotationSettingsDetailVC = segue.destinationViewController as? RegionAnnotationSettingsDetailViewController
+            let regionAnnotationSettingsDetailVC = segue.destinationViewController as? RegionAnnotationSettingsDetailViewController
             regionAnnotationSettingsDetailVC?.regionAnnotation = regionAnnotation
         }
     }

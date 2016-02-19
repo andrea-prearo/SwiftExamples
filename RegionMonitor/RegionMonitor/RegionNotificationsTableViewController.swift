@@ -10,8 +10,7 @@ import UIKit
 
 let RegionNotificationsTableViewCellId = "RegionNotificationsTableViewCell"
 
-class RegionNotificationsTableViewController: UITableViewController,
-    UITableViewDataSource {
+class RegionNotificationsTableViewController: UITableViewController {
     var regionNotifications: [RegionNotification]?
     
     override func viewDidLoad() {
@@ -20,7 +19,7 @@ class RegionNotificationsTableViewController: UITableViewController,
         title = NSLocalizedString("Region Notifications", comment: "Region Notifications")
 
         regionNotifications = RegionNotificationsStore.sharedInstance.storedItems
-        regionNotifications?.sort({ $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
+        regionNotifications?.sortInPlace({ $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
 
         NSNotificationCenter.defaultCenter().addObserver(self,
             selector: "regionNotificationsItemsDidChange:",
@@ -42,7 +41,7 @@ class RegionNotificationsTableViewController: UITableViewController,
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(RegionNotificationsTableViewCellId, forIndexPath: indexPath) as! RegionNotificationCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(RegionNotificationsTableViewCellId, forIndexPath: indexPath) as! RegionNotificationCell
         let row = indexPath.row
         let regionNotification = regionNotifications?[row]
         cell.timestamp.text = regionNotification?.displayTimestamp()
@@ -66,7 +65,7 @@ class RegionNotificationsTableViewController: UITableViewController,
 
     @objc func regionNotificationsItemsDidChange(notification: NSNotification) {
         regionNotifications = RegionNotificationsStore.sharedInstance.storedItems
-        regionNotifications?.sort({ $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
+        regionNotifications?.sortInPlace({ $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
         dispatch_async(dispatch_get_main_queue()) {
             self.tableView.reloadData()
         }

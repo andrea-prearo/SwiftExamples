@@ -36,10 +36,10 @@ class GenericStore<T: NSObject> {
     }
 
     private func saveStoredItems() {
-        var items = NSMutableArray()
+        let items = NSMutableArray()
         for storedItem in storedItems {
-            let item = NSKeyedArchiver.archivedDataWithRootObject(storedItem) as? T
-            items.addObject(item!)
+            let item = NSKeyedArchiver.archivedDataWithRootObject(storedItem)
+            items.addObject(item)
         }
         NSNotificationCenter.defaultCenter().postNotificationName(storeItemsDidChangeNotification, object: nil)
         NSUserDefaults.standardUserDefaults().setObject(items, forKey: storeItemsKey)

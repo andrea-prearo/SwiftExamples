@@ -18,7 +18,7 @@ class MapViewController: UIViewController,
     @IBOutlet weak var locationButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         locationManager.delegate = self
     }
@@ -46,7 +46,7 @@ class MapViewController: UIViewController,
 
     func requestLocationPermissions(locationManager: CLLocationManager) {
         if CLLocationManager.locationServicesEnabled() {
-            if locationManager.respondsToSelector("requestAlwaysAuthorization") {
+            if #available(iOS 8.0, *) {
                 locationManager.requestAlwaysAuthorization()
             } else {
                 locationManager.startUpdatingLocation()
@@ -84,15 +84,17 @@ class MapViewController: UIViewController,
             showRegionMonitoringNotAvailableAlert()
             return
         }
-        if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
-            showLocationPermissionsNotGrantedAlert()
+        if #available(iOS 8.0, *) {
+            if CLLocationManager.authorizationStatus() != .AuthorizedAlways {
+                showLocationPermissionsNotGrantedAlert()
+            }
         }
         locationManager.startMonitoringForRegion(regionAnnotation.region)
     }
 
     func addRegionNotification(timestamp: NSDate, event: RegionAnnotationEvent, message: String, appStatus: UIApplicationState) {
         let notification = RegionNotification(timestamp: timestamp, event: event, message: message, appStatus: appStatus)
-        println("Region Monitoring: \(notification.description)")
+        print("Region Monitoring: \(notification.description)")
         RegionNotificationsStore.sharedInstance.addStoredItem(notification)
     }
 
@@ -103,7 +105,7 @@ class MapViewController: UIViewController,
             let appStatus = UIApplication.sharedApplication().applicationState
             addRegionNotification(NSDate(), event: regionAnnotationEvent, message: message, appStatus: appStatus)
             if appStatus != .Active {
-                var notification = UILocalNotification()
+                let notification = UILocalNotification()
                 notification.alertBody = message
                 notification.soundName = "Default";
                 UIApplication.sharedApplication().presentLocalNotificationNow(notification)
@@ -133,9 +135,9 @@ class MapViewController: UIViewController,
 
     // MARK: MKMapViewDelegate
 
-    func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         if isInitialCurrentLocation {
-            zoomToMapLocation(userLocation?.coordinate)
+            zoomToMapLocation(userLocation.coordinate)
             isInitialCurrentLocation = false
             let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
             dispatch_after(delay, dispatch_get_main_queue()) {
@@ -145,12 +147,12 @@ class MapViewController: UIViewController,
         }
     }
 
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        if annotation.isKindOfClass(RegionAnnotation) {
-            let regionAnnotation = annotation as? RegionAnnotation;
-            var regionView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotation.title) as? RegionAnnotationView
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if let regionAnnotation = annotation as? RegionAnnotation,
+            title = regionAnnotation.title {
+            var regionView = mapView.dequeueReusableAnnotationViewWithIdentifier(title) as? RegionAnnotationView
             if regionView == nil {
-                regionView = RegionAnnotationView(annotation: regionAnnotation!, reuseIdentifier: annotation.title)
+                regionView = RegionAnnotationView(annotation: regionAnnotation, reuseIdentifier: title)
             } else {
                 regionView!.annotation = annotation;
             }
@@ -160,14 +162,14 @@ class MapViewController: UIViewController,
         return nil
     }
 
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKCircle {
             return RegionAnnotationView.circleRenderer(overlay)
         }
-        return nil
+        return MKOverlayRenderer()
     }
 
-    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if view.isKindOfClass(RegionAnnotationView) {
             let regionAnnotation = view.annotation as? RegionAnnotation;
             if control.tag == RegionAnnotationViewDetailsButtonTag {
@@ -179,17 +181,19 @@ class MapViewController: UIViewController,
 
     // MARK: CLLocationManagerDelegate
 
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        mapView.showsUserLocation = (status == .AuthorizedAlways)
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if #available(iOS 8.0, *) {
+            mapView.showsUserLocation = (status == .AuthorizedAlways)
+        }
     }
 
-    func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
+    func locationManager(manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if region is CLCircularRegion {
             handleRegionEvent(region, regionAnnotationEvent: RegionAnnotationEvent.Entry)
         }
     }
 
-    func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
+    func locationManager(manager: CLLocationManager, didExitRegion region: CLRegion) {
         if region is CLCircularRegion {
             handleRegionEvent(region, regionAnnotationEvent: RegionAnnotationEvent.Exit)
         }
@@ -214,7 +218,7 @@ class MapViewController: UIViewController,
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == RegionAnnotationSettingsDetailSegue {
             let regionAnnotation = sender as? RegionAnnotation
-            var regionAnnotationSettingsDetailVC = segue.destinationViewController as? RegionAnnotationSettingsDetailViewController
+            let regionAnnotationSettingsDetailVC = segue.destinationViewController as? RegionAnnotationSettingsDetailViewController
             regionAnnotationSettingsDetailVC?.regionAnnotation = regionAnnotation
         }
     }

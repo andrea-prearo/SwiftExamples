@@ -15,8 +15,7 @@ let RegionAnnotationSettingMapCell = 0
 let RegionAnnotationSettingCoordinateCell = 1
 let RegionAnnotationSettingRasiusCell = 2
 
-class RegionAnnotationSettingsDetailViewController: UITableViewController,
-    UITableViewDataSource, MKMapViewDelegate, UITextFieldDelegate {
+class RegionAnnotationSettingsDetailViewController: UITableViewController, MKMapViewDelegate, UITextFieldDelegate {
     var regionAnnotation: RegionAnnotation?
 
     override func viewDidLoad() {
@@ -36,12 +35,16 @@ class RegionAnnotationSettingsDetailViewController: UITableViewController,
     }
 
     func addRegionMonitoring(regionAnnotationMapCell: RegionAnnotationMapCell?) {
-        let distance = regionAnnotation!.radius * 2
-        let region = MKCoordinateRegionMakeWithDistance(regionAnnotation!.coordinate, distance, distance)
+        guard let regionAnnotation = regionAnnotation else {
+            return
+        }
+
+        let distance = regionAnnotation.radius * 2
+        let region = MKCoordinateRegionMakeWithDistance(regionAnnotation.coordinate, distance, distance)
         regionAnnotationMapCell?.mapView.delegate = self
         regionAnnotationMapCell?.mapView.setRegion(region, animated: true)
         regionAnnotationMapCell?.mapView.addAnnotation(regionAnnotation)
-        regionAnnotationMapCell?.mapView.addOverlay(MKCircle(centerCoordinate: regionAnnotation!.coordinate, radius: regionAnnotation!.radius))
+        regionAnnotationMapCell?.mapView.addOverlay(MKCircle(centerCoordinate: regionAnnotation.coordinate, radius: regionAnnotation.radius))
     }
 
     // MARK: UITableViewDataSource
@@ -80,21 +83,21 @@ class RegionAnnotationSettingsDetailViewController: UITableViewController,
             cell = regionAnnotationPropertyCell
         default:
             cell = UITableViewCell()
-            println("Error: invalid indexPath for cellForRowAtIndexPath: \(indexPath)")
+            print("Error: invalid indexPath for cellForRowAtIndexPath: \(indexPath)")
        }
         return cell
     }
 
     // MARK: MKMapViewDelegate
 
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKCircle {
             return RegionAnnotationView.circleRenderer(overlay)
         }
-        return nil
+        return MKOverlayRenderer()
     }
 
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         view.calloutOffset = CGPointMake(-1000, -1000)
     }
 
