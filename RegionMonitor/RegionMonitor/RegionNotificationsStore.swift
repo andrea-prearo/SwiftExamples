@@ -12,7 +12,9 @@ let RegionNotificationItemsKey = "RegionNotificationItems"
 let RegionNotificationItemsDidChangeNotification = "RegionNotificationItemsDidChangeNotification"
 
 class RegionNotificationsStore {
+
     // MARK: Singleton
 
     static let sharedInstance = GenericStore<RegionNotification>(storeItemsKey: RegionNotificationItemsKey, storeItemsDidChangeNotification: RegionNotificationItemsDidChangeNotification)
+
 }

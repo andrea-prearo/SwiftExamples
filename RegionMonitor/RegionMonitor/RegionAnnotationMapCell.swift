@@ -10,5 +10,7 @@ import UIKit
 import MapKit
 
 class RegionAnnotationMapCell: UITableViewCell {
+    
     @IBOutlet weak var mapView: MKMapView!
+
 }

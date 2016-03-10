@@ -9,6 +9,8 @@
 import UIKit
 
 class RegionAnnotationPropertyCell: UITableViewCell {
+
     @IBOutlet weak var propertyLabel: UILabel!
     @IBOutlet weak var valueTextField: UITextField!
+
 }

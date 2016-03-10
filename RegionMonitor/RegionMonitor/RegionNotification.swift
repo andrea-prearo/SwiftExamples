@@ -15,6 +15,7 @@ let RegionNotificationMessageKey = "RegionNotificationMessage"
 let RegionNotificationAppStatusKey = "RegionNotificationAppStatus"
 
 class RegionNotification: NSObject, NSCoding {
+
     let timestamp: NSDate
     let event: RegionAnnotationEvent
     let message: String
@@ -75,4 +76,5 @@ class RegionNotification: NSObject, NSCoding {
             return "Background"
         }
     }
+
 }

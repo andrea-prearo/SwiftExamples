@@ -24,6 +24,7 @@ enum RegionAnnotationEvent: Int {
 }
  
 class RegionAnnotation: NSObject, MKAnnotation, NSCoding {
+
     let coordinate: CLLocationCoordinate2D
     let radius: CLLocationDistance
     let title: String?
@@ -82,4 +83,5 @@ class RegionAnnotation: NSObject, MKAnnotation, NSCoding {
             return onExitMessage
         }
     }
+
  }

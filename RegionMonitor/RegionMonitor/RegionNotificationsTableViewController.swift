@@ -11,6 +11,7 @@ import UIKit
 let RegionNotificationsTableViewCellId = "RegionNotificationsTableViewCell"
 
 class RegionNotificationsTableViewController: UITableViewController {
+
     var regionNotifications: [RegionNotification]?
     
     override func viewDidLoad() {
@@ -70,4 +71,5 @@ class RegionNotificationsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+
 }

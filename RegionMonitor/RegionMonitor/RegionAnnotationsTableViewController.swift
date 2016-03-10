@@ -11,6 +11,7 @@ import UIKit
 let RegionAnnotationsTableViewCellId = "RegionAnnotationsTableViewCell"
 
 class RegionAnnotationsTableViewController: UITableViewController {
+
     var regionAnnotations: [RegionAnnotation]?
 
     override func viewDidLoad() {
@@ -80,4 +81,5 @@ class RegionAnnotationsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+
 }

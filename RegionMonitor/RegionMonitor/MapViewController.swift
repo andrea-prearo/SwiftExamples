@@ -9,8 +9,8 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController,
-    MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+
     private var isInitialCurrentLocation = true
     private let locationManager = CLLocationManager()
 
@@ -228,4 +228,5 @@ class MapViewController: UIViewController,
     @objc func regionAnnotationItemsDidChange(notification: NSNotification) {
         // ... refresh
     }
+
 }

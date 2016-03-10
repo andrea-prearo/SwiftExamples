@@ -52,4 +52,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
+
 }

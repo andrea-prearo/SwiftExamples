@@ -13,6 +13,7 @@ let RegionAnnotationViewRemoveButtonTag = 1001
 let RegionAnnotationViewDetailsButtonTag = 1002
 
 class RegionAnnotationView: MKPinAnnotationView {
+
     required init?(coder aDecoder: NSCoder) {
         super.init(annotation: nil, reuseIdentifier: nil)
         setupPin()
@@ -78,4 +79,5 @@ class RegionAnnotationView: MKPinAnnotationView {
             }
         }
     }
+
 }

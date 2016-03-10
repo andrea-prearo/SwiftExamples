@@ -9,6 +9,7 @@
 import Foundation
 
 class GenericStore<T: NSObject> {
+
     private(set) internal var storedItems = [T]()
     let storeItemsKey: String
     let storeItemsDidChangeNotification: String
@@ -68,4 +69,5 @@ class GenericStore<T: NSObject> {
         }
         return index
     }
+
 }

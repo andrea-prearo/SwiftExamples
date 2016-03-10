@@ -9,8 +9,10 @@
 import UIKit
 
 class RegionNotificationCell: UITableViewCell {
+
     @IBOutlet weak var timestamp: UILabel!
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var event: UILabel!
+
 }

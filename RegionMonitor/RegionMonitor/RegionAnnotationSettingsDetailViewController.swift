@@ -9,6 +9,9 @@
 import UIKit
 import MapKit
 
+let RegionAnnotationMapCellId = "RegionAnnotationMapCell"
+let RegionAnnotationPropertyCellId = "RegionAnnotationPropertyCell"
+
 let RegionAnnotationSettingsDetailSegue = "RegionAnnotationSettingsDetailSegue"
 
 let RegionAnnotationSettingMapCell = 0
@@ -16,6 +19,7 @@ let RegionAnnotationSettingCoordinateCell = 1
 let RegionAnnotationSettingRasiusCell = 2
 
 class RegionAnnotationSettingsDetailViewController: UITableViewController, MKMapViewDelegate, UITextFieldDelegate {
+
     var regionAnnotation: RegionAnnotation?
 
     override func viewDidLoad() {
@@ -27,11 +31,11 @@ class RegionAnnotationSettingsDetailViewController: UITableViewController, MKMap
     // MARK: Private Methods
     
     func dequeueRegionAnnotationMapCell(indexPath: NSIndexPath) -> RegionAnnotationMapCell {
-        return tableView.dequeueReusableCellWithIdentifier("RegionAnnotationMapCell", forIndexPath: indexPath) as! RegionAnnotationMapCell
+        return tableView.dequeueReusableCellWithIdentifier(RegionAnnotationMapCellId, forIndexPath: indexPath) as! RegionAnnotationMapCell
     }
 
     func dequeueRegionAnnotationPropertyCell(indexPath: NSIndexPath) -> RegionAnnotationPropertyCell {
-        return tableView.dequeueReusableCellWithIdentifier("RegionAnnotationPropertyCell", forIndexPath: indexPath) as! RegionAnnotationPropertyCell
+        return tableView.dequeueReusableCellWithIdentifier(RegionAnnotationPropertyCellId, forIndexPath: indexPath) as! RegionAnnotationPropertyCell
     }
 
     func addRegionMonitoring(regionAnnotationMapCell: RegionAnnotationMapCell?) {
@@ -106,4 +110,5 @@ class RegionAnnotationSettingsDetailViewController: UITableViewController, MKMap
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return false
     }
+
 }

@@ -12,6 +12,7 @@ let RegionAnnotationItemsKey = "RegionAnnotationItems"
 let RegionAnnotationItemsDidChangeNotification = "RegionAnnotationItemsDidChangeNotification"
 
 class RegionAnnotationsStore {
+
     // MARK: Singleton
 
     static let sharedInstance = GenericStore<RegionAnnotation>(storeItemsKey: RegionAnnotationItemsKey, storeItemsDidChangeNotification: RegionAnnotationItemsDidChangeNotification)
@@ -24,4 +25,5 @@ class RegionAnnotationsStore {
         }
         return nil
     }
+
 }
