@@ -26,9 +26,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         usernameTextField.delegate = self
         passwordTextField.delegate = self
-        let defaultCenter = NSNotificationCenter.defaultCenter()
-        defaultCenter.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        defaultCenter.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        let defaultCenter = NotificationCenter.default()
+        defaultCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        defaultCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func viewDidLayoutSubviews() {
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: UITextFieldDelegate
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         signInButtonTapped(textField)
         return true
@@ -51,29 +51,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Keyboard Events
 
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.size.height {
+    func keyboardWillShow(_ notification: Notification) {
+        if let keyboardHeight = (notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey]?.cgRectValue.size.height {
             var contentSize = scrollView.contentSize
             contentSize.height = initialContentSizeHeight + keyboardHeight
             scrollView.contentSize = contentSize
-            scrollView.setContentOffset(CGPointMake(0, keyboardHeight), animated: true)
+            scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
         }
     }
 
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         var contentSize = scrollView.contentSize
         contentSize.height = initialContentSizeHeight
         scrollView.contentSize = contentSize
-        scrollView.setContentOffset(CGPointZero, animated: true)
+        scrollView.setContentOffset(CGPoint.zero, animated: true)
     }
     
     // MARK: Actions
     
-    @IBAction func signInButtonTapped(sender: AnyObject) {
+    @IBAction func signInButtonTapped(_ sender: AnyObject) {
         if let username = usernameTextField.text,
             let password = passwordTextField.text
             where !username.isEmpty && !password.isEmpty {
-                performSegueWithIdentifier(LoginToFirstSegue, sender: self)
+                performSegue(withIdentifier: LoginToFirstSegue, sender: self)
         } else {
             let alert = UIAlertView(title: "Error",
                                     message: "Any non-empty username/password combination works!",
@@ -86,13 +86,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Orientation Changes
 
     @available(iOS 8.0, *)
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         didLayoutSubviews = false
     }
 
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
-        super.willRotateToInterfaceOrientation(toInterfaceOrientation, duration: duration)
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        super.willRotate(to: toInterfaceOrientation, duration: duration)
         guard #available(iOS 8, *) else {
             didLayoutSubviews = false
             return

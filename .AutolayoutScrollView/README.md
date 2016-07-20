@@ -1,4 +1,4 @@
 AutolayoutScrollView
 ====================
 
-Working With Autolayout And Scroll View
+A short example on how to work with Auto Layout and UIScrollView
