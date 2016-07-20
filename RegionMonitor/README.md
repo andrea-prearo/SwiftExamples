@@ -1,4 +1,7 @@
 RegionMonitor
 =============
 
-Region Monitoring and Notifications
+A sample app to experiment with:
+- Region Monitoring
+- Local Notifications
+- MapKit
