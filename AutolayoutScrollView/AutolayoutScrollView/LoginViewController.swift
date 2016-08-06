@@ -44,8 +44,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: UITextFieldDelegate
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        signInButtonTapped(textField)
+        if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+            return false
+        } else if textField == passwordTextField {
+            passwordTextField.resignFirstResponder()
+            signInButtonTapped(textField)
+        }
         return true
     }
 
@@ -85,18 +90,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Orientation Changes
 
-    @available(iOS 8.0, *)
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         didLayoutSubviews = false
     }
-
-    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        super.willRotate(to: toInterfaceOrientation, duration: duration)
-        guard #available(iOS 8, *) else {
-            didLayoutSubviews = false
-            return
-        }
-    }
-
+    
 }
