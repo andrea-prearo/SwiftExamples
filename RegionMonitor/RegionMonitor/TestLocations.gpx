@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+    <wpt lat="37.42565" lon="-122.13535">
+         <name>Palo Alto</name>
+    </wpt>
+    <wpt lat="37.4629308" lon="-122.1748693">
+        <name>Menlo Park</name>
+    </wpt>
+    <wpt lat="37.4038194" lon="-122.081267">
+        <name>Mountain View</name>
+    </wpt>
+    <wpt lat="37.3896045" lon="-122.0241209">
+        <name>Sunnyvale</name>
+    </wpt>
+    <wpt lat="37.30925" lon="-122.0436444">
+        <name>Cupertino</name>
+    </wpt>
+</gpx>
