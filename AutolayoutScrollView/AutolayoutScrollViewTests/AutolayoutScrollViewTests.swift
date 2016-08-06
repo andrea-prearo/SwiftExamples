@@ -1,6 +1,6 @@
 //
-//  AutolayoutScrollViewTests.swift
-//  AutolayoutScrollViewTests
+//  AutoLayoutScrollViewTests.swift
+//  AutoLayoutScrollViewTests
 //
 //  Created by Andrea Prearo on 7/13/15.
 //  Copyright (c) 2015 Andrea Prearo. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class AutolayoutScrollViewTests: XCTestCase {
+class AutoLayoutScrollViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
