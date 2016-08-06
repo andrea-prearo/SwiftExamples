@@ -20,30 +20,30 @@ class RegionNotificationsTableViewController: UITableViewController {
         title = NSLocalizedString("Region Notifications", comment: "Region Notifications")
 
         regionNotifications = RegionNotificationsStore.sharedInstance.storedItems
-        regionNotifications?.sortInPlace({ $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
+        regionNotifications?.sort(isOrderedBefore: { $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "regionNotificationsItemsDidChange:",
+        NotificationCenter.default().addObserver(self,
+            selector: #selector(RegionNotificationsTableViewController.regionNotificationsItemsDidChange(_:)),
             name: RegionNotificationItemsDidChangeNotification,
             object: nil)
     }
 
     // MARK: UITableViewDataSource
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if regionNotifications != nil {
             return regionNotifications!.count
         }
         return 0
     }
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 66.0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(RegionNotificationsTableViewCellId, forIndexPath: indexPath) as! RegionNotificationCell
-        let row = indexPath.row
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RegionNotificationsTableViewCellId, for: indexPath) as! RegionNotificationCell
+        let row = (indexPath as NSIndexPath).row
         let regionNotification = regionNotifications?[row]
         cell.timestamp.text = regionNotification?.displayTimestamp()
         cell.status.text = regionNotification?.displayAppStatus()
@@ -52,11 +52,11 @@ class RegionNotificationsTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
-        case .Delete:
-            regionNotifications?.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        case .delete:
+            regionNotifications?.remove(at: (indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         default:
             return
         }
@@ -64,10 +64,10 @@ class RegionNotificationsTableViewController: UITableViewController {
 
     // MARK: NSNotificationCenter Events
 
-    @objc func regionNotificationsItemsDidChange(notification: NSNotification) {
+    @objc func regionNotificationsItemsDidChange(_ notification: Notification) {
         regionNotifications = RegionNotificationsStore.sharedInstance.storedItems
-        regionNotifications?.sortInPlace({ $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
-        dispatch_async(dispatch_get_main_queue()) {
+        regionNotifications?.sort(isOrderedBefore: { $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
+        DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }

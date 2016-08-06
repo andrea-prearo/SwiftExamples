@@ -19,10 +19,6 @@ class RegionAnnotationView: MKPinAnnotationView {
         setupPin()
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         setupPin()
@@ -30,40 +26,38 @@ class RegionAnnotationView: MKPinAnnotationView {
 
     // MARK: Static Methods
 
-    class func circleRenderer(overlay: MKOverlay) -> MKCircleRenderer {
+    class func circleRenderer(_ overlay: MKOverlay) -> MKCircleRenderer {
         let circleRenderer = MKCircleRenderer(overlay: overlay)
         circleRenderer.lineWidth = 1.0
-        circleRenderer.strokeColor = UIColor.blueColor()
-        circleRenderer.fillColor = UIColor.blueColor().colorWithAlphaComponent(0.4)
+        circleRenderer.strokeColor = UIColor.blue()
+        circleRenderer.fillColor = UIColor.blue().withAlphaComponent(0.4)
         return circleRenderer
     }
     
     // MARK: Private Methods
 
     private func setupPin() {
-        pinColor = MKPinAnnotationColor.Red
+        pinColor = MKPinAnnotationColor.red
         animatesDrop = true
         canShowCallout = true
-        let removeButton : UIButton = UIButton(type: UIButtonType.Custom)
+        let removeButton : UIButton = UIButton(type: UIButtonType.custom)
         removeButton.tag = RegionAnnotationViewRemoveButtonTag
-        removeButton.frame = CGRectMake(0, 0, 25, 25)
-        removeButton.setImage(UIImage(named: "close-icon"), forState: .Normal)
-        removeButton.addTarget(self, action: nil, forControlEvents: UIControlEvents.TouchUpInside)
+        removeButton.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+        removeButton.setImage(UIImage(named: "close-icon"), for: UIControlState())
         leftCalloutAccessoryView =  removeButton
-        let detailButton : UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+        let detailButton : UIButton = UIButton(type: UIButtonType.detailDisclosure)
         detailButton.tag = RegionAnnotationViewDetailsButtonTag
-        detailButton.addTarget(self, action: nil, forControlEvents: UIControlEvents.TouchUpInside)
         rightCalloutAccessoryView = detailButton
     }
 
     // MARK: Public Methods
     
-    func addRadiusOverlay(mapView: MKMapView?) {
+    func addRadiusOverlay(_ mapView: MKMapView?) {
         let regionAnnotation = annotation as! RegionAnnotation
-        mapView?.addOverlay(MKCircle(centerCoordinate: regionAnnotation.coordinate, radius: regionAnnotation.radius))
+        mapView?.add(MKCircle(center: regionAnnotation.coordinate, radius: regionAnnotation.radius))
     }
 
-    func removeRadiusOverlay(mapView: MKMapView?) {
+    func removeRadiusOverlay(_ mapView: MKMapView?) {
         if let overlays = mapView?.overlays {
             for overlay in overlays {
                 if let circleOverlay = overlay as? MKCircle {
@@ -72,7 +66,7 @@ class RegionAnnotationView: MKPinAnnotationView {
                     if coord.latitude == regionAnnotation.coordinate.latitude &&
                         coord.longitude == regionAnnotation.coordinate.longitude &&
                         circleOverlay.radius == regionAnnotation.radius {
-                        mapView?.removeOverlay(circleOverlay)
+                        mapView?.remove(circleOverlay)
                         break
                     }
                 }

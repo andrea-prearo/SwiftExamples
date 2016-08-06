@@ -19,8 +19,8 @@ let RegionAnnotationOnExitMessageKey = "RegionAnnotationOnExitMessage"
 let RegionAnnotationRadiusDefault = 1000.0
  
 enum RegionAnnotationEvent: Int {
-    case Entry
-    case Exit
+    case entry
+    case exit
 }
  
 class RegionAnnotation: NSObject, MKAnnotation, NSCoding {
@@ -54,32 +54,32 @@ class RegionAnnotation: NSObject, MKAnnotation, NSCoding {
     // MARK: NSCoding
     
     required init?(coder decoder: NSCoder) {
-        let location = decoder.decodeObjectForKey(RegionAnnotationCoordinateKey) as! CLLocation
+        let location = decoder.decodeObject(forKey: RegionAnnotationCoordinateKey) as! CLLocation
         coordinate = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-        radius = decoder.decodeDoubleForKey(RegionAnnotationRadiusKey)
-        title = decoder.decodeObjectForKey(RegionAnnotationTitleKey) as? String
-        subtitle = decoder.decodeObjectForKey(RegionAnnotationSubtitleKey) as? String
-        onEntryMessage = decoder.decodeObjectForKey(RegionAnnotationOnEntryMessageKey) as! String
-        onExitMessage = decoder.decodeObjectForKey(RegionAnnotationOnExitMessageKey) as! String
+        radius = decoder.decodeDouble(forKey: RegionAnnotationRadiusKey)
+        title = decoder.decodeObject(forKey: RegionAnnotationTitleKey) as? String
+        subtitle = decoder.decodeObject(forKey: RegionAnnotationSubtitleKey) as? String
+        onEntryMessage = decoder.decodeObject(forKey: RegionAnnotationOnEntryMessageKey) as! String
+        onExitMessage = decoder.decodeObject(forKey: RegionAnnotationOnExitMessageKey) as! String
     }
     
-    func encodeWithCoder(coder: NSCoder) {
+    func encode(with coder: NSCoder) {
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        coder.encodeObject(location, forKey: RegionAnnotationCoordinateKey)
-        coder.encodeDouble(radius, forKey: RegionAnnotationRadiusKey)
-        coder.encodeObject(title, forKey: RegionAnnotationTitleKey)
-        coder.encodeObject(subtitle, forKey: RegionAnnotationSubtitleKey)
-        coder.encodeObject(onEntryMessage, forKey: RegionAnnotationOnEntryMessageKey)
-        coder.encodeObject(onExitMessage, forKey: RegionAnnotationOnExitMessageKey)
+        coder.encode(location, forKey: RegionAnnotationCoordinateKey)
+        coder.encode(radius, forKey: RegionAnnotationRadiusKey)
+        coder.encode(title, forKey: RegionAnnotationTitleKey)
+        coder.encode(subtitle, forKey: RegionAnnotationSubtitleKey)
+        coder.encode(onEntryMessage, forKey: RegionAnnotationOnEntryMessageKey)
+        coder.encode(onExitMessage, forKey: RegionAnnotationOnExitMessageKey)
     }
 
     // MARK: Public Methods
 
-    func notificationMessageForEvent(annotationEvent: RegionAnnotationEvent) -> String? {
+    func notificationMessageForEvent(_ annotationEvent: RegionAnnotationEvent) -> String? {
         switch annotationEvent {
-        case .Entry:
+        case .entry:
             return onEntryMessage
-        case .Exit:
+        case .exit:
             return onExitMessage
         }
     }

@@ -26,46 +26,46 @@ class GenericStore<T: NSObject> {
 
     private func loadStoredItems() {
         storedItems = []
-        if let items = NSUserDefaults.standardUserDefaults().arrayForKey(storeItemsKey) {
+        if let items = UserDefaults.standard().array(forKey: storeItemsKey) {
             for item in items {
-                if let storedItem = NSKeyedUnarchiver.unarchiveObjectWithData(item as! NSData) as? T {
+                if let storedItem = NSKeyedUnarchiver.unarchiveObject(with: item as! Data) as? T {
                     storedItems.append(storedItem)
                 }
             }
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(storeItemsDidChangeNotification, object: nil)
+        NotificationCenter.default().post(name: Notification.Name(rawValue: storeItemsDidChangeNotification), object: nil)
     }
 
     private func saveStoredItems() {
         let items = NSMutableArray()
         for storedItem in storedItems {
-            let item = NSKeyedArchiver.archivedDataWithRootObject(storedItem)
-            items.addObject(item)
+            let item = NSKeyedArchiver.archivedData(withRootObject: storedItem)
+            items.add(item)
         }
-        NSNotificationCenter.defaultCenter().postNotificationName(storeItemsDidChangeNotification, object: nil)
-        NSUserDefaults.standardUserDefaults().setObject(items, forKey: storeItemsKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
+        NotificationCenter.default().post(name: Notification.Name(rawValue: storeItemsDidChangeNotification), object: nil)
+        UserDefaults.standard().set(items, forKey: storeItemsKey)
+        UserDefaults.standard().synchronize()
     }
 
     // MARK: Public Methods
 
-    func addStoredItem(item: T) {
+    func addStoredItem(_ item: T) {
         storedItems.append(item)
         saveStoredItems()
     }
 
-    func removeStoredItem(item: T) {
-        storedItems.removeAtIndex(indexForItem(item))
+    func removeStoredItem(_ item: T) {
+        storedItems.remove(at: indexForItem(item))
         saveStoredItems()
     }
 
-    func indexForItem(item: T) -> Int {
+    func indexForItem(_ item: T) -> Int {
         var index = -1
         for storedItem in storedItems {
             if storedItem == item {
                 break
             }
-            index++
+            index += 1
         }
         return index
     }

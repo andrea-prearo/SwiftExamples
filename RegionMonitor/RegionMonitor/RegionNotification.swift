@@ -16,12 +16,12 @@ let RegionNotificationAppStatusKey = "RegionNotificationAppStatus"
 
 class RegionNotification: NSObject, NSCoding {
 
-    let timestamp: NSDate
+    let timestamp: Date
     let event: RegionAnnotationEvent
     let message: String
     let appStatus: UIApplicationState
 
-    init(timestamp: NSDate, event: RegionAnnotationEvent, message: String, appStatus: UIApplicationState) {
+    init(timestamp: Date, event: RegionAnnotationEvent, message: String, appStatus: UIApplicationState) {
         self.timestamp = timestamp
         self.event = event
         self.message = message
@@ -35,44 +35,44 @@ class RegionNotification: NSObject, NSCoding {
     // MARK: NSCoding
 
     required init?(coder decoder: NSCoder) {
-        timestamp = decoder.decodeObjectForKey(RegionNotificationTimestampKey) as! NSDate
-        event = RegionAnnotationEvent(rawValue: decoder.decodeIntegerForKey(RegionNotificationEventKey))!
-        message = decoder.decodeObjectForKey(RegionNotificationMessageKey) as! String
-        appStatus = UIApplicationState(rawValue: decoder.decodeIntegerForKey(RegionNotificationAppStatusKey))!
+        timestamp = decoder.decodeObject(forKey: RegionNotificationTimestampKey) as! Date
+        event = RegionAnnotationEvent(rawValue: decoder.decodeInteger(forKey: RegionNotificationEventKey))!
+        message = decoder.decodeObject(forKey: RegionNotificationMessageKey) as! String
+        appStatus = UIApplicationState(rawValue: decoder.decodeInteger(forKey: RegionNotificationAppStatusKey))!
     }
 
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(timestamp, forKey: RegionNotificationTimestampKey)
-        coder.encodeInteger(event.rawValue, forKey: RegionNotificationEventKey)
-        coder.encodeObject(message, forKey: RegionNotificationMessageKey)
-        coder.encodeInteger(appStatus.rawValue, forKey: RegionNotificationAppStatusKey)
+    func encode(with coder: NSCoder) {
+        coder.encode(timestamp, forKey: RegionNotificationTimestampKey)
+        coder.encode(event.rawValue, forKey: RegionNotificationEventKey)
+        coder.encode(message, forKey: RegionNotificationMessageKey)
+        coder.encode(appStatus.rawValue, forKey: RegionNotificationAppStatusKey)
     }
 
     // MARK: Utility Methods
 
     func displayTimestamp() -> String {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        return dateFormatter.stringFromDate(timestamp)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.shortStyle
+        dateFormatter.timeStyle = DateFormatter.Style.shortStyle
+        return dateFormatter.string(from: timestamp)
     }
 
     func displayEvent() -> String {
         switch event {
-        case .Entry:
+        case .entry:
             return "Entry"
-        case .Exit:
+        case .exit:
             return "Exit"
         }
     }
     
     func displayAppStatus() -> String {
         switch appStatus {
-        case .Active:
+        case .active:
             return "Active"
-        case .Inactive:
+        case .inactive:
             return "Inactive"
-        case .Background:
+        case .background:
             return "Background"
         }
     }

@@ -17,7 +17,7 @@ class RegionAnnotationsStore {
 
     static let sharedInstance = GenericStore<RegionAnnotation>(storeItemsKey: RegionAnnotationItemsKey, storeItemsDidChangeNotification: RegionAnnotationItemsDidChangeNotification)
 
-    class func annotationForRegionIdentifier(identifier: String) -> RegionAnnotation? {
+    class func annotationForRegionIdentifier(_ identifier: String) -> RegionAnnotation? {
         for annotation in RegionAnnotationsStore.sharedInstance.storedItems {
             if annotation.identifier == identifier {
                 return annotation

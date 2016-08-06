@@ -21,35 +21,35 @@ class RegionAnnotationsTableViewController: UITableViewController {
 
         regionAnnotations = RegionAnnotationsStore.sharedInstance.storedItems
 
-        NSNotificationCenter.defaultCenter().addObserver(self,
-            selector: "regionAnnotationItemsDidChange:",
+        NotificationCenter.default().addObserver(self,
+            selector: #selector(RegionAnnotationsTableViewController.regionAnnotationItemsDidChange(_:)),
             name: RegionAnnotationItemsDidChangeNotification,
             object: nil)
     }
 
     // MARK: UITableViewDataSource
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if regionAnnotations != nil {
             return regionAnnotations!.count
         }
         return 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(RegionAnnotationsTableViewCellId, forIndexPath: indexPath) 
-        let row = indexPath.row
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RegionAnnotationsTableViewCellId, for: indexPath) 
+        let row = (indexPath as NSIndexPath).row
         let regionAnnotation = regionAnnotations?[row]
         cell.textLabel?.text = regionAnnotation?.subtitle
         cell.detailTextLabel?.text = String(format: NSLocalizedString("Region \(row+1)", comment: "Region {number}"));
         return cell
     }
 
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
-        case .Delete:
-            regionAnnotations?.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        case .delete:
+            regionAnnotations?.remove(at: (indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         default:
             return
         }
@@ -57,11 +57,11 @@ class RegionAnnotationsTableViewController: UITableViewController {
 
     // MARK: Segues
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == RegionAnnotationSettingsDetailSegue {
             let cell = sender as? UITableViewCell
-            let indexPath = tableView.indexPathForCell(cell!)
-            let regionAnnotation = regionAnnotations?[indexPath!.row]
+            let indexPath = tableView.indexPath(for: cell!)
+            let regionAnnotation = regionAnnotations?[(indexPath! as NSIndexPath).row]
             let regionAnnotationSettingsDetailVC = segue.destinationViewController as? RegionAnnotationSettingsDetailViewController
             regionAnnotationSettingsDetailVC?.regionAnnotation = regionAnnotation
         }
@@ -69,15 +69,15 @@ class RegionAnnotationsTableViewController: UITableViewController {
 
     // MARK: Actions
 
-    @IBAction func editButtonTapped(sender: AnyObject) {
-        tableView.editing = !tableView.editing
+    @IBAction func editButtonTapped(_ sender: AnyObject) {
+        tableView.isEditing = !tableView.isEditing
     }
 
     // MARK: NSNotificationCenter Events
 
-    @objc func regionAnnotationItemsDidChange(notification: NSNotification) {
+    @objc func regionAnnotationItemsDidChange(_ notification: Notification) {
         regionAnnotations = RegionAnnotationsStore.sharedInstance.storedItems
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
