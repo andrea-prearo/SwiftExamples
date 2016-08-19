@@ -6,15 +6,13 @@ var user = {
 
     generate: function () {
       var roles = ["Admin", "Owner", "User"];
-      var count = 10;
       var output = '';
-      var json = JSON.stringify({
+      var json = {
         avatar: faker.image.avatar(),
         username: faker.internet.userName(),
         role: roles[Math.floor(Math.random() * 3)]
-      });
-      output = output.concat(json)
-      console.log(output);
+      };
+      output = output.concat(JSON.stringify(json));
       return output;
     }
 
