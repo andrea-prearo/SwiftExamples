@@ -10,7 +10,7 @@ import Foundation
 
 extension NSError {
 
-    static func createError(code: Int, description: String) -> NSError {
+    static func createError(_ code: Int, description: String) -> NSError {
         return NSError(domain: "com.aprearo.TableView",
                        code: 400,
                        userInfo: [

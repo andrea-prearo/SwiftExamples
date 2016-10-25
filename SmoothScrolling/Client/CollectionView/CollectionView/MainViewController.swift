@@ -10,7 +10,8 @@ import UIKit
 
 class MainViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    private var viewModels: [UserViewModel?] = []
+    fileprivate static let sectionInsets = UIEdgeInsetsMake(0, 2, 0, 2)
+    fileprivate var viewModels: [UserViewModel?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +19,7 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
         User.getAll { [weak self] (success, users, error) in
             guard let strongSelf = self else { return }
             if !success {
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     let title = "Error"
                     if let error = error {
                         strongSelf.showError(title, message: error.localizedDescription)
@@ -32,15 +33,15 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
                 } else {
                     strongSelf.viewModels = []
                 }
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     strongSelf.collectionView?.reloadData()
                 }
             }
         }
     }
 
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         collectionView?.collectionViewLayout.invalidateLayout()
     }
 
@@ -50,7 +51,7 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
 
 extension MainViewController {
     
-    static func initViewModels(users: [User?]) -> [UserViewModel?] {
+    static func initViewModels(_ users: [User?]) -> [UserViewModel?] {
         return users.map { user in
             if let user = user {
                 return UserViewModel(user: user)
@@ -66,14 +67,14 @@ extension MainViewController {
 
 extension MainViewController {
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModels.count
     }
 
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
 
-        if let viewModel = viewModels[indexPath.row] {
+        if let viewModel = viewModels[(indexPath as NSIndexPath).row] {
             cell.configure(viewModel)
         }
         
@@ -86,11 +87,11 @@ extension MainViewController {
 
 extension MainViewController {
 
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    @objc(collectionView:layout:sizeForItemAtIndexPath:) func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let columns: Int = {
             var count = 2
-            if traitCollection.horizontalSizeClass == .Regular {
+            if traitCollection.horizontalSizeClass == .regular {
                 count = count + 1
             }
             if collectionView.bounds.width > collectionView.bounds.height {
@@ -104,5 +105,9 @@ extension MainViewController {
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(columns))
         return CGSize(width: size, height: 90)
     }
+//
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//        return MainViewController.sectionInsets
+//    }
 
 }

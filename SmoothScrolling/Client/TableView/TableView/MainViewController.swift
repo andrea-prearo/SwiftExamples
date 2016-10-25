@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    private var viewModels: [UserViewModel?] = []
+    fileprivate var viewModels: [UserViewModel?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class MainViewController: UITableViewController {
         User.getAll { [weak self] (success, users, error) in
             guard let strongSelf = self else { return }
             if !success {
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     let title = "Error"
                     if let error = error {
                         strongSelf.showError(title, message: error.localizedDescription)
@@ -32,7 +32,7 @@ class MainViewController: UITableViewController {
                 } else {
                     strongSelf.viewModels = []
                 }
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     strongSelf.tableView.reloadData()
                 }
             }
@@ -45,7 +45,7 @@ class MainViewController: UITableViewController {
 
 extension MainViewController {
 
-    static func initViewModels(users: [User?]) -> [UserViewModel?] {
+    static func initViewModels(_ users: [User?]) -> [UserViewModel?] {
         return users.map { user in
             if let user = user {
                 return UserViewModel(user: user)
@@ -61,14 +61,14 @@ extension MainViewController {
 
 extension MainViewController {
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UserCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
 
-        if let viewModel = viewModels[indexPath.row] {
+        if let viewModel = viewModels[(indexPath as NSIndexPath).row] {
             cell.configure(viewModel)
         }
         

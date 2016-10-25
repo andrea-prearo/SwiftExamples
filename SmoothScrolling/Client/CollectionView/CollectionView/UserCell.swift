@@ -13,20 +13,20 @@ class UserCell: UICollectionViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var role: UILabel!
     
-    func configure(viewModel: UserViewModel) {
+    func configure(_ viewModel: UserViewModel) {
         setOpaqueBackground()
 
         avatar.downloadImageFromUrl(viewModel.avatarUrl)
         username.text = viewModel.username
         role.text = viewModel.roleText
 
-        userInteractionEnabled = false  // Cell selection is not required for this sample
+        isUserInteractionEnabled = false  // Cell selection is not required for this sample
     }
     
 }
 
 private extension UserCell {
-    static let DefaultBackgroundColor = UIColor.groupTableViewBackgroundColor()
+    static let DefaultBackgroundColor = UIColor.groupTableViewBackground
 
     func setOpaqueBackground() {
         alpha = 1.0

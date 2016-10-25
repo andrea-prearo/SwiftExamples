@@ -14,7 +14,7 @@ enum Role: String {
     case Owner = "Owner"
     case Admin = "Admin"
 
-    static func role(from from: String) -> Role {
+    static func role(from: String) -> Role {
         if from == User.rawValue {
             return .User
         } else if from == Owner.rawValue {
@@ -43,23 +43,23 @@ struct User {
 
 extension User {
 
-    static func getAll(completionBlock: (success: Bool, users: [User?]?, error: NSError?) -> ()) {
+    static func getAll(_ completionBlock: @escaping (_ success: Bool, _ users: [User?]?, _ error: NSError?) -> ()) {
         let urlString = "http://localhost:3000/users"
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         
-        guard let url = NSURL(string: urlString) else {
-            completionBlock(success: false, users: nil, error: nil)
+        guard let url = URL(string: urlString) else {
+            completionBlock(false, nil, nil)
             return
         }
-        let task = session.dataTaskWithURL(url) { (data, response, error) in
+        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
             guard let data = data else {
-                completionBlock(success: false, users: nil, error: error)
+                completionBlock(false, nil, error as NSError?)
                 return
             }
             let error =  NSError.createError(0, description: "JSON parsing error")
-            if let jsonData = try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as? [[String: AnyObject]] {
+            if let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: AnyObject]] {
                 guard let jsonData = jsonData else {
-                    completionBlock(success: false, users: nil, error: error)
+                    completionBlock(false, nil, error)
                     return
                 }
                 var users = [User?]()
@@ -68,11 +68,11 @@ extension User {
                         users.append(user)
                     }
                 }
-                completionBlock(success: true, users: users, error: nil)
+                completionBlock(true, users, nil)
             } else {
-                completionBlock(success: false, users: nil, error: error)
+                completionBlock(false, nil, error)
             }
-        }
+        }) 
         task.resume()
     }
     
@@ -80,7 +80,7 @@ extension User {
 
 private extension User {
 
-    static func parse(json: [String: AnyObject]) -> User? {
+    static func parse(_ json: [String: AnyObject]) -> User? {
         let avatarUrl = json["avatar"] as? String ?? ""
         let username = json["username"] as? String ?? ""
         let role = json["role"] as? String ?? ""

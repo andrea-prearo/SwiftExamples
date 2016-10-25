@@ -14,16 +14,16 @@ extension UIImageView {
         return UIImage(named: "Avatar")
     }
 
-    func downloadImageFromUrl(url: String, defaultImage: UIImage? = UIImageView.defaultAvatarImage()) {
-        guard let url = NSURL(string: url)
+    func downloadImageFromUrl(_ url: String, defaultImage: UIImage? = UIImageView.defaultAvatarImage()) {
+        guard let url = URL(string: url)
         else {
             setRoundedImage(defaultImage)
             return
         }
-        NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: { [weak self] (data, response, error) -> Void in
-            guard let httpURLResponse = response as? NSHTTPURLResponse where httpURLResponse.statusCode == 200,
-                let mimeType = response?.MIMEType where mimeType.hasPrefix("image"),
-                let data = data where error == nil,
+        URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) -> Void in
+            guard let httpURLResponse = response as? HTTPURLResponse , httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType , mimeType.hasPrefix("image"),
+                let data = data , error == nil,
                 let image = UIImage(data: data)
             else {
                 self?.setRoundedImage(defaultImage)
@@ -37,23 +37,23 @@ extension UIImageView {
 
 private extension UIImageView {
     
-    func setRoundedImage(image: UIImage?) {
+    func setRoundedImage(_ image: UIImage?) {
         guard let image = image else {
             return
         }
-        dispatch_async(dispatch_get_main_queue()) { [weak self] () -> Void in
+        DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.image = image
             strongSelf.roundedImage(10.0)
         }
     }
 
-    func roundedImage(cornerRadius: CGFloat, withBorder: Bool = true) {
+    func roundedImage(_ cornerRadius: CGFloat, withBorder: Bool = true) {
         layer.borderWidth = 1.0
         layer.masksToBounds = false
         layer.cornerRadius = cornerRadius
         if withBorder {
-            layer.borderColor = UIColor.whiteColor().CGColor
+            layer.borderColor = UIColor.white.cgColor
         }
         clipsToBounds = true
     }
