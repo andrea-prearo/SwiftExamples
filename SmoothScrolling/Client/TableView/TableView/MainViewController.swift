@@ -10,12 +10,12 @@ import UIKit
 
 class MainViewController: UITableViewController {
 
-    fileprivate var viewModels: [UserViewModel?] = []
+    fileprivate let userViewModelController = UserViewModelController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        User.getAll { [weak self] (success, users, error) in
+        userViewModelController.retrieveUsers { [weak self] (success, error) in
             guard let strongSelf = self else { return }
             if !success {
                 DispatchQueue.main.async {
@@ -27,30 +27,9 @@ class MainViewController: UITableViewController {
                     }
                 }
             } else {
-                if let users = users {
-                    strongSelf.viewModels = MainViewController.initViewModels(users)
-                } else {
-                    strongSelf.viewModels = []
-                }
                 DispatchQueue.main.async {
                     strongSelf.tableView.reloadData()
                 }
-            }
-        }
-    }
-
-}
-
-// MARK: private methods
-
-extension MainViewController {
-
-    static func initViewModels(_ users: [User?]) -> [UserViewModel?] {
-        return users.map { user in
-            if let user = user {
-                return UserViewModel(user: user)
-            } else {
-                return nil
             }
         }
     }
@@ -62,17 +41,31 @@ extension MainViewController {
 extension MainViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
+        return userViewModelController.viewModelsCount
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
 
-        if let viewModel = viewModels[(indexPath as NSIndexPath).row] {
+        if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
             cell.configure(viewModel)
         }
+
+        #if DEBUG_CELL_LIFECYCLE
+        print(String.init(format: "cellForRowAt #%i", indexPath.row))
+        #endif
         
         return cell
     }
+
+    #if DEBUG_CELL_LIFECYCLE
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(String.init(format: "willDisplay #%i", indexPath.row))
+    }
+
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
+    }
+    #endif
 
 }

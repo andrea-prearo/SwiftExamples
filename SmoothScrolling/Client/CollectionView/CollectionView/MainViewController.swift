@@ -11,12 +11,12 @@ import UIKit
 class MainViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     fileprivate static let sectionInsets = UIEdgeInsetsMake(0, 2, 0, 2)
-    fileprivate var viewModels: [UserViewModel?] = []
+    fileprivate let userViewModelController = UserViewModelController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        User.getAll { [weak self] (success, users, error) in
+        userViewModelController.retrieveUsers { [weak self] (success, error) in
             guard let strongSelf = self else { return }
             if !success {
                 DispatchQueue.main.async {
@@ -28,11 +28,6 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
                     }
                 }
             } else {
-                if let users = users {
-                    strongSelf.viewModels = MainViewController.initViewModels(users)
-                } else {
-                    strongSelf.viewModels = []
-                }
                 DispatchQueue.main.async {
                     strongSelf.collectionView?.reloadData()
                 }
@@ -47,40 +42,38 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
 
 }
 
-// MARK: private methods
-
-extension MainViewController {
-    
-    static func initViewModels(_ users: [User?]) -> [UserViewModel?] {
-        return users.map { user in
-            if let user = user {
-                return UserViewModel(user: user)
-            } else {
-                return nil
-            }
-        }
-    }
-    
-}
-
 // MARK: UITableViewDataSource protocol methods
 
 extension MainViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModels.count
+        return userViewModelController.viewModelsCount
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
 
-        if let viewModel = viewModels[(indexPath as NSIndexPath).row] {
+        if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
             cell.configure(viewModel)
         }
         
+        #if DEBUG_CELL_LIFECYCLE
+            print(String.init(format: "cellForRowAt #%i", indexPath.row))
+        #endif
+
         return cell
     }
-    
+
+    #if DEBUG_CELL_LIFECYCLE
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(String.init(format: "willDisplay #%i", indexPath.row))
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
+    }
+    #endif
+
 }
 
 // MARK: UICollectionViewDelegateFlowLayout protocol methods
