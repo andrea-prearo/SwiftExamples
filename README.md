@@ -1,13 +1,8 @@
 SwiftExamples
 =============
 
-## Swift Examples Repository
 A collection of Swift samples to experiment with different topics
 
-## AutolayoutScrollView
-*AutolayoutScrollView* - a short example on how to work with Auto Layout and UIScrollView.  
-See ```AutolayoutScrollView/README.md``` for further details.
-
-## RegionMonitor
-*RegionMonitor* - a sample app to experiment with Region Monitoring, Local Notifications and MapKit
-See ```RegionMonitor/README.md``` for further details.
+* [AutolayoutScrollView](https://github.com/andrea-prearo/SwiftExamples/blob/master/AutolayoutScrollView) - A short example on how to work with Auto Layout and UIScrollView.  
+* [RegionMonitor](https://github.com/andrea-prearo/SwiftExamples/blob/master/RegionMonitor) - A sample app to experiment with Region Monitoring, Local Notifications and MapKit.
+* [SmoothScrolling](https://github.com/andrea-prearo/SwiftExamples/blob/master/SmoothScrolling) - A sample app to experiment with [MVVM](https://www.objc.io/issues/13-architecture/mvvm/) and scrolling optimizations.
