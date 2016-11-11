@@ -55,6 +55,7 @@ class UserViewModelController {
     }
 
     func viewModel(at index: Int) -> UserViewModel? {
+        guard index >= 0 && index < viewModelsCount else { return nil }
         return viewModels[index]
     }
 
