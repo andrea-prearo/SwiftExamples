@@ -42,7 +42,7 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
 
 }
 
-// MARK: UITableViewDataSource protocol methods
+// MARK: UICollectionViewDataSource protocol methods
 
 extension MainViewController {
 

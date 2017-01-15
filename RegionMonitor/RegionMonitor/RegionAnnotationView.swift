@@ -29,8 +29,8 @@ class RegionAnnotationView: MKPinAnnotationView {
     class func circleRenderer(_ overlay: MKOverlay) -> MKCircleRenderer {
         let circleRenderer = MKCircleRenderer(overlay: overlay)
         circleRenderer.lineWidth = 1.0
-        circleRenderer.strokeColor = UIColor.blue()
-        circleRenderer.fillColor = UIColor.blue().withAlphaComponent(0.4)
+        circleRenderer.strokeColor = UIColor.blue
+        circleRenderer.fillColor = UIColor.blue.withAlphaComponent(0.4)
         return circleRenderer
     }
     

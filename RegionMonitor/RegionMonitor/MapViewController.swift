@@ -1,3 +1,4 @@
+
 //
 //  MapViewController.swift
 //  RegionMonitor
@@ -36,9 +37,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             addRegionMonitoring(annotation, shouldUpdate: false)
         }
 
-        NotificationCenter.default().addObserver(self,
+        NotificationCenter.default.addObserver(self,
             selector: #selector(MapViewController.regionAnnotationItemsDidChange(_:)),
-            name: RegionAnnotationItemsDidChangeNotification,
+            name: NSNotification.Name(rawValue: RegionAnnotationItemsDidChangeNotification),
             object: nil)
     }
     
@@ -94,15 +95,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     func handleRegionEvent(_ region: CLRegion, regionAnnotationEvent: RegionAnnotationEvent) {
         if let regionAnnotation = RegionAnnotationsStore.annotationForRegionIdentifier(region.identifier),
-            let message = regionAnnotation.notificationMessageForEvent(regionAnnotationEvent)
-            where !message.isEmpty {
-            let appStatus = UIApplication.shared().applicationState
+            let message = regionAnnotation.notificationMessageForEvent(regionAnnotationEvent), !message.isEmpty {
+            let appStatus = UIApplication.shared.applicationState
             addRegionNotification(Date(), event: regionAnnotationEvent, message: message, appStatus: appStatus)
             if appStatus != .active {
                 let notification = UILocalNotification()
                 notification.alertBody = message
                 notification.soundName = "Default";
-                UIApplication.shared().presentLocalNotificationNow(notification)
+                UIApplication.shared.presentLocalNotificationNow(notification)
             }
         }
     }
@@ -134,7 +134,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             zoomToMapLocation(userLocation.coordinate)
             isInitialCurrentLocation = false
             let delay = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-            DispatchQueue.main.after(when: delay) {
+            DispatchQueue.main.asyncAfter(deadline: delay) {
                 self.locationButton.isEnabled = true;
                 self.addButton.isEnabled = true;
             }
@@ -143,7 +143,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let regionAnnotation = annotation as? RegionAnnotation,
-            title = regionAnnotation.title {
+            let title = regionAnnotation.title {
             var regionView = mapView.dequeueReusableAnnotationView(withIdentifier: title) as? RegionAnnotationView
             if regionView == nil {
                 regionView = RegionAnnotationView(annotation: regionAnnotation, reuseIdentifier: title)
@@ -207,10 +207,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     // MARK: Segues
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == RegionAnnotationSettingsDetailSegue {
             let regionAnnotation = sender as? RegionAnnotation
-            let regionAnnotationSettingsDetailVC = segue.destinationViewController as? RegionAnnotationSettingsDetailViewController
+            let regionAnnotationSettingsDetailVC = segue.destination as? RegionAnnotationSettingsDetailViewController
             regionAnnotationSettingsDetailVC?.regionAnnotation = regionAnnotation
         }
     }

@@ -52,8 +52,8 @@ class RegionNotification: NSObject, NSCoding {
 
     func displayTimestamp() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.shortStyle
-        dateFormatter.timeStyle = DateFormatter.Style.shortStyle
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
         return dateFormatter.string(from: timestamp)
     }
 

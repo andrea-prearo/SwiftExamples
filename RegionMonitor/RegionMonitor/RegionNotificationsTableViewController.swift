@@ -20,11 +20,11 @@ class RegionNotificationsTableViewController: UITableViewController {
         title = NSLocalizedString("Region Notifications", comment: "Region Notifications")
 
         regionNotifications = RegionNotificationsStore.sharedInstance.storedItems
-        regionNotifications?.sort(isOrderedBefore: { $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
+        regionNotifications?.sort(by: { $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
 
-        NotificationCenter.default().addObserver(self,
+        NotificationCenter.default.addObserver(self,
             selector: #selector(RegionNotificationsTableViewController.regionNotificationsItemsDidChange(_:)),
-            name: RegionNotificationItemsDidChangeNotification,
+            name: NSNotification.Name(rawValue: RegionNotificationItemsDidChangeNotification),
             object: nil)
     }
 
@@ -66,7 +66,7 @@ class RegionNotificationsTableViewController: UITableViewController {
 
     @objc func regionNotificationsItemsDidChange(_ notification: Notification) {
         regionNotifications = RegionNotificationsStore.sharedInstance.storedItems
-        regionNotifications?.sort(isOrderedBefore: { $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
+        regionNotifications?.sort(by: { $0.timestamp.timeIntervalSince1970 > $1.timestamp.timeIntervalSince1970 })
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

@@ -22,16 +22,16 @@ class UserCell: UICollectionViewCell {
 
         isUserInteractionEnabled = false  // Cell selection is not required for this sample
     }
-    
+
 }
 
 private extension UserCell {
-    static let DefaultBackgroundColor = UIColor.groupTableViewBackground
+    static let defaultBackgroundColor = UIColor.groupTableViewBackground
 
     func setOpaqueBackground() {
         alpha = 1.0
-        backgroundColor = UserCell.DefaultBackgroundColor
+        backgroundColor = UserCell.defaultBackgroundColor
         avatar.alpha = 1.0
-        avatar.backgroundColor = UserCell.DefaultBackgroundColor
+        avatar.backgroundColor = UserCell.defaultBackgroundColor
     }
 }

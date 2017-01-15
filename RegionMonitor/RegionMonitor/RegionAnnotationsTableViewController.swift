@@ -21,9 +21,9 @@ class RegionAnnotationsTableViewController: UITableViewController {
 
         regionAnnotations = RegionAnnotationsStore.sharedInstance.storedItems
 
-        NotificationCenter.default().addObserver(self,
+        NotificationCenter.default.addObserver(self,
             selector: #selector(RegionAnnotationsTableViewController.regionAnnotationItemsDidChange(_:)),
-            name: RegionAnnotationItemsDidChangeNotification,
+            name: NSNotification.Name(rawValue: RegionAnnotationItemsDidChangeNotification),
             object: nil)
     }
 
@@ -57,12 +57,12 @@ class RegionAnnotationsTableViewController: UITableViewController {
 
     // MARK: Segues
 
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == RegionAnnotationSettingsDetailSegue {
             let cell = sender as? UITableViewCell
             let indexPath = tableView.indexPath(for: cell!)
             let regionAnnotation = regionAnnotations?[(indexPath! as NSIndexPath).row]
-            let regionAnnotationSettingsDetailVC = segue.destinationViewController as? RegionAnnotationSettingsDetailViewController
+            let regionAnnotationSettingsDetailVC = segue.destination as? RegionAnnotationSettingsDetailViewController
             regionAnnotationSettingsDetailVC?.regionAnnotation = regionAnnotation
         }
     }

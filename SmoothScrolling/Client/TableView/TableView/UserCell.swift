@@ -26,12 +26,12 @@ class UserCell: UITableViewCell {
 }
 
 private extension UserCell {
-    static let DefaultBackgroundColor = UIColor.groupTableViewBackground
+    static let defaultBackgroundColor = UIColor.groupTableViewBackground
 
     func setOpaqueBackground() {
         alpha = 1.0
-        backgroundColor = UserCell.DefaultBackgroundColor
+        backgroundColor = UserCell.defaultBackgroundColor
         avatar.alpha = 1.0
-        avatar.backgroundColor = UserCell.DefaultBackgroundColor
+        avatar.backgroundColor = UserCell.defaultBackgroundColor
     }
 }

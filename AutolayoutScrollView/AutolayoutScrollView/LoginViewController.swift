@@ -26,7 +26,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         usernameTextField.delegate = self
         passwordTextField.delegate = self
-        let defaultCenter = NotificationCenter.default()
+        let defaultCenter = NotificationCenter.default
         defaultCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         defaultCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -57,12 +57,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: Keyboard Events
 
     func keyboardWillShow(_ notification: Notification) {
-        if let keyboardHeight = (notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey]?.cgRectValue.size.height {
-            var contentSize = scrollView.contentSize
-            contentSize.height = initialContentSizeHeight + keyboardHeight
-            scrollView.contentSize = contentSize
-            scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
+        guard let userInfo = (notification as NSNotification).userInfo,
+            let end = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+                return
         }
+        let keyboardHeight = end.cgRectValue.size.height
+        var contentSize = scrollView.contentSize
+        contentSize.height = initialContentSizeHeight + keyboardHeight
+        scrollView.contentSize = contentSize
+        scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
     }
 
     func keyboardWillHide(_ notification: Notification) {
@@ -76,8 +79,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signInButtonTapped(_ sender: AnyObject) {
         if let username = usernameTextField.text,
-            let password = passwordTextField.text
-            where !username.isEmpty && !password.isEmpty {
+            let password = passwordTextField.text, !username.isEmpty && !password.isEmpty {
                 performSegue(withIdentifier: LoginToFirstSegue, sender: self)
         } else {
             let alert = UIAlertView(title: "Error",

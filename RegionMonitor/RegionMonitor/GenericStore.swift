@@ -26,14 +26,14 @@ class GenericStore<T: NSObject> {
 
     private func loadStoredItems() {
         storedItems = []
-        if let items = UserDefaults.standard().array(forKey: storeItemsKey) {
+        if let items = UserDefaults.standard.array(forKey: storeItemsKey) {
             for item in items {
                 if let storedItem = NSKeyedUnarchiver.unarchiveObject(with: item as! Data) as? T {
                     storedItems.append(storedItem)
                 }
             }
         }
-        NotificationCenter.default().post(name: Notification.Name(rawValue: storeItemsDidChangeNotification), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: storeItemsDidChangeNotification), object: nil)
     }
 
     private func saveStoredItems() {
@@ -42,9 +42,9 @@ class GenericStore<T: NSObject> {
             let item = NSKeyedArchiver.archivedData(withRootObject: storedItem)
             items.add(item)
         }
-        NotificationCenter.default().post(name: Notification.Name(rawValue: storeItemsDidChangeNotification), object: nil)
-        UserDefaults.standard().set(items, forKey: storeItemsKey)
-        UserDefaults.standard().synchronize()
+        NotificationCenter.default.post(name: Notification.Name(rawValue: storeItemsDidChangeNotification), object: nil)
+        UserDefaults.standard.set(items, forKey: storeItemsKey)
+        UserDefaults.standard.synchronize()
     }
 
     // MARK: Public Methods
