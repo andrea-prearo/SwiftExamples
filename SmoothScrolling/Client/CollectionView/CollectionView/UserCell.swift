@@ -16,6 +16,18 @@ class UserCell: UICollectionViewCell {
     fileprivate static let defaultAvatar = UIImage(named: "Avatar")
 
     fileprivate var downloadTask: URLSessionDataTask?
+    
+    override init (frame: CGRect){
+        super.init(frame: frame)
+        
+        avatar.setRoundedImage(UserCell.defaultAvatar)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
 
     func configure(_ viewModel: UserViewModel) {
         setOpaqueBackground()
