@@ -10,33 +10,27 @@ import UIKit
 
 extension UIImageView {
 
-    static func defaultAvatarImage() -> UIImage? {
-        return UIImage(named: "Avatar")
-    }
-
-    func downloadImageFromUrl(_ url: String, defaultImage: UIImage? = UIImageView.defaultAvatarImage()) {
+    func downloadImageFromUrl(_ url: String, completionHandler: @escaping (UIImage?) -> Void) -> URLSessionDataTask? {
         guard let url = URL(string: url)
         else {
-            setRoundedImage(defaultImage)
-            return
+            completionHandler(nil)
+            return nil
         }
-        URLSession.shared.dataTask(with: url, completionHandler: { [weak self] (data, response, error) -> Void in
+        let task: URLSessionDataTask = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) -> Void in
             guard let httpURLResponse = response as? HTTPURLResponse , httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data , error == nil,
                 let image = UIImage(data: data)
             else {
-                self?.setRoundedImage(defaultImage)
+                completionHandler(nil)
                 return
             }
-            self?.setRoundedImage(image)
-        }).resume()
+            completionHandler(image)
+        })
+        task.resume()
+        return task
     }
 
-}
-
-private extension UIImageView {
-    
     func setRoundedImage(_ image: UIImage?) {
         guard let image = image else {
             return
@@ -47,6 +41,9 @@ private extension UIImageView {
             strongSelf.roundedImage(10.0)
         }
     }
+}
+
+private extension UIImageView {
 
     func roundedImage(_ cornerRadius: CGFloat, withBorder: Bool = true) {
         layer.borderWidth = 1.0

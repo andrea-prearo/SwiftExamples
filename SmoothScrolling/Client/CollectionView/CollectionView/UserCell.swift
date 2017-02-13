@@ -12,17 +12,45 @@ class UserCell: UICollectionViewCell {
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var role: UILabel!
+
+    fileprivate static let defaultAvatar = UIImage(named: "Avatar")
+
+    fileprivate var downloadTask: URLSessionDataTask?
     
+    override init (frame: CGRect) {
+        super.init(frame: frame)
+        
+        avatar.setRoundedImage(UserCell.defaultAvatar)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     func configure(_ viewModel: UserViewModel) {
         setOpaqueBackground()
 
-        avatar.downloadImageFromUrl(viewModel.avatarUrl)
+        downloadTask = avatar.downloadImageFromUrl(viewModel.avatarUrl) { [weak self] (image) in
+            guard let strongSelf = self else {
+                return
+            }
+            guard let image = image else {
+                strongSelf.avatar.setRoundedImage(UserCell.defaultAvatar)
+                return
+            }
+            strongSelf.avatar.setRoundedImage(image)
+        }
         username.text = viewModel.username
         role.text = viewModel.roleText
 
         isUserInteractionEnabled = false  // Cell selection is not required for this sample
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        downloadTask?.cancel()
+        avatar.image = nil
+    }
 }
 
 private extension UserCell {
