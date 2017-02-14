@@ -19,12 +19,12 @@ class UserCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        setOpaqueBackground()
         avatar.setRoundedImage(UserCell.defaultAvatar)
     }
 
     func configure(_ viewModel: UserViewModel) {
-        setOpaqueBackground()
-
         downloadTask = avatar.downloadImageFromUrl(viewModel.avatarUrl) { [weak self] (image) in
             guard let strongSelf = self else {
                 return
