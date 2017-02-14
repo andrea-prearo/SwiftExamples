@@ -17,19 +17,14 @@ class UserCell: UITableViewCell {
 
     fileprivate var downloadTask: URLSessionDataTask?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
+        setOpaqueBackground()
         avatar.setRoundedImage(UserCell.defaultAvatar)
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
+  
     func configure(_ viewModel: UserViewModel) {
-        setOpaqueBackground()
-
         downloadTask = avatar.downloadImageFromUrl(viewModel.avatarUrl) { [weak self] (image) in
             guard let strongSelf = self else {
                 return
@@ -49,7 +44,7 @@ class UserCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         downloadTask?.cancel()
-        avatar.image = nil
+        avatar.setRoundedImage(UserCell.defaultAvatar)
     }
 }
 
