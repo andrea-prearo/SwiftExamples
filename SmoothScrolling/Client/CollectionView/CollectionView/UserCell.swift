@@ -22,7 +22,6 @@ class UserCell: UICollectionViewCell {
         avatar.setRoundedImage(UserCell.defaultAvatar)
     }
 
-
     func configure(_ viewModel: UserViewModel) {
         setOpaqueBackground()
 
