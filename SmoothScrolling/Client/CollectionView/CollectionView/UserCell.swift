@@ -17,15 +17,9 @@ class UserCell: UICollectionViewCell {
 
     fileprivate var downloadTask: URLSessionDataTask?
     
-    override init (frame: CGRect){
-        super.init(frame: frame)
-        
+    override func awakeFromNib() {
+        super.awakeFromNib()
         avatar.setRoundedImage(UserCell.defaultAvatar)
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 
 
@@ -51,7 +45,7 @@ class UserCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         downloadTask?.cancel()
-        avatar.image = nil
+        avatar.setRoundedImage(UserCell.defaultAvatar)
     }
 }
 
