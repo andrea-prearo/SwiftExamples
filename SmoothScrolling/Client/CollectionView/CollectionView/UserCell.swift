@@ -25,7 +25,7 @@ class UserCell: UICollectionViewCell {
     }
 
     func configure(_ viewModel: UserViewModel) {
-        downloadTask = avatar.downloadImageFromUrl(viewModel.avatarUrl) { [weak self] (image) in
+        downloadTask = UIImage.downloadImageFromUrl(viewModel.avatarUrl) { [weak self] (image) in
             guard let strongSelf = self else {
                 return
             }
