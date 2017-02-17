@@ -9,7 +9,6 @@
 import UIKit
 
 class MainViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
     fileprivate static let sectionInsets = UIEdgeInsetsMake(0, 2, 0, 2)
     fileprivate let userViewModelController = UserViewModelController()
 
@@ -46,13 +45,11 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
         super.viewWillTransition(to: size, with: coordinator)
         collectionView?.collectionViewLayout.invalidateLayout()
     }
-
 }
 
 // MARK: UICollectionViewDataSource
 
 extension MainViewController {
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userViewModelController.viewModelsCount
     }
@@ -108,7 +105,6 @@ extension MainViewController {
 // MARK: UICollectionViewDelegateFlowLayout protocol methods
 
 extension MainViewController {
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let columns: Int = {

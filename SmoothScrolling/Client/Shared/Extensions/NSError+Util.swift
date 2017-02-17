@@ -9,7 +9,6 @@
 import Foundation
 
 extension NSError {
-
     static func createError(_ code: Int, description: String) -> NSError {
         return NSError(domain: "com.aprearo.TableView",
                        code: 400,
@@ -17,5 +16,4 @@ extension NSError {
                         "NSLocalizedDescription" : description
             ])
     }
-
 }

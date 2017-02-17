@@ -11,7 +11,6 @@
 import Foundation
 
 class UserViewModelController {
-
     fileprivate var viewModels: [UserViewModel?] = []
 
     func retrieveUsers(_ completionBlock: @escaping (_ success: Bool, _ error: NSError?) -> ()) {
@@ -58,11 +57,9 @@ class UserViewModelController {
         guard index >= 0 && index < viewModelsCount else { return nil }
         return viewModels[index]
     }
-
 }
 
 private extension UserViewModelController {
-
     static func parse(_ json: [String: AnyObject]) -> User? {
         let avatarUrl = json["avatar"] as? String ?? ""
         let username = json["username"] as? String ?? ""
@@ -79,5 +76,4 @@ private extension UserViewModelController {
             }
         }
     }
-
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class MainViewController: UITableViewController {
-
     fileprivate let userViewModelController = UserViewModelController()
 
     // Pre-Fetching Queue
@@ -40,13 +39,11 @@ class MainViewController: UITableViewController {
             }
         }
     }
-
 }
 
 // MARK: UITableViewDataSource
 
 extension MainViewController {
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userViewModelController.viewModelsCount
     }
