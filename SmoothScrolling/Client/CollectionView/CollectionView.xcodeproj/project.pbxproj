@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1DC4AB1E55DAE6002C5CED /* ImageLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1DC4AA1E55DAE6002C5CED /* ImageLoadOperation.swift */; };
 		AF31C7241E4E4B3500C4D763 /* NSError+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF31C7201E4E4B3500C4D763 /* NSError+Util.swift */; };
 		AF31C7251E4E4B3500C4D763 /* UIImageView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF31C7211E4E4B3500C4D763 /* UIImageView+Util.swift */; };
 		AF31C7261E4E4B3500C4D763 /* UIViewController+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF31C7221E4E4B3500C4D763 /* UIViewController+Util.swift */; };
@@ -19,9 +20,11 @@
 		AF52C1281D678BAD00B878FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF52C1271D678BAD00B878FC /* Assets.xcassets */; };
 		AF52C12B1D678BAD00B878FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF52C1291D678BAD00B878FC /* LaunchScreen.storyboard */; };
 		AFD2431E1D678D250044F1C5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD2431D1D678D250044F1C5 /* UserCell.swift */; };
+		AFD2501A1E54941D005BBA4D /* UIImage+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD250191E54941D005BBA4D /* UIImage+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF1DC4AA1E55DAE6002C5CED /* ImageLoadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoadOperation.swift; sourceTree = "<group>"; };
 		AF31C7201E4E4B3500C4D763 /* NSError+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Util.swift"; sourceTree = "<group>"; };
 		AF31C7211E4E4B3500C4D763 /* UIImageView+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Util.swift"; sourceTree = "<group>"; };
 		AF31C7221E4E4B3500C4D763 /* UIViewController+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Util.swift"; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		AF52C12A1D678BAD00B878FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF52C12C1D678BAD00B878FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFD2431D1D678D250044F1C5 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		AFD250191E54941D005BBA4D /* UIImage+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,10 +53,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF1DC4A91E55DAE6002C5CED /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				AF1DC4AA1E55DAE6002C5CED /* ImageLoadOperation.swift */,
+			);
+			name = Operations;
+			path = ../../Shared/Prefetch;
+			sourceTree = "<group>";
+		};
 		AF31C71E1E4E4B3500C4D763 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				AF31C7201E4E4B3500C4D763 /* NSError+Util.swift */,
+				AFD250191E54941D005BBA4D /* UIImage+Util.swift */,
 				AF31C7211E4E4B3500C4D763 /* UIImageView+Util.swift */,
 				AF31C7221E4E4B3500C4D763 /* UIViewController+Util.swift */,
 			);
@@ -111,6 +125,7 @@
 				AF31C72A1E4E4B4700C4D763 /* ViewModels */,
 				AF31C72D1E4E4B5000C4D763 /* Controllers */,
 				AFD2431C1D678D130044F1C5 /* CollectionViewCells */,
+				AF1DC4A91E55DAE6002C5CED /* Operations */,
 				AF52C1201D678BAC00B878FC /* AppDelegate.swift */,
 				AF52C1221D678BAD00B878FC /* MainViewController.swift */,
 				AF52C1241D678BAD00B878FC /* Main.storyboard */,
@@ -202,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF31C72C1E4E4B4700C4D763 /* UserViewModel.swift in Sources */,
+				AFD2501A1E54941D005BBA4D /* UIImage+Util.swift in Sources */,
 				AF31C7241E4E4B3500C4D763 /* NSError+Util.swift in Sources */,
 				AFD2431E1D678D250044F1C5 /* UserCell.swift in Sources */,
 				AF31C7261E4E4B3500C4D763 /* UIViewController+Util.swift in Sources */,
@@ -209,6 +225,7 @@
 				AF52C1231D678BAD00B878FC /* MainViewController.swift in Sources */,
 				AF52C1211D678BAC00B878FC /* AppDelegate.swift in Sources */,
 				AF31C72F1E4E4B5000C4D763 /* UserViewModelController.swift in Sources */,
+				AF1DC4AB1E55DAE6002C5CED /* ImageLoadOperation.swift in Sources */,
 				AF31C7291E4E4B3D00C4D763 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
