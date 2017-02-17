@@ -13,9 +13,7 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var role: UILabel!
 
-    fileprivate static let defaultAvatar = UIImage(named: "Avatar")
-
-    fileprivate var downloadTask: URLSessionDataTask?
+    static let defaultAvatar = UIImage(named: "Avatar")
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,16 +23,7 @@ class UserCell: UITableViewCell {
     }
   
     func configure(_ viewModel: UserViewModel) {
-        downloadTask = UIImage.downloadImageFromUrl(viewModel.avatarUrl) { [weak self] (image) in
-            guard let strongSelf = self else {
-                return
-            }
-            guard let image = image else {
-                strongSelf.avatar.setRoundedImage(UserCell.defaultAvatar)
-                return
-            }
-            strongSelf.avatar.setRoundedImage(image)
-        }
+        // The avatar property will be assigned asynchronously through an ImageLoadOperation
         username.text = viewModel.username
         role.text = viewModel.roleText
 
@@ -43,7 +32,6 @@ class UserCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        downloadTask?.cancel()
         avatar.setRoundedImage(UserCell.defaultAvatar)
     }
 }

@@ -11,10 +11,17 @@ import UIKit
 class MainViewController: UITableViewController {
 
     fileprivate let userViewModelController = UserViewModelController()
+
+    // Pre-Fetching Queue
+    fileprivate let imageLoadQueue = OperationQueue()
+    fileprivate var imageLoadOperations = [IndexPath: ImageLoadOperation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 10.0, *) {
+            tableView.prefetchDataSource = self
+        }
         userViewModelController.retrieveUsers { [weak self] (success, error) in
             guard let strongSelf = self else { return }
             if !success {
@@ -36,7 +43,7 @@ class MainViewController: UITableViewController {
 
 }
 
-// MARK: UITableViewDataSource protocol methods
+// MARK: UITableViewDataSource
 
 extension MainViewController {
 
@@ -49,6 +56,21 @@ extension MainViewController {
 
         if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
             cell.configure(viewModel)
+            if let imageLoadOperation = imageLoadOperations[indexPath],
+                let image = imageLoadOperation.image {
+                cell.avatar.setRoundedImage(image)
+            } else {
+                let imageLoadOperation = ImageLoadOperation(url: viewModel.avatarUrl)
+                imageLoadOperation.completionHandler = { [weak self] (image) in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    cell.avatar.setRoundedImage(image)
+                    strongSelf.imageLoadOperations.removeValue(forKey: indexPath)
+                }
+                imageLoadQueue.addOperation(imageLoadOperation)
+                imageLoadOperations[indexPath] = imageLoadOperation
+            }
         }
 
         #if DEBUG_CELL_LIFECYCLE
@@ -62,10 +84,52 @@ extension MainViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         print(String.init(format: "willDisplay #%i", indexPath.row))
     }
-
-    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
-    }
     #endif
 
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let imageLoadOperation = imageLoadOperations[indexPath] else {
+            return
+        }
+        imageLoadOperation.cancel()
+        imageLoadOperations.removeValue(forKey: indexPath)
+
+        #if DEBUG_CELL_LIFECYCLE
+        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
+        #endif
+    }
+}
+
+// MARK: UICollectionViewDataSourcePrefetching
+
+extension MainViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if let _ = imageLoadOperations[indexPath] {
+                return
+            }
+            if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
+                let imageLoadOperation = ImageLoadOperation(url: viewModel.avatarUrl)
+                imageLoadQueue.addOperation(imageLoadOperation)
+                imageLoadOperations[indexPath] = imageLoadOperation
+            }
+
+            #if DEBUG_CELL_LIFECYCLE
+                print(String.init(format: "prefetchRowsAt #%i", indexPath.row))
+            #endif
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            guard let imageLoadOperation = imageLoadOperations[indexPath] else {
+                return
+            }
+            imageLoadOperation.cancel()
+            imageLoadOperations.removeValue(forKey: indexPath)
+            
+            #if DEBUG_CELL_LIFECYCLE
+                print(String.init(format: "cancelPrefetchingForRowsAt #%i", indexPath.row))
+            #endif
+        }
+    }
 }

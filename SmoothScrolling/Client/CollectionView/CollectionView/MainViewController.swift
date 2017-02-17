@@ -12,10 +12,17 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
     
     fileprivate static let sectionInsets = UIEdgeInsetsMake(0, 2, 0, 2)
     fileprivate let userViewModelController = UserViewModelController()
-    
+
+    // Pre-Fetching Queue
+    fileprivate let imageLoadQueue = OperationQueue()
+    fileprivate var imageLoadOperations = [IndexPath: ImageLoadOperation]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        if #available(iOS 10.0, *) {
+            collectionView?.prefetchDataSource = self
+        }
         userViewModelController.retrieveUsers { [weak self] (success, error) in
             guard let strongSelf = self else { return }
             if !success {
@@ -42,7 +49,7 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
 
 }
 
-// MARK: UICollectionViewDataSource protocol methods
+// MARK: UICollectionViewDataSource
 
 extension MainViewController {
 
@@ -55,10 +62,25 @@ extension MainViewController {
 
         if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
             cell.configure(viewModel)
+            if let imageLoadOperation = imageLoadOperations[indexPath],
+                let image = imageLoadOperation.image {
+                cell.avatar.setRoundedImage(image)
+            } else {
+                let imageLoadOperation = ImageLoadOperation(url: viewModel.avatarUrl)
+                imageLoadOperation.completionHandler = { [weak self] (image) in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    cell.avatar.setRoundedImage(image)
+                    strongSelf.imageLoadOperations.removeValue(forKey: indexPath)
+                }
+                imageLoadQueue.addOperation(imageLoadOperation)
+                imageLoadOperations[indexPath] = imageLoadOperation
+            }
         }
         
         #if DEBUG_CELL_LIFECYCLE
-            print(String.init(format: "cellForRowAt #%i", indexPath.row))
+        print(String.init(format: "cellForRowAt #%i", indexPath.row))
         #endif
 
         return cell
@@ -68,19 +90,25 @@ extension MainViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         print(String.init(format: "willDisplay #%i", indexPath.row))
     }
-
-    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
-    }
     #endif
 
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let imageLoadOperation = imageLoadOperations[indexPath] else {
+            return
+        }
+        imageLoadOperation.cancel()
+        imageLoadOperations.removeValue(forKey: indexPath)
+        
+        #if DEBUG_CELL_LIFECYCLE
+        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
+        #endif
+    }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout protocol methods
 
 extension MainViewController {
 
-    @objc(collectionView:layout:sizeForItemAtIndexPath:)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let columns: Int = {
@@ -99,9 +127,39 @@ extension MainViewController {
         let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(columns))
         return CGSize(width: size, height: 90)
     }
-//
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-//        return MainViewController.sectionInsets
-//    }
+}
 
+// MARK: UICollectionViewDataSourcePrefetching
+
+extension MainViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            if let _ = imageLoadOperations[indexPath] {
+                return
+            }
+            if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
+                let imageLoadOperation = ImageLoadOperation(url: viewModel.avatarUrl)
+                imageLoadQueue.addOperation(imageLoadOperation)
+                imageLoadOperations[indexPath] = imageLoadOperation
+            }
+            
+            #if DEBUG_CELL_LIFECYCLE
+                print(String.init(format: "prefetchItemsAt #%i", indexPath.row))
+            #endif
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            guard let imageLoadOperation = imageLoadOperations[indexPath] else {
+                return
+            }
+            imageLoadOperation.cancel()
+            imageLoadOperations.removeValue(forKey: indexPath)
+            
+            #if DEBUG_CELL_LIFECYCLE
+                print(String.init(format: "cancelPrefetchingForItemsAt #%i", indexPath.row))
+            #endif
+        }
+    }
 }
