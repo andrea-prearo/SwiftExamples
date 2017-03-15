@@ -1,0 +1,12 @@
+PODS:
+  - WatchdogInspector (1.1.0)
+
+DEPENDENCIES:
+  - WatchdogInspector
+
+SPEC CHECKSUMS:
+  WatchdogInspector: 5d097bc96319d8b4277317e74bdd291e8521a673
+
+PODFILE CHECKSUM: db3992d417387b7f865de768f01b6d8fab78e3a5
+
+COCOAPODS: 1.1.1
