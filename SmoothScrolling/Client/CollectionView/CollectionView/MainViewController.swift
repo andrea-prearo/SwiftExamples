@@ -19,6 +19,13 @@ class MainViewController: UICollectionViewController, UICollectionViewDelegateFl
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        #if CLEAR_CACHES
+        let cachesFolderItems = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+        for item in cachesFolderItems {
+            try? FileManager.default.removeItem(atPath: item)
+        }
+        #endif
+
         if #available(iOS 10.0, *) {
             collectionView?.prefetchDataSource = self
         }
@@ -140,7 +147,7 @@ extension MainViewController: UICollectionViewDataSourcePrefetching {
             }
             
             #if DEBUG_CELL_LIFECYCLE
-                print(String.init(format: "prefetchItemsAt #%i", indexPath.row))
+            print(String.init(format: "prefetchItemsAt #%i", indexPath.row))
             #endif
         }
     }
@@ -154,7 +161,7 @@ extension MainViewController: UICollectionViewDataSourcePrefetching {
             imageLoadOperations.removeValue(forKey: indexPath)
             
             #if DEBUG_CELL_LIFECYCLE
-                print(String.init(format: "cancelPrefetchingForItemsAt #%i", indexPath.row))
+            print(String.init(format: "cancelPrefetchingForItemsAt #%i", indexPath.row))
             #endif
         }
     }

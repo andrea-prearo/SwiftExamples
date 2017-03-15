@@ -4,7 +4,7 @@ var faker = require('faker');
 var fs = require('fs');
 var contact = require('./user');
 
-var count = 20000;
+var count = 1000;
 var output = '[';
 for (var i = 0; i < count; i++) {
   var json = JSON.stringify(contact.generate());

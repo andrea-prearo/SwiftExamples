@@ -18,6 +18,13 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        #if CLEAR_CACHES
+        let cachesFolderItems = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+        for item in cachesFolderItems {
+            try? FileManager.default.removeItem(atPath: item)
+        }
+        #endif
+
         if #available(iOS 10.0, *) {
             tableView.prefetchDataSource = self
         }
@@ -111,7 +118,7 @@ extension MainViewController: UITableViewDataSourcePrefetching {
             }
 
             #if DEBUG_CELL_LIFECYCLE
-                print(String.init(format: "prefetchRowsAt #%i", indexPath.row))
+            print(String.init(format: "prefetchRowsAt #%i", indexPath.row))
             #endif
         }
     }
@@ -125,7 +132,7 @@ extension MainViewController: UITableViewDataSourcePrefetching {
             imageLoadOperations.removeValue(forKey: indexPath)
             
             #if DEBUG_CELL_LIFECYCLE
-                print(String.init(format: "cancelPrefetchingForRowsAt #%i", indexPath.row))
+            print(String.init(format: "cancelPrefetchingForRowsAt #%i", indexPath.row))
             #endif
         }
     }
