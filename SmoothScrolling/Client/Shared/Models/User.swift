@@ -1,6 +1,6 @@
 //
 //  User.swift
-//  TableView
+//  SmoothScrolling
 //
 //  Created by Prearo, Andrea on 8/10/16.
 //  Copyright © 2016 Prearo, Andrea. All rights reserved.
@@ -9,20 +9,20 @@
 import Foundation
 
 enum Role: String {
-    case Unknown = "Unknown"
-    case User = "User"
-    case Owner = "Owner"
-    case Admin = "Admin"
+    case unknown = "Unknown"
+    case user = "User"
+    case owner = "Owner"
+    case admin = "Admin"
 
     static func get(from: String) -> Role {
-        if from == User.rawValue {
-            return .User
-        } else if from == Owner.rawValue {
-            return .Owner
-        } else if from == Admin.rawValue {
-            return .Admin
+        if from == user.rawValue {
+            return .user
+        } else if from == owner.rawValue {
+            return .owner
+        } else if from == admin.rawValue {
+            return .admin
         }
-        return .Unknown
+        return .unknown
     }
 }
 

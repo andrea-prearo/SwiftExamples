@@ -1,6 +1,6 @@
 //
 //  UIImage+Util.swift
-//  TableView
+//  SmoothScrolling
 //
 //  Created by Prearo, Andrea on 2/15/17.
 //  Copyright © 2017 Prearo, Andrea. All rights reserved.
