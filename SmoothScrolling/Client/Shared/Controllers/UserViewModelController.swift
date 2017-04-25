@@ -1,12 +1,10 @@
 //
 //  UserController.swift
-//  TableView
+//  SmoothScrolling
 //
 //  Created by Prearo, Andrea on 10/29/16.
 //  Copyright © 2016 Prearo, Andrea. All rights reserved.
 //
-
-// https://auth0.com/blog/compare-mvvm-and-viper-architectures/
 
 import Foundation
 

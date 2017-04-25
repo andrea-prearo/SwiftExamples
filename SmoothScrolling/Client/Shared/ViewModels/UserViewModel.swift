@@ -1,6 +1,6 @@
 //
 //  UserViewModel.swift
-//  TableView
+//  SmoothScrolling
 //
 //  Created by Prearo, Andrea on 8/10/16.
 //  Copyright © 2016 Prearo, Andrea. All rights reserved.

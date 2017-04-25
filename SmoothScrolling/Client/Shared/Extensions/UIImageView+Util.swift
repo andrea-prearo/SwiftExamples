@@ -1,6 +1,6 @@
 //
 //  UIImageView+Util.swift
-//  ContactList
+//  SmoothScrolling
 //
 //  Created by Andrea Prearo on 3/9/16.
 //  Copyright © 2016 Andrea Prearo
