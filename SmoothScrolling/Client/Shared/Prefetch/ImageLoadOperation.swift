@@ -2,8 +2,8 @@
 //  ImageLoadOperation.swift
 //  SmoothScrolling
 //
-//  Created by Prearo, Andrea on 2/15/17.
-//  Copyright © 2017 Prearo, Andrea. All rights reserved.
+//  Created by Andrea Prearo on 2/15/17.
+//  Copyright © 2017 Andrea Prearo. All rights reserved.
 //
 
 import UIKit

@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  CollectionView
 //
-//  Created by Prearo, Andrea on 8/19/16.
-//  Copyright © 2016 Prearo, Andrea. All rights reserved.
+//  Created by Andrea Prearo on 8/19/16.
+//  Copyright © 2016 Andrea Prearo. All rights reserved.
 //
 
 import UIKit

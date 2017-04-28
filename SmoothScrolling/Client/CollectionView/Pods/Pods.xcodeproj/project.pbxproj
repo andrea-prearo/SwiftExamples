@@ -34,22 +34,22 @@
 		27FB41E47190C8EBD90F44E18751AC09 /* TWWatchdogInspectorViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWWatchdogInspectorViewController.m; path = Classes/TWWatchdogInspectorViewController.m; sourceTree = "<group>"; };
 		30B8D4B2E898439C46481EE43168EA95 /* TWWatchdogInspector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TWWatchdogInspector.h; path = Classes/TWWatchdogInspector.h; sourceTree = "<group>"; };
 		3DED71915FF85AD646BA4B5CCA115993 /* WatchdogInspector-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WatchdogInspector-umbrella.h"; sourceTree = "<group>"; };
-		3EAA73198DF7DEF13E092CCA910A895E /* Pods_CollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CollectionView.framework; path = "Pods-CollectionView.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EAA73198DF7DEF13E092CCA910A895E /* Pods_CollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA277B37A47C6CE3C590E1294560FE0 /* Pods-CollectionView-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CollectionView-resources.sh"; sourceTree = "<group>"; };
 		52A6A8EEC1879F35732217CC0BCC4BEF /* TWWatchdogInspector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWWatchdogInspector.m; path = Classes/TWWatchdogInspector.m; sourceTree = "<group>"; };
 		68C71C76BBAE458970CF377930E812DF /* Pods-CollectionView-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CollectionView-frameworks.sh"; sourceTree = "<group>"; };
 		6A26EA29F6D823B40CAD559BF22E86B7 /* WatchdogInspector.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WatchdogInspector.xcconfig; sourceTree = "<group>"; };
 		6B5E8D8DDB140627B7B19880A9D652CB /* WatchdogInspector-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WatchdogInspector-prefix.pch"; sourceTree = "<group>"; };
-		78C78C17BE06A891F77DA26CC1A43FEA /* WatchdogInspector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WatchdogInspector.framework; path = WatchdogInspector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C78C17BE06A891F77DA26CC1A43FEA /* WatchdogInspector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WatchdogInspector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E29ED24A820386B19C668F2D5D57E9 /* Pods-CollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CollectionView.release.xcconfig"; sourceTree = "<group>"; };
-		8832A184E6079C6B38EC425788B9D842 /* WatchdogInspector.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = WatchdogInspector.modulemap; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8832A184E6079C6B38EC425788B9D842 /* WatchdogInspector.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = WatchdogInspector.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94F0CBC1A200F1EF21B0C2E538558D55 /* Pods-CollectionView-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CollectionView-acknowledgements.markdown"; sourceTree = "<group>"; };
 		97992ABF87F8AE2A0FFA9B13565F9A51 /* Pods-CollectionView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CollectionView-umbrella.h"; sourceTree = "<group>"; };
 		9FA0853C73E1497B504DC9C623593CD5 /* Pods-CollectionView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CollectionView-dummy.m"; sourceTree = "<group>"; };
 		A0FD0C718B4399E35CAD248F3281DC36 /* Pods-CollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CollectionView.debug.xcconfig"; sourceTree = "<group>"; };
 		C769A6000A0D6ECEE8CBDE60074FCDA7 /* WatchdogInspector-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WatchdogInspector-dummy.m"; sourceTree = "<group>"; };
-		C79C8626D6D5E11BCD5A6DB12C4865CC /* Pods-CollectionView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CollectionView.modulemap"; sourceTree = "<group>"; };
+		C79C8626D6D5E11BCD5A6DB12C4865CC /* Pods-CollectionView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-CollectionView.modulemap"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		F900C51990FCFBD60411C4014279F287 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9AA0D0800043E87275DAC7EDBBD8EB3 /* Pods-CollectionView-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CollectionView-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -161,7 +161,6 @@
 				27FB41E47190C8EBD90F44E18751AC09 /* TWWatchdogInspectorViewController.m */,
 				11113B6215475BDD669A0A1C6D472584 /* Support Files */,
 			);
-			name = WatchdogInspector;
 			path = WatchdogInspector;
 			sourceTree = "<group>";
 		};
@@ -240,6 +239,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					994F33F61494690D00804440D68F5FF2 = {
+						LastSwiftMigration = 0830;
+					};
+					E3EE18D0004C1CDF58CC8FB8F7A4C882 = {
+						LastSwiftMigration = 0830;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -351,6 +358,7 @@
 				PRODUCT_NAME = Pods_CollectionView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -470,6 +478,7 @@
 				PRODUCT_NAME = Pods_CollectionView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

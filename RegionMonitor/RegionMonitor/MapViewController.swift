@@ -4,7 +4,7 @@
 //  RegionMonitor
 //
 //  Created by Andrea Prearo on 5/24/15.
-//  Copyright (c) 2015 aprearo. All rights reserved.
+//  Copyright (c) 2015 Andrea Prearo. All rights reserved.
 //
 
 import UIKit
@@ -12,8 +12,8 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    private var isInitialCurrentLocation = true
-    private let locationManager = CLLocationManager()
+    fileprivate var isInitialCurrentLocation = true
+    fileprivate let locationManager = CLLocationManager()
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationButton: UIBarButtonItem!

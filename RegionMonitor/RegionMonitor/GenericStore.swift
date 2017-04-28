@@ -3,14 +3,14 @@
 //  RegionMonitor
 //
 //  Created by Andrea Prearo on 5/25/15.
-//  Copyright (c) 2015 aprearo. All rights reserved.
+//  Copyright (c) 2015 Andrea Prearo. All rights reserved.
 //
 
 import Foundation
 
 class GenericStore<T: NSObject> {
 
-    private(set) internal var storedItems = [T]()
+    fileprivate(set) internal var storedItems = [T]()
     let storeItemsKey: String
     let storeItemsDidChangeNotification: String
 
@@ -24,7 +24,7 @@ class GenericStore<T: NSObject> {
 
     // MARK: Private Methods
 
-    private func loadStoredItems() {
+    fileprivate func loadStoredItems() {
         storedItems = []
         if let items = UserDefaults.standard.array(forKey: storeItemsKey) {
             for item in items {

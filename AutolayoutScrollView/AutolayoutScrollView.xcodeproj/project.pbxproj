@@ -12,7 +12,6 @@
 		690313671B54B6F700496E1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690313651B54B6F700496E1B /* Main.storyboard */; };
 		690313691B54B6F700496E1B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690313681B54B6F700496E1B /* Images.xcassets */; };
 		6903136C1B54B6F700496E1B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6903136A1B54B6F700496E1B /* LaunchScreen.xib */; };
-		690313781B54B6F700496E1B /* AutoLayoutScrollViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690313771B54B6F700496E1B /* AutoLayoutScrollViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +34,6 @@
 		6903136B1B54B6F700496E1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		690313711B54B6F700496E1B /* AutoLayoutScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		690313761B54B6F700496E1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		690313771B54B6F700496E1B /* AutoLayoutScrollViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutScrollViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 		690313741B54B6F700496E1B /* AutoLayoutScrollViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				690313771B54B6F700496E1B /* AutoLayoutScrollViewTests.swift */,
 				690313751B54B6F700496E1B /* Supporting Files */,
 			);
 			path = AutoLayoutScrollViewTests;
@@ -163,11 +160,11 @@
 				TargetAttributes = {
 					6903135B1B54B6F700496E1B = {
 						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 					};
 					690313701B54B6F700496E1B = {
 						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 6903135B1B54B6F700496E1B;
 					};
 				};
@@ -225,7 +222,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				690313781B54B6F700496E1B /* AutoLayoutScrollViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

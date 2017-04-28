@@ -2,8 +2,8 @@
 //  UserController.swift
 //  SmoothScrolling
 //
-//  Created by Prearo, Andrea on 10/29/16.
-//  Copyright © 2016 Prearo, Andrea. All rights reserved.
+//  Created by Andrea Prearo on 10/29/16.
+//  Copyright © 2016 Andrea Prearo. All rights reserved.
 //
 
 import Foundation
