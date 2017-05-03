@@ -1,5 +1,4 @@
-RegionMonitor
-=============
+# RegionMonitor
 
 A sample app to experiment with:
 - Region Monitoring
