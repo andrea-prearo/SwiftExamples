@@ -27,9 +27,9 @@ class TasksViewController: UIViewController {
     }
 
     @IBAction func group(_ sender: UIBarButtonItem) {
-        let isOrdered = !(tasksDataSource?.isOrdered ?? true)
-        tasksDataSource?.isOrdered = isOrdered
-        groupButton.title = isOrdered ? "Ungroup" : "Group"
+        let isGrouped = !(tasksDataSource?.isGrouped ?? true)
+        tasksDataSource?.isGrouped = isGrouped
+        groupButton.title = isGrouped ? "Ungroup" : "Group"
         collectionView.reloadData()
     }
 }
@@ -82,7 +82,7 @@ extension TasksViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        guard let tasksDataSource = tasksDataSource, tasksDataSource.isOrdered else {
+        guard let tasksDataSource = tasksDataSource, tasksDataSource.isGrouped else {
             return CGSize.zero
         }
         return CGSize(width: collectionView.frame.size.width, height: TaskHeaderView.height)

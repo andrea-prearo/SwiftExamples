@@ -22,9 +22,9 @@ struct TasksDataSource {
         return TaskHeaderViewModel(sectionText: $0.asString)
     }
 
-    public var isOrdered = false {
+    public var isGrouped = false {
         didSet {
-            viewModels = rearrangeTasks(isOrdered: isOrdered)
+            viewModels = rearrangeTasks(isGrouped: isGrouped)
         }
     }
 
@@ -57,7 +57,7 @@ struct TasksDataSource {
         let viewModel = viewModels[indexPath.section][indexPath.row]
         let originalTask = viewModel.task
         let taskIndex: Int?
-        if isOrdered {
+        if isGrouped {
             taskIndex = tasks?.index {
                 return $0 == originalTask
             }
@@ -91,12 +91,12 @@ fileprivate extension TasksDataSource {
         }]
     }
 
-    func rearrangeTasks(isOrdered: Bool) -> [[TaskViewModel]] {
+    func rearrangeTasks(isGrouped: Bool) -> [[TaskViewModel]] {
         guard let tasks = tasks else {
             return [[]]
         }
         let viewModels: [[TaskViewModel]]
-        if isOrdered {
+        if isGrouped {
             var unknownPriorities = [TaskViewModel]()
             var highPriorities = [TaskViewModel]()
             var mediumPriorities = [TaskViewModel]()
