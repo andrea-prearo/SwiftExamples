@@ -25,10 +25,8 @@ class ImageLoadOperation: Operation {
         }
 
         UIImage.downloadImageFromUrl(url) { [weak self] (image) in
-            guard let strongSelf = self else {
-                return
-            }
-            guard !strongSelf.isCancelled,
+            guard let strongSelf = self,
+                !strongSelf.isCancelled,
                 let image = image else {
                 return
             }

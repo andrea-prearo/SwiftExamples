@@ -57,7 +57,6 @@ class MainViewController: UICollectionViewController {
 }
 
 // MARK: UICollectionViewDataSource
-
 extension MainViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userViewModelController.viewModelsCount
@@ -112,7 +111,6 @@ extension MainViewController {
 }
 
 // MARK: UICollectionViewDelegateFlowLayout protocol methods
-
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
@@ -135,7 +133,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: UICollectionViewDataSourcePrefetching
-
 extension MainViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {

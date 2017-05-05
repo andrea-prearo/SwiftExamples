@@ -49,7 +49,6 @@ class MainViewController: UITableViewController {
 }
 
 // MARK: UITableViewDataSource
-
 extension MainViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userViewModelController.viewModelsCount
@@ -104,7 +103,6 @@ extension MainViewController {
 }
 
 // MARK: UICollectionViewDataSourcePrefetching
-
 extension MainViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
