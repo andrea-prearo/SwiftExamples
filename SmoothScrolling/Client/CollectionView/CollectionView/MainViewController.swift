@@ -54,6 +54,19 @@ class MainViewController: UICollectionViewController {
             self?.collectionView?.collectionViewLayout.invalidateLayout()
         }, completion: nil)
     }
+
+    @IBAction func displayOverlayTapped(_ sender: Any) {
+        showDebuggingInformationOverlay()
+    }
+}
+
+// MARK: -
+fileprivate extension MainViewController {
+    func showDebuggingInformationOverlay() {
+        let overlayClass = NSClassFromString("UIDebuggingInformationOverlay") as? UIWindow.Type
+        _ = overlayClass?.perform(NSSelectorFromString("prepareDebuggingOverlay"))
+        let overlay = overlayClass?.perform(NSSelectorFromString("overlay")).takeUnretainedValue() as? UIWindow
+        _ = overlay?.perform(NSSelectorFromString("toggleVisibility"))    }
 }
 
 // MARK: UICollectionViewDataSource
@@ -65,7 +78,7 @@ extension MainViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserCell
 
-        if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
+        if let viewModel = userViewModelController.viewModel(at: indexPath.row) {
             cell.configure(viewModel)
             if let imageLoadOperation = imageLoadOperations[indexPath],
                 let image = imageLoadOperation.image {
