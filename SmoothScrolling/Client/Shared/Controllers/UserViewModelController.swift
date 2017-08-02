@@ -21,27 +21,15 @@ class UserViewModelController {
         }
         let task = session.dataTask(with: url) { [weak self] (data, response, error) in
             guard let strongSelf = self else { return }
-            guard let data = data else {
+            guard let jsonData = data, error == nil else {
                 completionBlock(false, error as NSError?)
                 return
             }
-            let error = NSError.createError(0, description: "JSON parsing error")
-            if let jsonData = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [[String: AnyObject]] {
-                guard let jsonData = jsonData else {
-                    completionBlock(false,  error)
-                    return
-                }
-                var users = [User?]()
-                for json in jsonData {
-                    if let user = UserViewModelController.parse(json) {
-                        users.append(user)
-                    }
-                }
-
+            if let users = UserViewModelController.parse(jsonData) {
                 strongSelf.viewModels = UserViewModelController.initViewModels(users)
                 completionBlock(true, nil)
             } else {
-                completionBlock(false, error)
+                completionBlock(false, NSError.createError(0, description: "JSON parsing error"))
             }
         }
         task.resume()
@@ -58,11 +46,12 @@ class UserViewModelController {
 }
 
 private extension UserViewModelController {
-    static func parse(_ json: [String: AnyObject]) -> User? {
-        let avatarUrl = json["avatar"] as? String ?? ""
-        let username = json["username"] as? String ?? ""
-        let role = json["role"] as? String ?? ""
-        return User(avatarUrl: avatarUrl, username: username, role: Role.get(from: role))
+    static func parse(_ jsonData: Data) -> [User?]? {
+        do {
+            return try JSONDecoder().decode([User].self, from: jsonData)
+        } catch {
+            return nil
+        }
     }
 
     static func initViewModels(_ users: [User?]) -> [UserViewModel?] {
