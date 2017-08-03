@@ -9,7 +9,7 @@
 import Foundation
 
 class UserViewModelController {
-    fileprivate var viewModels: [UserViewModel?] = []
+    private var viewModels: [UserViewModel?] = []
 
     func retrieveUsers(_ completionBlock: @escaping (_ success: Bool, _ error: NSError?) -> ()) {
         let urlString = "http://localhost:3000/users"

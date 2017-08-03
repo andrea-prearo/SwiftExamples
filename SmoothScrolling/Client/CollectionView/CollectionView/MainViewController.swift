@@ -9,12 +9,12 @@
 import UIKit
 
 class MainViewController: UICollectionViewController {
-    fileprivate static let sectionInsets = UIEdgeInsetsMake(0, 2, 0, 2)
-    fileprivate let userViewModelController = UserViewModelController()
+    private static let sectionInsets = UIEdgeInsetsMake(0, 2, 0, 2)
+    private let userViewModelController = UserViewModelController()
 
     // Pre-Fetching Queue
-    fileprivate let imageLoadQueue = OperationQueue()
-    fileprivate var imageLoadOperations = [IndexPath: ImageLoadOperation]()
+    private let imageLoadQueue = OperationQueue()
+    private var imageLoadOperations = [IndexPath: ImageLoadOperation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class MainViewController: UICollectionViewController {
 }
 
 // MARK: -
-fileprivate extension MainViewController {
+private extension MainViewController {
     func showDebuggingInformationOverlay() {
         let overlayClass = NSClassFromString("UIDebuggingInformationOverlay") as? UIWindow.Type
         _ = overlayClass?.perform(NSSelectorFromString("prepareDebuggingOverlay"))
