@@ -8,9 +8,4 @@ A collection of Swift samples to experiment with different topics.
 * [TaskList](https://github.com/andrea-prearo/SwiftExamples/blob/master/TaskList) - A short example on how to handle sections in a UICollectionView.
 
 #### Swift 4 Update Status
-I am in the process of porting the code to Swift 4. Updates are in the [swift-4](https://github.com/andrea-prearo/SwiftExamples/tree/swift-4) branch.
-Here's the current status of each example:
-* AutolayoutScrollView: WIP
-* RegionMonitor: WIP
-* SmoothScrolling: Completed
-* TaskList: WIP
+All examples have been updated to Swift 4/iOS 11 in the [swift-4](https://github.com/andrea-prearo/SwiftExamples/tree/swift-4) branch.
