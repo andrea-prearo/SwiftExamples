@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1wa-gx-S3l">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1wa-gx-S3l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,7 +41,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserCell" id="60E-ll-UkP" customClass="UserCell" customModule="CollectionView" customModuleProvider="target">
-                                <rect key="frame" x="88" y="1" width="200" height="90"/>
+                                <rect key="frame" x="87.5" y="1" width="200" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="90"/>
@@ -96,7 +96,13 @@
                             <outlet property="delegate" destination="Dm3-NA-vNj" id="3bD-uD-qlg"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Users" id="V0R-M2-tWL"/>
+                    <navigationItem key="navigationItem" title="Users" id="V0R-M2-tWL">
+                        <barButtonItem key="rightBarButtonItem" title="Show" id="LpR-2G-pn1">
+                            <connections>
+                                <action selector="displayOverlayTapped:" destination="Dm3-NA-vNj" id="Voj-2J-KEk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uj4-92-ijt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

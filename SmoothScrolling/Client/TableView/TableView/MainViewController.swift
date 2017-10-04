@@ -57,7 +57,7 @@ extension MainViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
 
-        if let viewModel = userViewModelController.viewModel(at: (indexPath as NSIndexPath).row) {
+        if let viewModel = userViewModelController.viewModel(at: indexPath.row) {
             cell.configure(viewModel)
             if let imageLoadOperation = imageLoadOperations[indexPath],
                 let image = imageLoadOperation.image {

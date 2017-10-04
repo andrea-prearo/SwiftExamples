@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Role: String {
+enum Role: String, Codable {
     case unknown = "Unknown"
     case user = "User"
     case owner = "Owner"
@@ -26,7 +26,13 @@ enum Role: String {
     }
 }
 
-struct User {
+struct User: Codable {
+    enum CodingKeys: String, CodingKey {
+        case avatarUrl = "avatar"
+        case username
+        case role
+    }
+
     let avatarUrl: String
     let username: String
     let role: Role

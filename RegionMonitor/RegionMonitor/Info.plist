@@ -24,6 +24,10 @@
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>$(EXECUTABLE_NAME) requires access to your device location to notify you when you enter or exit a marked region.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) requires access to your device location to notify you when you enter or exit a marked region.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>$(EXECUTABLE_NAME) requires access to your device location to notify you when you enter or exit a marked region.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
