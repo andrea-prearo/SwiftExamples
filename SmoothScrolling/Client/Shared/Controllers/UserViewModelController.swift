@@ -12,7 +12,7 @@ class UserViewModelController {
     private var viewModels: [UserViewModel?] = []
 
     func retrieveUsers(_ completionBlock: @escaping (_ success: Bool, _ error: NSError?) -> ()) {
-        let urlString = "http://localhost:3000/users"
+        let urlString = "https://aqueous-temple-22443.herokuapp.com/users"
         let session = URLSession.shared
         
         guard let url = URL(string: urlString) else {
