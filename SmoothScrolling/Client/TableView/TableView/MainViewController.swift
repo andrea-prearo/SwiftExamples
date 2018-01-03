@@ -18,12 +18,13 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        #if CLEAR_CACHES
-        let cachesFolderItems = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
-        for item in cachesFolderItems {
-            try? FileManager.default.removeItem(atPath: item)
+        Feature.initFromPList()
+        if Feature.clearCaches.isEnabled {
+            let cachesFolderItems = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+            for item in cachesFolderItems {
+                try? FileManager.default.removeItem(atPath: item)
+            }
         }
-        #endif
 
         if #available(iOS 10.0, *) {
             tableView.prefetchDataSource = self
@@ -76,18 +77,18 @@ extension MainViewController {
             }
         }
 
-        #if DEBUG_CELL_LIFECYCLE
-        print(String.init(format: "cellForRowAt #%i", indexPath.row))
-        #endif
+        if Feature.debugCellLifecycle.isEnabled {
+            print(String.init(format: "cellForRowAt #%i", indexPath.row))
+        }
         
         return cell
     }
 
-    #if DEBUG_CELL_LIFECYCLE
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print(String.init(format: "willDisplay #%i", indexPath.row))
+        if Feature.debugCellLifecycle.isEnabled {
+            print(String.init(format: "willDisplay #%i", indexPath.row))
+        }
     }
-    #endif
 
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let imageLoadOperation = imageLoadOperations[indexPath] else {
@@ -96,9 +97,9 @@ extension MainViewController {
         imageLoadOperation.cancel()
         imageLoadOperations.removeValue(forKey: indexPath)
 
-        #if DEBUG_CELL_LIFECYCLE
-        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
-        #endif
+        if Feature.debugCellLifecycle.isEnabled {
+            print(String.init(format: "didEndDisplaying #%i", indexPath.row))
+        }
     }
 }
 
@@ -115,9 +116,9 @@ extension MainViewController: UITableViewDataSourcePrefetching {
                 imageLoadOperations[indexPath] = imageLoadOperation
             }
 
-            #if DEBUG_CELL_LIFECYCLE
-            print(String.init(format: "prefetchRowsAt #%i", indexPath.row))
-            #endif
+            if Feature.debugCellLifecycle.isEnabled {
+                print(String.init(format: "prefetchRowsAt #%i", indexPath.row))
+            }
         }
     }
 
@@ -129,9 +130,9 @@ extension MainViewController: UITableViewDataSourcePrefetching {
             imageLoadOperation.cancel()
             imageLoadOperations.removeValue(forKey: indexPath)
             
-            #if DEBUG_CELL_LIFECYCLE
-            print(String.init(format: "cancelPrefetchingForRowsAt #%i", indexPath.row))
-            #endif
+            if Feature.debugCellLifecycle.isEnabled {
+                print(String.init(format: "cancelPrefetchingForRowsAt #%i", indexPath.row))
+            }
         }
     }
 }

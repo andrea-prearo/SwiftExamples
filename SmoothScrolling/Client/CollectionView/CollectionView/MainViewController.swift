@@ -19,12 +19,13 @@ class MainViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        #if CLEAR_CACHES
-        let cachesFolderItems = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
-        for item in cachesFolderItems {
-            try? FileManager.default.removeItem(atPath: item)
+        Feature.initFromPList()
+        if Feature.clearCaches.isEnabled {
+            let cachesFolderItems = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+            for item in cachesFolderItems {
+                try? FileManager.default.removeItem(atPath: item)
+            }
         }
-        #endif
 
         if #available(iOS 10.0, *) {
             collectionView?.prefetchDataSource = self
@@ -96,19 +97,19 @@ extension MainViewController {
                 imageLoadOperations[indexPath] = imageLoadOperation
             }
         }
-        
-        #if DEBUG_CELL_LIFECYCLE
-        print(String.init(format: "cellForRowAt #%i", indexPath.row))
-        #endif
+
+        if Feature.debugCellLifecycle.isEnabled {
+            print(String.init(format: "cellForRowAt #%i", indexPath.row))
+        }
 
         return cell
     }
 
-    #if DEBUG_CELL_LIFECYCLE
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(String.init(format: "willDisplay #%i", indexPath.row))
+        if Feature.debugCellLifecycle.isEnabled {
+            print(String.init(format: "willDisplay #%i", indexPath.row))
+        }
     }
-    #endif
 
     override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let imageLoadOperation = imageLoadOperations[indexPath] else {
@@ -117,9 +118,9 @@ extension MainViewController {
         imageLoadOperation.cancel()
         imageLoadOperations.removeValue(forKey: indexPath)
         
-        #if DEBUG_CELL_LIFECYCLE
-        print(String.init(format: "didEndDisplaying #%i", indexPath.row))
-        #endif
+        if Feature.debugCellLifecycle.isEnabled {
+            print(String.init(format: "didEndDisplaying #%i", indexPath.row))
+        }
     }
 }
 
@@ -158,9 +159,9 @@ extension MainViewController: UICollectionViewDataSourcePrefetching {
                 imageLoadOperations[indexPath] = imageLoadOperation
             }
             
-            #if DEBUG_CELL_LIFECYCLE
-            print(String.init(format: "prefetchItemsAt #%i", indexPath.row))
-            #endif
+            if Feature.debugCellLifecycle.isEnabled {
+                print(String.init(format: "prefetchItemsAt #%i", indexPath.row))
+            }
         }
     }
     
@@ -172,9 +173,9 @@ extension MainViewController: UICollectionViewDataSourcePrefetching {
             imageLoadOperation.cancel()
             imageLoadOperations.removeValue(forKey: indexPath)
             
-            #if DEBUG_CELL_LIFECYCLE
-            print(String.init(format: "cancelPrefetchingForItemsAt #%i", indexPath.row))
-            #endif
+            if Feature.debugCellLifecycle.isEnabled {
+                print(String.init(format: "cancelPrefetchingForItemsAt #%i", indexPath.row))
+            }
         }
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5AED137513E803FE421BDCFB /* Pods_TableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392A57F5916C77DA1880ED15 /* Pods_TableView.framework */; };
+		AF07BBA81FFD1994008463AF /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF07BBA71FFD1994008463AF /* Feature.swift */; };
+		AF07BBAF1FFD2AB6008463AF /* Features.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF07BBAE1FFD2AB6008463AF /* Features.plist */; };
 		AF61D48D1D5B96750053E112 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF61D48C1D5B96750053E112 /* AppDelegate.swift */; };
 		AF61D48F1D5B96750053E112 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF61D48E1D5B96750053E112 /* MainViewController.swift */; };
 		AF61D4921D5B96750053E112 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF61D4901D5B96750053E112 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		392A57F5916C77DA1880ED15 /* Pods_TableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		978AB6D4B126F91B4B2547B6 /* Pods-TableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableView/Pods-TableView.debug.xcconfig"; sourceTree = "<group>"; };
+		AF07BBA71FFD1994008463AF /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		AF07BBAE1FFD2AB6008463AF /* Features.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Features.plist; sourceTree = "<group>"; };
 		AF61D4891D5B96750053E112 /* TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF61D48C1D5B96750053E112 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF61D48E1D5B96750053E112 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +70,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF07BBA61FFD1994008463AF /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				AF07BBA71FFD1994008463AF /* Feature.swift */,
+				AF07BBAE1FFD2AB6008463AF /* Features.plist */,
+			);
+			name = Configurations;
+			path = ../../Shared/Configurations;
+			sourceTree = "<group>";
+		};
 		AF61D4801D5B96750053E112 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +101,7 @@
 		AF61D48B1D5B96750053E112 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				AF07BBA61FFD1994008463AF /* Configurations */,
 				AFBDA5AA1E4E428F009787AE /* Extensions */,
 				AFBDA5B11E4E4299009787AE /* Models */,
 				AFBDA5B41E4E429E009787AE /* ViewModels */,
@@ -234,6 +249,7 @@
 				AF61D4971D5B96750053E112 /* LaunchScreen.storyboard in Resources */,
 				AF61D4941D5B96750053E112 /* Assets.xcassets in Resources */,
 				AF61D4921D5B96750053E112 /* Main.storyboard in Resources */,
+				AF07BBAF1FFD2AB6008463AF /* Features.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF07BBA81FFD1994008463AF /* Feature.swift in Sources */,
 				AFBDA5B01E4E428F009787AE /* UIViewController+Util.swift in Sources */,
 				AFBDA5B61E4E429E009787AE /* UserViewModel.swift in Sources */,
 				AFBDA5AF1E4E428F009787AE /* UIImageView+Util.swift in Sources */,
@@ -427,11 +444,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
-					"DEBUG_CELL_LIFECYCLE=1",
 				);
 				INFOPLIST_FILE = TableView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDEBUG_CELL_LIFECYCLE";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aprearo.TableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
