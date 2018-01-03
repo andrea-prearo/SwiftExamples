@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF07BBAB1FFD19A0008463AF /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF07BBAA1FFD19A0008463AF /* Feature.swift */; };
+		AF07BBAD1FFD1AD7008463AF /* Features.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF07BBAC1FFD1AD7008463AF /* Features.plist */; };
 		AF1DC4AB1E55DAE6002C5CED /* ImageLoadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1DC4AA1E55DAE6002C5CED /* ImageLoadOperation.swift */; };
 		AF31C7241E4E4B3500C4D763 /* NSError+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF31C7201E4E4B3500C4D763 /* NSError+Util.swift */; };
 		AF31C7251E4E4B3500C4D763 /* UIImageView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF31C7211E4E4B3500C4D763 /* UIImageView+Util.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		0044056D0018527A9D94B660 /* Pods-CollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CollectionView.release.xcconfig"; path = "Pods/Target Support Files/Pods-CollectionView/Pods-CollectionView.release.xcconfig"; sourceTree = "<group>"; };
 		9342A144CE4A51DC70753DE1 /* Pods_CollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF07BBAA1FFD19A0008463AF /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		AF07BBAC1FFD1AD7008463AF /* Features.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Features.plist; sourceTree = "<group>"; };
 		AF1DC4AA1E55DAE6002C5CED /* ImageLoadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoadOperation.swift; sourceTree = "<group>"; };
 		AF31C7201E4E4B3500C4D763 /* NSError+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSError+Util.swift"; sourceTree = "<group>"; };
 		AF31C7211E4E4B3500C4D763 /* UIImageView+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Util.swift"; sourceTree = "<group>"; };
@@ -58,6 +62,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF07BBA91FFD19A0008463AF /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				AF07BBAA1FFD19A0008463AF /* Feature.swift */,
+				AF07BBAC1FFD1AD7008463AF /* Features.plist */,
+			);
+			name = Configurations;
+			path = ../../Shared/Configurations;
+			sourceTree = "<group>";
+		};
 		AF1DC4A91E55DAE6002C5CED /* Operations */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +141,7 @@
 		AF52C11F1D678BAC00B878FC /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				AF07BBA91FFD19A0008463AF /* Configurations */,
 				AF31C71E1E4E4B3500C4D763 /* Extensions */,
 				AF31C7271E4E4B3D00C4D763 /* Models */,
 				AF31C72A1E4E4B4700C4D763 /* ViewModels */,
@@ -234,6 +249,7 @@
 				AF52C12B1D678BAD00B878FC /* LaunchScreen.storyboard in Resources */,
 				AF52C1281D678BAD00B878FC /* Assets.xcassets in Resources */,
 				AF52C1261D678BAD00B878FC /* Main.storyboard in Resources */,
+				AF07BBAD1FFD1AD7008463AF /* Features.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF07BBAB1FFD19A0008463AF /* Feature.swift in Sources */,
 				AF31C72C1E4E4B4700C4D763 /* UserViewModel.swift in Sources */,
 				AFD2501A1E54941D005BBA4D /* UIImage+Util.swift in Sources */,
 				AF31C7241E4E4B3500C4D763 /* NSError+Util.swift in Sources */,
@@ -426,7 +443,7 @@
 				DEVELOPMENT_TEAM = F5KMDL9X5Y;
 				INFOPLIST_FILE = CollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDEBUG_CELL_LIFECYCLE";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aprearo.CollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
