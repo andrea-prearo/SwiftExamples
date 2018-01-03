@@ -8,31 +8,19 @@
 
 import Foundation
 
-class UserViewModelController {
-    private var viewModels: [UserViewModel?] = []
+typealias RetrieveUsersCompletionBlock = (_ success: Bool, _ error: NSError?) -> Void
 
-    func retrieveUsers(_ completionBlock: @escaping (_ success: Bool, _ error: NSError?) -> ()) {
-        let urlString = "https://aqueous-temple-22443.herokuapp.com/users"
-        let session = URLSession.shared
-        
-        guard let url = URL(string: urlString) else {
-            completionBlock(false, nil)
-            return
-        }
-        let task = session.dataTask(with: url) { [weak self] (data, response, error) in
-            guard let strongSelf = self else { return }
-            guard let jsonData = data, error == nil else {
-                completionBlock(false, error as NSError?)
-                return
-            }
-            if let users = UserViewModelController.parse(jsonData) {
-                strongSelf.viewModels = UserViewModelController.initViewModels(users)
-                completionBlock(true, nil)
-            } else {
-                completionBlock(false, NSError.createError(0, description: "JSON parsing error"))
-            }
-        }
-        task.resume()
+class UserViewModelController {
+    private static let pageSize = 25
+
+    private var viewModels: [UserViewModel?] = []
+    private var currentPage = -1
+    private var lastPage = -1
+    private var retrieveUsersCompletionBlock: RetrieveUsersCompletionBlock?
+
+    func retrieveUsers(_ completionBlock: @escaping RetrieveUsersCompletionBlock) {
+        retrieveUsersCompletionBlock = completionBlock
+        loadNextPageIfNeeded(for: 0)
     }
 
     var viewModelsCount: Int {
@@ -41,6 +29,7 @@ class UserViewModelController {
 
     func viewModel(at index: Int) -> UserViewModel? {
         guard index >= 0 && index < viewModelsCount else { return nil }
+        loadNextPageIfNeeded(for: index)
         return viewModels[index]
     }
 }
@@ -62,5 +51,42 @@ private extension UserViewModelController {
                 return nil
             }
         }
+    }
+
+    func loadNextPageIfNeeded(for index: Int) {
+        let targetCount = currentPage < 0 ? 0 : (currentPage + 1) * UserViewModelController.pageSize - 1
+        guard index == targetCount else {
+            return
+        }
+        currentPage += 1
+        let id = currentPage * UserViewModelController.pageSize + 1
+        let urlString = String(format: "https://aqueous-temple-22443.herokuapp.com/users?id=\(id)&count=\(UserViewModelController.pageSize)")
+        guard let url = URL(string: urlString) else {
+            retrieveUsersCompletionBlock?(false, nil)
+            return
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { [weak self] (data, response, error) in
+            guard let strongSelf = self else { return }
+            guard let jsonData = data, error == nil else {
+                DispatchQueue.main.async {
+                    strongSelf.retrieveUsersCompletionBlock?(false, error as NSError?)
+                }
+                return
+            }
+            strongSelf.lastPage += 1
+            if let users = UserViewModelController.parse(jsonData) {
+                let newUsersPage = UserViewModelController.initViewModels(users)
+                strongSelf.viewModels.append(contentsOf: newUsersPage)
+                DispatchQueue.main.async {
+                    strongSelf.retrieveUsersCompletionBlock?(true, nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    strongSelf.retrieveUsersCompletionBlock?(false, NSError.createError(0, description: "JSON parsing error"))
+                }
+            }
+        }
+        task.resume()
     }
 }
