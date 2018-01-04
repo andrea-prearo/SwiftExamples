@@ -56,7 +56,7 @@ extension Feature {
                 let decoder = PropertyListDecoder()
                 let featuresFromPList = try decoder.decode([Feature].self, from: data)
                 for featureFromPList in featuresFromPList {
-                    if var feature = Feature.feature(for: featureFromPList.identifier) {
+                    if let feature = Feature.feature(for: featureFromPList.identifier) {
                         feature.setEnabled(featureFromPList.value)
                     }
                 }

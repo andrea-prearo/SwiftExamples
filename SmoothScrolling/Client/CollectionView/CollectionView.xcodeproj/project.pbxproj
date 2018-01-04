@@ -444,7 +444,7 @@
 				INFOPLIST_FILE = CollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aprearo.CollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aprearo.SwiftExamples.CollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -458,7 +458,7 @@
 				DEVELOPMENT_TEAM = F5KMDL9X5Y;
 				INFOPLIST_FILE = CollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.aprearo.CollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aprearo.SwiftExamples.CollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
