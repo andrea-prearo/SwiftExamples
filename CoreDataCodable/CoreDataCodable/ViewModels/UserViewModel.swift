@@ -24,3 +24,11 @@ struct UserViewModel {
         role = String.emptyIfNil(user.role)
     }
 }
+
+extension UserViewModel: Equatable {}
+
+func ==(lhs: UserViewModel, rhs: UserViewModel) -> Bool {
+    return lhs.avatarUrl == rhs.avatarUrl &&
+        lhs.username == rhs.username &&
+        lhs.role == rhs.role
+}
