@@ -7,18 +7,13 @@
 
 import Foundation
 
-// MARK: Type Placeholder Wrapper
-struct RentalBookingsWrapper: FetchableType {
-    let bookings: [RentalBooking]?
-}
-
-struct RentalBookingFetcher: Fetchable {
-    func fetch(completionBlock: @escaping (FetchableType) -> Void) {
+struct RentalBookingFetcher: BookingFetchable {
+    func fetch(completionBlock: @escaping ([Bookable]) -> Void) {
         guard let jsonData = JSONHelper.loadJsonDataFromFile("rentalBookings"),
             let bookings = RentalBooking.parse(jsonData) else {
-            completionBlock(RentalBookingsWrapper(bookings: nil))
+            completionBlock([])
             return
         }
-        completionBlock(RentalBookingsWrapper(bookings: bookings))
+        completionBlock(bookings)
     }
 }
