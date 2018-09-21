@@ -21,9 +21,6 @@ class MainViewController: UIViewController {
     private var headerImageView: UIImageView!
     private var headerTopConstraint: NSLayoutConstraint!
     private var headerHeightConstraint: NSLayoutConstraint!
-    private lazy var statusBarHeight = {
-        return UIApplication.shared.statusBarFrame.size.height
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

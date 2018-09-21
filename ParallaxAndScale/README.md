@@ -1,7 +1,7 @@
 # ParallaxAndScale
 
 A sample project to experiment with:
-- Parallax and scaling effects
-- Programmatic views
+- Programmatic Views
+- Parallax and Scaling effects
 
 ![Parallax&Scale](./Parallax&Scale.gif)
