@@ -1,0 +1,11 @@
+platform :ios, '10.0'
+
+# inhibit_all_warnings!
+use_frameworks!
+
+target 'CoreDataCodable' do
+end
+
+target 'CoreDataCodableTests' do
+  pod 'OHHTTPStubs/Swift'
+end

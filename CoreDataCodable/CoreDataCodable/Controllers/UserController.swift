@@ -108,13 +108,29 @@ private extension UserController {
     }
 
     func clearStorage() {
+        let isInMemoryStore = persistentContainer.persistentStoreDescriptions.reduce(false) {
+            return $0 ? true : $1.type == NSInMemoryStoreType
+        }
+
         let managedObjectContext = persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: UserController.entityName)
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        do {
-            try managedObjectContext.execute(batchDeleteRequest)
-        } catch let error as NSError {
-            print(error)
+        // NSBatchDeleteRequest is not supported for in-memory stores
+        if isInMemoryStore {
+            do {
+                let users = try managedObjectContext.fetch(fetchRequest)
+                for user in users {
+                    managedObjectContext.delete(user as! NSManagedObject)
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        } else {
+            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            do {
+                try managedObjectContext.execute(batchDeleteRequest)
+            } catch let error as NSError {
+                print(error)
+            }
         }
     }
 
