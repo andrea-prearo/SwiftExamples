@@ -4,8 +4,8 @@ A collection of Swift samples to experiment with different topics.
 
 * [AutolayoutScrollView](https://github.com/andrea-prearo/SwiftExamples/blob/master/AutolayoutScrollView) - A short example on how to work with Auto Layout and UIScrollView.
 * [CoreDataCodable](https://github.com/andrea-prearo/SwiftExamples/blob/master/CoreDataCodable) - A sample app to experiment with:
-- Core Data and `Codable`.
-- Core Data unit testing.
+  - Core Data and `Codable`.
+  - Core Data unit testing.
 * [DataPassing](https://github.com/andrea-prearo/SwiftExamples/blob/master/DataPassing) - A sample workspace to experiment with Data Passing between View Controllers.
 * [GenericDataSource](https://github.com/andrea-prearo/GenericDataSource) - A simple framework to experiment with Swift Generics and Data Sources Abstractions.
 * [ParallaxAndScale](https://github.com/andrea-prearo/SwiftExamples/blob/master/ParallaxAndScale) - A sample project to experiment with Programmatic Views and Parallax and Scaling effects.

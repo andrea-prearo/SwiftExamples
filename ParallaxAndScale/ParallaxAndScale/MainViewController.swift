@@ -37,13 +37,6 @@ class MainViewController: UIViewController {
 
         arrangeConstraints()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        let contentSizeHeight = UIScreen.main.bounds.size.height
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: contentSizeHeight)
-    }
 }
 
 private extension MainViewController {
