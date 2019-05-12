@@ -11,7 +11,7 @@
   "dependencies": {
     "express": "~4.13.1",
     "debug": "~2.2.0",
-    "lodash": "~4.15.0"
+    "lodash": "~4.17.11"
   },
   "devDependencies": {
     "faker": "^3.1.0"
