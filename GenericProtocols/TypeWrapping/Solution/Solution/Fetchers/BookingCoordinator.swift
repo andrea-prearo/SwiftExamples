@@ -15,7 +15,7 @@ enum BookingType {
 
 struct BookingCoordinator {
     public func fetch() {
-        let fetchers: [Fetchable] = [FlightBookingFetcher(), HotelBookingFetcher(), RentalBookingFetcher()]
+        let fetchers: [BookingFetchable] = [FlightBookingFetcher(), HotelBookingFetcher(), RentalBookingFetcher()]
         for fetcher in fetchers {
             fetcher.fetch { (bookings) in
                 print(bookings)

@@ -12,7 +12,7 @@
 		AFB74C221F8E6B2D00156653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB74C201F8E6B2D00156653 /* Main.storyboard */; };
 		AFB74C241F8E6B2D00156653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFB74C231F8E6B2D00156653 /* Assets.xcassets */; };
 		AFB74C271F8E6B2D00156653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB74C251F8E6B2D00156653 /* LaunchScreen.storyboard */; };
-		AFB74C521F8E715600156653 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB74C4E1F8E715100156653 /* Fetchable.swift */; };
+		AFB74C521F8E715600156653 /* BookingFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB74C4E1F8E715100156653 /* BookingFetchable.swift */; };
 		AFB74C531F8E715600156653 /* FlightBookingFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB74C4F1F8E715100156653 /* FlightBookingFetcher.swift */; };
 		AFB74C541F8E715600156653 /* HotelBookingFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB74C501F8E715100156653 /* HotelBookingFetcher.swift */; };
 		AFB74C551F8E715600156653 /* RentalBookingFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB74C511F8E715100156653 /* RentalBookingFetcher.swift */; };
@@ -35,7 +35,7 @@
 		AFB74C231F8E6B2D00156653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFB74C261F8E6B2D00156653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AFB74C281F8E6B2D00156653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFB74C4E1F8E715100156653 /* Fetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetchable.swift; sourceTree = "<group>"; };
+		AFB74C4E1F8E715100156653 /* BookingFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingFetchable.swift; sourceTree = "<group>"; };
 		AFB74C4F1F8E715100156653 /* FlightBookingFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightBookingFetcher.swift; sourceTree = "<group>"; };
 		AFB74C501F8E715100156653 /* HotelBookingFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelBookingFetcher.swift; sourceTree = "<group>"; };
 		AFB74C511F8E715100156653 /* RentalBookingFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentalBookingFetcher.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB74C8A1F8E725100156653 /* BookingCoordinator.swift */,
-				AFB74C4E1F8E715100156653 /* Fetchable.swift */,
+				AFB74C4E1F8E715100156653 /* BookingFetchable.swift */,
 				AFB74C4F1F8E715100156653 /* FlightBookingFetcher.swift */,
 				AFB74C501F8E715100156653 /* HotelBookingFetcher.swift */,
 				AFB74C511F8E715100156653 /* RentalBookingFetcher.swift */,
@@ -220,7 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFB74CAF1F8E73C500156653 /* Bookable.swift in Sources */,
-				AFB74C521F8E715600156653 /* Fetchable.swift in Sources */,
+				AFB74C521F8E715600156653 /* BookingFetchable.swift in Sources */,
 				AFB74C551F8E715600156653 /* RentalBookingFetcher.swift in Sources */,
 				AFB74C531F8E715600156653 /* FlightBookingFetcher.swift in Sources */,
 				AFB74CB11F8E73C500156653 /* HotelBooking.swift in Sources */,
