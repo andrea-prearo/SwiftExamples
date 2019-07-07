@@ -44,11 +44,11 @@ class RegionAnnotationSettingsDetailViewController: UITableViewController, MKMap
         }
 
         let distance = regionAnnotation.radius * 2
-        let region = MKCoordinateRegionMakeWithDistance(regionAnnotation.coordinate, distance, distance)
+        let region = MKCoordinateRegion.init(center: regionAnnotation.coordinate, latitudinalMeters: distance, longitudinalMeters: distance)
         regionAnnotationMapCell?.mapView.delegate = self
         regionAnnotationMapCell?.mapView.setRegion(region, animated: true)
         regionAnnotationMapCell?.mapView.addAnnotation(regionAnnotation)
-        regionAnnotationMapCell?.mapView.add(MKCircle(center: regionAnnotation.coordinate, radius: regionAnnotation.radius))
+        regionAnnotationMapCell?.mapView.addOverlay(MKCircle(center: regionAnnotation.coordinate, radius: regionAnnotation.radius))
     }
 
     // MARK: UITableViewDataSource

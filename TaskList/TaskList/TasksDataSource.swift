@@ -58,7 +58,7 @@ struct TasksDataSource {
         let originalTask = viewModel.task
         let taskIndex: Int?
         if isGrouped {
-            taskIndex = tasks?.index {
+            taskIndex = tasks?.firstIndex {
                 return $0 == originalTask
             }
         } else {

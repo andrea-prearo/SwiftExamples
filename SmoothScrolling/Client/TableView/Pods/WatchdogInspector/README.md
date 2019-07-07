@@ -5,6 +5,7 @@
 [![Cocoapods Version](http://img.shields.io/cocoapods/v/WatchdogInspector.svg?style=flat)](https://github.com/tapwork/WatchdogInspector/blob/master/WatchdogInspector.podspec)
 [![](http://img.shields.io/cocoapods/l/WatchdogInspector.svg?style=flat)](https://github.com/tapwork/WatchdogInspector/blob/master/LICENSE)
 [![CocoaPods Platform](http://img.shields.io/cocoapods/p/WatchdogInspector.svg?style=flat)]()
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@cmenschel-blue.svg?style=flat)](http://twitter.com/cmenschel)
 
 WatchdogInspector counts your app's framerate and displays the fps in the status bar.
@@ -19,8 +20,8 @@ To detect unwanted main thread stalls you can set a custom watchdog timeout.
 
 ![screencast](screencast.gif)
 
-## Usage
-Install via CocoaPods
+## Install
+#### CocoaPods
 ```
 pod "WatchdogInspector"
 ```
@@ -28,35 +29,43 @@ and run `pod install`
 You can see the example project how to setup and run `WatchdogInspector`
 Make sure that you **don't** use `WatchdogInspector` in production.
 
-##### Objective-C  |  [Swift](README_SWIFT.md)
-Start `WatchdogInspector` after launch or whenever you want.
-```Objective-C
-#import <WatchdogInspector/TWWatchdogInspector.h>
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TWWatchdogInspector start];
-    return YES;
-}
+#### Carthage 
+You can use [Carthage](https://github.com/Carthage/Carthage). 
+Specify in Cartfile:
+
+```ruby
+github "tapwork/WatchdogInspector"
 ```
 
+## Usage
+##### [Objective-C](README_objc.md)  |  Swift
+#### Start 
+After launch or whenever you want.
+```Swift
+import WatchdogInspector
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        TWWatchdogInspector.start()
+        return true
+}
+```
 ####Stop
 To stop it just call
-```Objective-C
-[TWWatchdogInspector stop]
+```Swift
+TWWatchdogInspector.stop()
 ```
 #### Main Thread Stalling Exceptions
 You can set a custom watchdog timeout for stalling exceptions (Default: 3 seconds)
-```Objective-C
-[TWWatchdogInspector setStallingThreshhold:10.0];
+```Swift
+TWWatchdogInspector.setStallingThreshhold(10.0)
 ```
 You could also disable the Main Thread exceptions
-```Objective-C
-[TWWatchdogInspector setEnableMainthreadStallingException:NO];
+```Swift
+TWWatchdogInspector.setEnableMainthreadStallingException(false)
 ```
-
 ####Logging
 To log all measured framerates you can log them in the console by calling (Default: on)
-```Objective-C
-[TWWatchdogInspector setUseLogs:YES];
+```Swift
+TWWatchdogInspector.setUseLogs(true)
 ```
 
 ## How it works

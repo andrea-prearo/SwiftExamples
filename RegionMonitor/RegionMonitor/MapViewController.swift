@@ -87,7 +87,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.startMonitoring(for: regionAnnotation.region)
     }
 
-    func addRegionNotification(_ timestamp: Date, event: RegionAnnotationEvent, message: String, appStatus: UIApplicationState) {
+    func addRegionNotification(_ timestamp: Date, event: RegionAnnotationEvent, message: String, appStatus: UIApplication.State) {
         let notification = RegionNotification(timestamp: timestamp, event: event, message: message, appStatus: appStatus)
         print("Region Monitoring: \(notification.description)")
         RegionNotificationsStore.sharedInstance.addStoredItem(notification)
@@ -108,21 +108,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func showLocationPermissionsNotGrantedAlert() {
-        UIAlertView.showSimpleAlert(
-            NSLocalizedString("Error", comment: "Error"),
-            message: NSLocalizedString("Location Permission has not been granted", comment: "Location Permission has not been granted"))
+        UIAlertController.showSimpleAlert(self,
+                                          title: NSLocalizedString("Error", comment: "Error"),
+                                          message: NSLocalizedString("Location Permission has not been granted",
+                                                                     comment: "Location Permission has not been granted"))
     }
 
     func showRegionMonitoringNotAvailableAlert() {
-        UIAlertView.showSimpleAlert(
-            NSLocalizedString("Error", comment: "Error"),
-            message: NSLocalizedString("Region Monitoring is not available", comment: "Region Monitoring is not available"))
+        UIAlertController.showSimpleAlert(self,
+                                          title: NSLocalizedString("Error", comment: "Error"),
+                                          message: NSLocalizedString("Region Monitoring is not available",
+                                                                     comment: "Region Monitoring is not available"))
     }
 
     func zoomToMapLocation(_ coordinate: CLLocationCoordinate2D?) {
         if coordinate != nil {
             let distance = RegionAnnotationRadiusDefault * 2
-            let region = MKCoordinateRegionMakeWithDistance(coordinate!, distance, distance)
+            let region = MKCoordinateRegion.init(center: coordinate!, latitudinalMeters: distance, longitudinalMeters: distance)
             mapView.setRegion(region, animated: true)
         }
     }

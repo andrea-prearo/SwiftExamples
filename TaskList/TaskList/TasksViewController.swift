@@ -46,7 +46,7 @@ extension TasksViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
-        case UICollectionElementKindSectionHeader:
+        case UICollectionView.elementKindSectionHeader:
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: TasksViewController.headerIdentifier, for: indexPath)
             if let tasksDataSource = tasksDataSource,
                 let header = header as? TaskHeaderView {

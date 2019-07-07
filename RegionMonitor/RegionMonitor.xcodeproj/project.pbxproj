@@ -14,7 +14,6 @@
 		0652B3801B0FF3BD00731840 /* RegionNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0652B37F1B0FF3BD00731840 /* RegionNotificationCell.swift */; };
 		065C3B801B0ACC9300F87CD3 /* RegionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065C3B7F1B0ACC9300F87CD3 /* RegionAnnotationView.swift */; };
 		06738DA51B0CEE0C00CF118D /* TestLocations.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 06738DA41B0CEE0C00CF118D /* TestLocations.gpx */; };
-		06D1DD301B0D8DAD00BA4F67 /* UIAlert+SimpleTitleAndMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1DD2F1B0D8DAD00BA4F67 /* UIAlert+SimpleTitleAndMessage.swift */; };
 		06D1DD351B0DAAA800BA4F67 /* RegionAnnotationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1DD341B0DAAA800BA4F67 /* RegionAnnotationsStore.swift */; };
 		06ED361D1B0A8CD400D962BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06ED361C1B0A8CD400D962BC /* AppDelegate.swift */; };
 		06ED36221B0A8CD400D962BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06ED36201B0A8CD400D962BC /* Main.storyboard */; };
@@ -29,6 +28,7 @@
 		06F5D4CF1B0BA3D900E71430 /* RegionAnnotationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F5D4CE1B0BA3D900E71430 /* RegionAnnotationsTableViewController.swift */; };
 		06F5D4D61B0BC72C00E71430 /* RegionAnnotationPropertyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F5D4D51B0BC72C00E71430 /* RegionAnnotationPropertyCell.swift */; };
 		06F5D4D81B0BC74000E71430 /* RegionAnnotationMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F5D4D71B0BC74000E71430 /* RegionAnnotationMapCell.swift */; };
+		69183A2722D1B063001C171D /* UIAlertController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69183A2622D1B063001C171D /* UIAlertController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 		0652B37F1B0FF3BD00731840 /* RegionNotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionNotificationCell.swift; sourceTree = "<group>"; };
 		065C3B7F1B0ACC9300F87CD3 /* RegionAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotationView.swift; sourceTree = "<group>"; };
 		06738DA41B0CEE0C00CF118D /* TestLocations.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestLocations.gpx; sourceTree = "<group>"; };
-		06D1DD2F1B0D8DAD00BA4F67 /* UIAlert+SimpleTitleAndMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlert+SimpleTitleAndMessage.swift"; sourceTree = "<group>"; };
 		06D1DD341B0DAAA800BA4F67 /* RegionAnnotationsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotationsStore.swift; sourceTree = "<group>"; };
 		06ED36171B0A8CD400D962BC /* RegionMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegionMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06ED361B1B0A8CD400D962BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		06F5D4CE1B0BA3D900E71430 /* RegionAnnotationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotationsTableViewController.swift; sourceTree = "<group>"; };
 		06F5D4D51B0BC72C00E71430 /* RegionAnnotationPropertyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotationPropertyCell.swift; sourceTree = "<group>"; };
 		06F5D4D71B0BC74000E71430 /* RegionAnnotationMapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionAnnotationMapCell.swift; sourceTree = "<group>"; };
+		69183A2622D1B063001C171D /* UIAlertController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 		06D1DD311B0D8DB600BA4F67 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				06D1DD2F1B0D8DAD00BA4F67 /* UIAlert+SimpleTitleAndMessage.swift */,
+				69183A2622D1B063001C171D /* UIAlertController+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -264,12 +264,12 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = aprearo;
 				TargetAttributes = {
 					06ED36161B0A8CD400D962BC = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -281,14 +281,14 @@
 					};
 					06ED362B1B0A8CD400D962BC = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1020;
 						TestTargetID = 06ED36161B0A8CD400D962BC;
 					};
 				};
 			};
 			buildConfigurationList = 06ED36121B0A8CD400D962BC /* Build configuration list for PBXProject "RegionMonitor" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -340,7 +340,7 @@
 				06ED36421B0A8D4300D962BC /* MapViewController.swift in Sources */,
 				06ED364A1B0A916B00D962BC /* RegionAnnotation.swift in Sources */,
 				061F87941B139D33008A7BC5 /* GenericStore.swift in Sources */,
-				06D1DD301B0D8DAD00BA4F67 /* UIAlert+SimpleTitleAndMessage.swift in Sources */,
+				69183A2722D1B063001C171D /* UIAlertController+Extensions.swift in Sources */,
 				06F5D4CF1B0BA3D900E71430 /* RegionAnnotationsTableViewController.swift in Sources */,
 				0652B37D1B0FC63500731840 /* RegionNotification.swift in Sources */,
 				06D1DD351B0DAAA800BA4F67 /* RegionAnnotationsStore.swift in Sources */,
@@ -395,14 +395,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -426,11 +434,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -443,14 +452,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -467,9 +484,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -485,7 +503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprearo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -501,7 +519,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprearo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -522,7 +540,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprearo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RegionMonitor.app/RegionMonitor";
 			};
 			name = Debug;
@@ -540,7 +558,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aprearo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RegionMonitor.app/RegionMonitor";
 			};
 			name = Release;

@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         requestPushNotificationPermissions(application)
         return true
     }
@@ -21,8 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Private Methods
     
     func requestPushNotificationPermissions(_ application: UIApplication) {
-        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
-        application.registerForRemoteNotifications()
-        UIApplication.shared.cancelAllLocalNotifications()
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .badge]) { (granted, error) in
+                if !granted {
+                    print("Something went wrong")
+                }
+            }
+        } else {
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
+            application.registerForRemoteNotifications()
+            UIApplication.shared.cancelAllLocalNotifications()
+        }
     }
 }

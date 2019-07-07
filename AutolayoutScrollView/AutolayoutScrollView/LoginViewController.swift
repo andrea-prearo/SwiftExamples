@@ -27,8 +27,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
         let defaultCenter = NotificationCenter.default
-        defaultCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        defaultCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        defaultCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        defaultCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     override func viewDidLayoutSubviews() {
@@ -56,9 +56,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Keyboard Events
 
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         guard let userInfo = (notification as NSNotification).userInfo,
-            let end = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+            let end = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
                 return
         }
         let keyboardHeight = end.cgRectValue.size.height
@@ -68,7 +68,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         scrollView.setContentOffset(CGPoint(x: 0, y: keyboardHeight), animated: true)
     }
 
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         var contentSize = scrollView.contentSize
         contentSize.height = initialContentSizeHeight
         scrollView.contentSize = contentSize

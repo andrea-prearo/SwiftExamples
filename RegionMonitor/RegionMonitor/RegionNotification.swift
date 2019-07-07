@@ -19,9 +19,9 @@ class RegionNotification: NSObject, NSCoding {
     let timestamp: Date
     let event: RegionAnnotationEvent
     let message: String
-    let appStatus: UIApplicationState
+    let appStatus: UIApplication.State
 
-    init(timestamp: Date, event: RegionAnnotationEvent, message: String, appStatus: UIApplicationState) {
+    init(timestamp: Date, event: RegionAnnotationEvent, message: String, appStatus: UIApplication.State) {
         self.timestamp = timestamp
         self.event = event
         self.message = message
@@ -38,7 +38,7 @@ class RegionNotification: NSObject, NSCoding {
         timestamp = decoder.decodeObject(forKey: RegionNotificationTimestampKey) as! Date
         event = RegionAnnotationEvent(rawValue: decoder.decodeInteger(forKey: RegionNotificationEventKey))!
         message = decoder.decodeObject(forKey: RegionNotificationMessageKey) as! String
-        appStatus = UIApplicationState(rawValue: decoder.decodeInteger(forKey: RegionNotificationAppStatusKey))!
+        appStatus = UIApplication.State(rawValue: decoder.decodeInteger(forKey: RegionNotificationAppStatusKey))!
     }
 
     func encode(with coder: NSCoder) {
@@ -74,6 +74,8 @@ class RegionNotification: NSObject, NSCoding {
             return "Inactive"
         case .background:
             return "Background"
+        @unknown default:
+            fatalError("Unknown app state")
         }
     }
 

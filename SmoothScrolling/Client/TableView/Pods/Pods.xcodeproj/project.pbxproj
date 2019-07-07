@@ -7,202 +7,221 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10252CC7869FE5CD6C0E563909A712DF /* TWWatchdogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A6A8EEC1879F35732217CC0BCC4BEF /* TWWatchdogInspector.m */; };
-		1899FCD3C9A1D0C6BE62AC213D265661 /* TWWatchdogInspector.h in Headers */ = {isa = PBXBuildFile; fileRef = 30B8D4B2E898439C46481EE43168EA95 /* TWWatchdogInspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1CF25BC57E0D17071D0ECDE1F181C80A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		2B45488E6FC186F84466823051AA75AF /* Pods-TableView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2564249D425F39C152CA9A7375E78F3 /* Pods-TableView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3021F1C49158E8D3EBF2D4BC284C3520 /* WatchdogInspector-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DED71915FF85AD646BA4B5CCA115993 /* WatchdogInspector-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F67490218896C2982D203AE236C9E8A /* TWWatchdogInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FB41E47190C8EBD90F44E18751AC09 /* TWWatchdogInspectorViewController.m */; };
-		6B1A40BFA389FCAC5E719FB167DA7FC9 /* Pods-TableView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A19A22577DA8E1ACEC8188AAB8E147D7 /* Pods-TableView-dummy.m */; };
-		9AB1EF5C2A8CC779DA04CED0C4AEC07A /* WatchdogInspector-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C769A6000A0D6ECEE8CBDE60074FCDA7 /* WatchdogInspector-dummy.m */; };
-		C279B3F63653990D84E71F64D0AF7355 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		DE14317D28EE81DD8BE7E25322F16E60 /* TWWatchdogInspectorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FB2A52CB8F70E0FBDD4F6A510489482D /* TWWatchdogInspectorViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05759004F3FEFF0AAFA9472838610B87 /* TWWatchdogInspector.h in Headers */ = {isa = PBXBuildFile; fileRef = FFB388A6165308FF28C6A38080905B5D /* TWWatchdogInspector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AED5940E6FB46132278668952F6FB4B /* TWWatchdogInspectorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E3769A03C056F9B45C5F4019E90CF23D /* TWWatchdogInspectorViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C91C9AA818A232A2C09578053DBC5A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		554306BD89AC1FF28348ADCFE8CAFD30 /* Pods-TableView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CBDD13B256EC98397539FBCB5111280 /* Pods-TableView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7EDDE81CB9B4B360F5EC4581B2EA6D3F /* TWWatchdogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = CCDE76E124B7C3EDC1586A640E94A594 /* TWWatchdogInspector.m */; };
+		B759D933C2B0D650D56820FE5B688BCE /* WatchdogInspector-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E667B4F01D325A851E3D5292BD6BA98 /* WatchdogInspector-dummy.m */; };
+		C5A4AFFD2E04C5FFDC4556E9975BC60F /* TWWatchdogInspectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9836967E2536CE2BF6D23AFD0DB5D1B5 /* TWWatchdogInspectorViewController.m */; };
+		C8F12AF6EE209D8BA8729E754DFF2990 /* Pods-TableView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E1484551F8B5D089E6E26AAE87842752 /* Pods-TableView-dummy.m */; };
+		D59DA645C5C86B31775EC82231298E7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		E685B5D7E9E593E838662F448AB0ABA5 /* WatchdogInspector-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA9A8AB2C8F4D2AB067F52BD1814DED2 /* WatchdogInspector-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D03471E3BA1342E484CD1D1B7431EE6C /* PBXContainerItemProxy */ = {
+		B152C098F846C1E80DCE0FA8FCE59B1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A8139F401707E0258D22EFEFA48BD2A9;
+			remoteGlobalIDString = 681B74BB193BA3CF52CCFFC9D11D7A2A;
 			remoteInfo = WatchdogInspector;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		047A4FBCBDAF41F79D3BDC0C41B4CC3B /* WatchdogInspector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WatchdogInspector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		27FB41E47190C8EBD90F44E18751AC09 /* TWWatchdogInspectorViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWWatchdogInspectorViewController.m; path = Classes/TWWatchdogInspectorViewController.m; sourceTree = "<group>"; };
-		2EA34DAC860EB52295AE340D50E56442 /* Pods-TableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TableView.release.xcconfig"; sourceTree = "<group>"; };
-		30B8D4B2E898439C46481EE43168EA95 /* TWWatchdogInspector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TWWatchdogInspector.h; path = Classes/TWWatchdogInspector.h; sourceTree = "<group>"; };
-		3DED71915FF85AD646BA4B5CCA115993 /* WatchdogInspector-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WatchdogInspector-umbrella.h"; sourceTree = "<group>"; };
-		4B8567B38BB1AE00A074041A08C92227 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4DC08607F387064517467AEBF119011E /* Pods-TableView-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TableView-acknowledgements.plist"; sourceTree = "<group>"; };
-		52A6A8EEC1879F35732217CC0BCC4BEF /* TWWatchdogInspector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWWatchdogInspector.m; path = Classes/TWWatchdogInspector.m; sourceTree = "<group>"; };
-		6A26EA29F6D823B40CAD559BF22E86B7 /* WatchdogInspector.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WatchdogInspector.xcconfig; sourceTree = "<group>"; };
-		6B5E8D8DDB140627B7B19880A9D652CB /* WatchdogInspector-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WatchdogInspector-prefix.pch"; sourceTree = "<group>"; };
-		7B0CD8DC739423184AE948711A2B722F /* Pods-TableView-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TableView-acknowledgements.markdown"; sourceTree = "<group>"; };
-		8832A184E6079C6B38EC425788B9D842 /* WatchdogInspector.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = WatchdogInspector.modulemap; sourceTree = "<group>"; };
-		8F2C95188849641B35CFA1FC9F8E069F /* Pods_TableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A0A90BEBA069DF28D6F1A256E5181638 /* Pods-TableView-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TableView-resources.sh"; sourceTree = "<group>"; };
-		A19A22577DA8E1ACEC8188AAB8E147D7 /* Pods-TableView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TableView-dummy.m"; sourceTree = "<group>"; };
-		A7677FDB88BB8D26ADD8B65444417D3F /* Pods-TableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TableView.debug.xcconfig"; sourceTree = "<group>"; };
-		A8DCD473AEA34667F3B4AC7CE79DD94F /* Pods-TableView-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TableView-frameworks.sh"; sourceTree = "<group>"; };
-		AE03F9D67CA238B4E1DC75C9FDC949EB /* Pods-TableView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TableView.modulemap"; sourceTree = "<group>"; };
-		C769A6000A0D6ECEE8CBDE60074FCDA7 /* WatchdogInspector-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WatchdogInspector-dummy.m"; sourceTree = "<group>"; };
-		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		F2564249D425F39C152CA9A7375E78F3 /* Pods-TableView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TableView-umbrella.h"; sourceTree = "<group>"; };
-		F900C51990FCFBD60411C4014279F287 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB2A52CB8F70E0FBDD4F6A510489482D /* TWWatchdogInspectorViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TWWatchdogInspectorViewController.h; path = Classes/TWWatchdogInspectorViewController.h; sourceTree = "<group>"; };
+		1E667B4F01D325A851E3D5292BD6BA98 /* WatchdogInspector-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "WatchdogInspector-dummy.m"; sourceTree = "<group>"; };
+		203435F9DD817EFD344F41263173C486 /* WatchdogInspector-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "WatchdogInspector-Info.plist"; sourceTree = "<group>"; };
+		20B2A8DA63404E6788F62DFAFA9D9452 /* Pods-TableView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TableView-Info.plist"; sourceTree = "<group>"; };
+		20D4F0A17A8A262A5D9BDFF6A1998774 /* Pods_TableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TableView.framework; path = "Pods-TableView.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		3DE03122AB64722A21881534498C88EF /* Pods-TableView-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TableView-frameworks.sh"; sourceTree = "<group>"; };
+		4144330FDC47D67655ECBD139B6AB6A3 /* Pods-TableView-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TableView-acknowledgements.markdown"; sourceTree = "<group>"; };
+		41444E2EC86164D3FDC9927DFC9E07B5 /* WatchdogInspector.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = WatchdogInspector.modulemap; sourceTree = "<group>"; };
+		4CBDD13B256EC98397539FBCB5111280 /* Pods-TableView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TableView-umbrella.h"; sourceTree = "<group>"; };
+		5373575D3A7B39C35F43A4B739AD303C /* WatchdogInspector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = WatchdogInspector.framework; path = WatchdogInspector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72A0CABB914271C4D9A59F301751ADAA /* Pods-TableView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TableView.modulemap"; sourceTree = "<group>"; };
+		823DB02256C1BA182F0BFD0B1172362F /* WatchdogInspector-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WatchdogInspector-prefix.pch"; sourceTree = "<group>"; };
+		9836967E2536CE2BF6D23AFD0DB5D1B5 /* TWWatchdogInspectorViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWWatchdogInspectorViewController.m; path = Classes/TWWatchdogInspectorViewController.m; sourceTree = "<group>"; };
+		9CB36DA26F6B5F111817AA08F60EA910 /* Pods-TableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TableView.debug.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BA9A8AB2C8F4D2AB067F52BD1814DED2 /* WatchdogInspector-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "WatchdogInspector-umbrella.h"; sourceTree = "<group>"; };
+		BC0E063C2A2BC63CDD42F78475A95E14 /* WatchdogInspector.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = WatchdogInspector.xcconfig; sourceTree = "<group>"; };
+		CCDE76E124B7C3EDC1586A640E94A594 /* TWWatchdogInspector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TWWatchdogInspector.m; path = Classes/TWWatchdogInspector.m; sourceTree = "<group>"; };
+		E1484551F8B5D089E6E26AAE87842752 /* Pods-TableView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TableView-dummy.m"; sourceTree = "<group>"; };
+		E3769A03C056F9B45C5F4019E90CF23D /* TWWatchdogInspectorViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TWWatchdogInspectorViewController.h; path = Classes/TWWatchdogInspectorViewController.h; sourceTree = "<group>"; };
+		E835D6585B0442F68137FEC7AD512AB7 /* Pods-TableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TableView.release.xcconfig"; sourceTree = "<group>"; };
+		FE9F81A3D06E08709717250053293DBE /* Pods-TableView-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TableView-acknowledgements.plist"; sourceTree = "<group>"; };
+		FFB388A6165308FF28C6A38080905B5D /* TWWatchdogInspector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TWWatchdogInspector.h; path = Classes/TWWatchdogInspector.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1C69F0BFE38D976D2F5F50B4C8455C02 /* Frameworks */ = {
+		572F35A157B6B07719A8EDB306124C8D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CF25BC57E0D17071D0ECDE1F181C80A /* Foundation.framework in Frameworks */,
+				4C91C9AA818A232A2C09578053DBC5A9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4BC636C6DD59D40B2253D2D76E744637 /* Frameworks */ = {
+		B1AA60D356B9A39046FDE31547E522E8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C279B3F63653990D84E71F64D0AF7355 /* Foundation.framework in Frameworks */,
+				D59DA645C5C86B31775EC82231298E7E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C90A299BFFC1A99AA2ED531041105E0 /* Products */ = {
+		20F6454B50D7F6A83508464EABEA0481 /* WatchdogInspector */ = {
 			isa = PBXGroup;
 			children = (
-				8F2C95188849641B35CFA1FC9F8E069F /* Pods_TableView.framework */,
-				047A4FBCBDAF41F79D3BDC0C41B4CC3B /* WatchdogInspector.framework */,
+				FFB388A6165308FF28C6A38080905B5D /* TWWatchdogInspector.h */,
+				CCDE76E124B7C3EDC1586A640E94A594 /* TWWatchdogInspector.m */,
+				E3769A03C056F9B45C5F4019E90CF23D /* TWWatchdogInspectorViewController.h */,
+				9836967E2536CE2BF6D23AFD0DB5D1B5 /* TWWatchdogInspectorViewController.m */,
+				360F54375E58E9265AD7ACF2007819E5 /* Support Files */,
 			);
-			name = Products;
+			name = WatchdogInspector;
+			path = WatchdogInspector;
 			sourceTree = "<group>";
 		};
-		11113B6215475BDD669A0A1C6D472584 /* Support Files */ = {
+		360F54375E58E9265AD7ACF2007819E5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F900C51990FCFBD60411C4014279F287 /* Info.plist */,
-				8832A184E6079C6B38EC425788B9D842 /* WatchdogInspector.modulemap */,
-				6A26EA29F6D823B40CAD559BF22E86B7 /* WatchdogInspector.xcconfig */,
-				C769A6000A0D6ECEE8CBDE60074FCDA7 /* WatchdogInspector-dummy.m */,
-				6B5E8D8DDB140627B7B19880A9D652CB /* WatchdogInspector-prefix.pch */,
-				3DED71915FF85AD646BA4B5CCA115993 /* WatchdogInspector-umbrella.h */,
+				41444E2EC86164D3FDC9927DFC9E07B5 /* WatchdogInspector.modulemap */,
+				BC0E063C2A2BC63CDD42F78475A95E14 /* WatchdogInspector.xcconfig */,
+				1E667B4F01D325A851E3D5292BD6BA98 /* WatchdogInspector-dummy.m */,
+				203435F9DD817EFD344F41263173C486 /* WatchdogInspector-Info.plist */,
+				823DB02256C1BA182F0BFD0B1172362F /* WatchdogInspector-prefix.pch */,
+				BA9A8AB2C8F4D2AB067F52BD1814DED2 /* WatchdogInspector-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/WatchdogInspector";
 			sourceTree = "<group>";
 		};
-		5379F7959C3F585CDB5B5A0FC3D3CDE9 /* Pods */ = {
+		597841731A46C654D6F8AA3DED9121D5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97C0C3B2782D5445CFA4E181CB734C08 /* WatchdogInspector */,
+				20D4F0A17A8A262A5D9BDFF6A1998774 /* Pods_TableView.framework */,
+				5373575D3A7B39C35F43A4B739AD303C /* WatchdogInspector.framework */,
 			);
-			name = Pods;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+		60C74CE88289D245E8C1A61E807EBF8C /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+				F47DBCFBB44F100F4173F829678FAD74 /* Pods-TableView */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7DB346D0F39D3F0E887471402A8071AB = {
+		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
-				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				5379F7959C3F585CDB5B5A0FC3D3CDE9 /* Pods */,
-				0C90A299BFFC1A99AA2ED531041105E0 /* Products */,
-				EF87734F75C6B830DD84115CBC18354B /* Targets Support Files */,
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				FC21C0A3080620E83DC2D30DD9597D59 /* Pods */,
+				597841731A46C654D6F8AA3DED9121D5 /* Products */,
+				60C74CE88289D245E8C1A61E807EBF8C /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		97C0C3B2782D5445CFA4E181CB734C08 /* WatchdogInspector */ = {
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				30B8D4B2E898439C46481EE43168EA95 /* TWWatchdogInspector.h */,
-				52A6A8EEC1879F35732217CC0BCC4BEF /* TWWatchdogInspector.m */,
-				FB2A52CB8F70E0FBDD4F6A510489482D /* TWWatchdogInspectorViewController.h */,
-				27FB41E47190C8EBD90F44E18751AC09 /* TWWatchdogInspectorViewController.m */,
-				11113B6215475BDD669A0A1C6D472584 /* Support Files */,
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
 			);
-			path = WatchdogInspector;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9E69945CFDBB8185D615C3A515A4FA2D /* Pods-TableView */ = {
+		F47DBCFBB44F100F4173F829678FAD74 /* Pods-TableView */ = {
 			isa = PBXGroup;
 			children = (
-				4B8567B38BB1AE00A074041A08C92227 /* Info.plist */,
-				AE03F9D67CA238B4E1DC75C9FDC949EB /* Pods-TableView.modulemap */,
-				7B0CD8DC739423184AE948711A2B722F /* Pods-TableView-acknowledgements.markdown */,
-				4DC08607F387064517467AEBF119011E /* Pods-TableView-acknowledgements.plist */,
-				A19A22577DA8E1ACEC8188AAB8E147D7 /* Pods-TableView-dummy.m */,
-				A8DCD473AEA34667F3B4AC7CE79DD94F /* Pods-TableView-frameworks.sh */,
-				A0A90BEBA069DF28D6F1A256E5181638 /* Pods-TableView-resources.sh */,
-				F2564249D425F39C152CA9A7375E78F3 /* Pods-TableView-umbrella.h */,
-				A7677FDB88BB8D26ADD8B65444417D3F /* Pods-TableView.debug.xcconfig */,
-				2EA34DAC860EB52295AE340D50E56442 /* Pods-TableView.release.xcconfig */,
+				72A0CABB914271C4D9A59F301751ADAA /* Pods-TableView.modulemap */,
+				4144330FDC47D67655ECBD139B6AB6A3 /* Pods-TableView-acknowledgements.markdown */,
+				FE9F81A3D06E08709717250053293DBE /* Pods-TableView-acknowledgements.plist */,
+				E1484551F8B5D089E6E26AAE87842752 /* Pods-TableView-dummy.m */,
+				3DE03122AB64722A21881534498C88EF /* Pods-TableView-frameworks.sh */,
+				20B2A8DA63404E6788F62DFAFA9D9452 /* Pods-TableView-Info.plist */,
+				4CBDD13B256EC98397539FBCB5111280 /* Pods-TableView-umbrella.h */,
+				9CB36DA26F6B5F111817AA08F60EA910 /* Pods-TableView.debug.xcconfig */,
+				E835D6585B0442F68137FEC7AD512AB7 /* Pods-TableView.release.xcconfig */,
 			);
 			name = "Pods-TableView";
 			path = "Target Support Files/Pods-TableView";
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		FC21C0A3080620E83DC2D30DD9597D59 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+				20F6454B50D7F6A83508464EABEA0481 /* WatchdogInspector */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EF87734F75C6B830DD84115CBC18354B /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9E69945CFDBB8185D615C3A515A4FA2D /* Pods-TableView */,
-			);
-			name = "Targets Support Files";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A5F891B37E2D90702CE22AD7DC4DE6C5 /* Headers */ = {
+		11F93B6F3D85E882444EAD2540D50741 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1899FCD3C9A1D0C6BE62AC213D265661 /* TWWatchdogInspector.h in Headers */,
-				DE14317D28EE81DD8BE7E25322F16E60 /* TWWatchdogInspectorViewController.h in Headers */,
-				3021F1C49158E8D3EBF2D4BC284C3520 /* WatchdogInspector-umbrella.h in Headers */,
+				05759004F3FEFF0AAFA9472838610B87 /* TWWatchdogInspector.h in Headers */,
+				1AED5940E6FB46132278668952F6FB4B /* TWWatchdogInspectorViewController.h in Headers */,
+				E685B5D7E9E593E838662F448AB0ABA5 /* WatchdogInspector-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC7EA1C5DC21B2544EB585ED73B04D7C /* Headers */ = {
+		89D445AE08999527D068DE65D8BF83DF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B45488E6FC186F84466823051AA75AF /* Pods-TableView-umbrella.h in Headers */,
+				554306BD89AC1FF28348ADCFE8CAFD30 /* Pods-TableView-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A8139F401707E0258D22EFEFA48BD2A9 /* WatchdogInspector */ = {
+		28C410C63084697513BC923F18C545AA /* Pods-TableView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6F791370F90FBC9D1FBAD36478F962AC /* Build configuration list for PBXNativeTarget "WatchdogInspector" */;
+			buildConfigurationList = 8F80B8BAEC46DF9461E9EF41B955D3E6 /* Build configuration list for PBXNativeTarget "Pods-TableView" */;
 			buildPhases = (
-				032A4CEBA20BE0AB123D8B324A1571F1 /* Sources */,
-				1C69F0BFE38D976D2F5F50B4C8455C02 /* Frameworks */,
-				A5F891B37E2D90702CE22AD7DC4DE6C5 /* Headers */,
+				89D445AE08999527D068DE65D8BF83DF /* Headers */,
+				58F564FA0CE3C5126B81CD338ECB8A46 /* Sources */,
+				572F35A157B6B07719A8EDB306124C8D /* Frameworks */,
+				B3EA1D0EDE835DD96B848C281C043FA2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DF60C5322767956C91EF0BFBF1AAC7D2 /* PBXTargetDependency */,
+			);
+			name = "Pods-TableView";
+			productName = "Pods-TableView";
+			productReference = 20D4F0A17A8A262A5D9BDFF6A1998774 /* Pods_TableView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		681B74BB193BA3CF52CCFFC9D11D7A2A /* WatchdogInspector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33DECAFDB8B25C2EE4626526ECE9DA7A /* Build configuration list for PBXNativeTarget "WatchdogInspector" */;
+			buildPhases = (
+				11F93B6F3D85E882444EAD2540D50741 /* Headers */,
+				19D4185BC24183E387E21F9B17BC907A /* Sources */,
+				B1AA60D356B9A39046FDE31547E522E8 /* Frameworks */,
+				919229C6AD02E6E4DC2229E609988004 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -210,308 +229,333 @@
 			);
 			name = WatchdogInspector;
 			productName = WatchdogInspector;
-			productReference = 047A4FBCBDAF41F79D3BDC0C41B4CC3B /* WatchdogInspector.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		CBB5067CA6D565DCF422E7892FA2F2B4 /* Pods-TableView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 55CF714208DC113618F30B112E5852DF /* Build configuration list for PBXNativeTarget "Pods-TableView" */;
-			buildPhases = (
-				FFA7D6C982C4414AA192CA82B571B6CD /* Sources */,
-				4BC636C6DD59D40B2253D2D76E744637 /* Frameworks */,
-				AC7EA1C5DC21B2544EB585ED73B04D7C /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				691958F3107DDAD8C2B144FFEC251D14 /* PBXTargetDependency */,
-			);
-			name = "Pods-TableView";
-			productName = "Pods-TableView";
-			productReference = 8F2C95188849641B35CFA1FC9F8E069F /* Pods_TableView.framework */;
+			productReference = 5373575D3A7B39C35F43A4B739AD303C /* WatchdogInspector.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					A8139F401707E0258D22EFEFA48BD2A9 = {
-						LastSwiftMigration = 0830;
-					};
-					CBB5067CA6D565DCF422E7892FA2F2B4 = {
-						LastSwiftMigration = 0830;
-					};
-				};
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 0C90A299BFFC1A99AA2ED531041105E0 /* Products */;
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 597841731A46C654D6F8AA3DED9121D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CBB5067CA6D565DCF422E7892FA2F2B4 /* Pods-TableView */,
-				A8139F401707E0258D22EFEFA48BD2A9 /* WatchdogInspector */,
+				28C410C63084697513BC923F18C545AA /* Pods-TableView */,
+				681B74BB193BA3CF52CCFFC9D11D7A2A /* WatchdogInspector */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		032A4CEBA20BE0AB123D8B324A1571F1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXResourcesBuildPhase section */
+		919229C6AD02E6E4DC2229E609988004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10252CC7869FE5CD6C0E563909A712DF /* TWWatchdogInspector.m in Sources */,
-				5F67490218896C2982D203AE236C9E8A /* TWWatchdogInspectorViewController.m in Sources */,
-				9AB1EF5C2A8CC779DA04CED0C4AEC07A /* WatchdogInspector-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FFA7D6C982C4414AA192CA82B571B6CD /* Sources */ = {
+		B3EA1D0EDE835DD96B848C281C043FA2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		19D4185BC24183E387E21F9B17BC907A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B1A40BFA389FCAC5E719FB167DA7FC9 /* Pods-TableView-dummy.m in Sources */,
+				7EDDE81CB9B4B360F5EC4581B2EA6D3F /* TWWatchdogInspector.m in Sources */,
+				C5A4AFFD2E04C5FFDC4556E9975BC60F /* TWWatchdogInspectorViewController.m in Sources */,
+				B759D933C2B0D650D56820FE5B688BCE /* WatchdogInspector-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58F564FA0CE3C5126B81CD338ECB8A46 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8F12AF6EE209D8BA8729E754DFF2990 /* Pods-TableView-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		691958F3107DDAD8C2B144FFEC251D14 /* PBXTargetDependency */ = {
+		DF60C5322767956C91EF0BFBF1AAC7D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = WatchdogInspector;
-			target = A8139F401707E0258D22EFEFA48BD2A9 /* WatchdogInspector */;
-			targetProxy = D03471E3BA1342E484CD1D1B7431EE6C /* PBXContainerItemProxy */;
+			target = 681B74BB193BA3CF52CCFFC9D11D7A2A /* WatchdogInspector */;
+			targetProxy = B152C098F846C1E80DCE0FA8FCE59B1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11AB015FD3FD5FD2514DC94BD40BC449 /* Release */ = {
+		088B226A9CC5D1DF21A5D930828873E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A26EA29F6D823B40CAD559BF22E86B7 /* WatchdogInspector.xcconfig */;
+			baseConfigurationReference = 9CB36DA26F6B5F111817AA08F60EA910 /* Pods-TableView.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/WatchdogInspector/WatchdogInspector-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WatchdogInspector/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/WatchdogInspector/WatchdogInspector.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = WatchdogInspector;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		397EA68B373F8D649F2A52B91D5FEC63 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7677FDB88BB8D26ADD8B65444417D3F /* Pods-TableView.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TableView/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-TableView/Pods-TableView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-TableView/Pods-TableView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TableView;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
+		4C6FCC649D0A99C1D7BD1E50F7F7F798 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC0E063C2A2BC63CDD42F78475A95E14 /* WatchdogInspector.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/WatchdogInspector/WatchdogInspector-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/WatchdogInspector/WatchdogInspector-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/WatchdogInspector/WatchdogInspector.modulemap";
+				PRODUCT_MODULE_NAME = WatchdogInspector;
+				PRODUCT_NAME = WatchdogInspector;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		916E0404255105F480DC4950B7625F7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		68FB6C0F1FEAEAF71794389CD592462C /* Debug */ = {
+		DB807052D99FAB021B301921B9217453 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A26EA29F6D823B40CAD559BF22E86B7 /* WatchdogInspector.xcconfig */;
+			baseConfigurationReference = BC0E063C2A2BC63CDD42F78475A95E14 /* WatchdogInspector.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/WatchdogInspector/WatchdogInspector-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/WatchdogInspector/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/WatchdogInspector/WatchdogInspector-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/WatchdogInspector/WatchdogInspector.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_MODULE_NAME = WatchdogInspector;
 				PRODUCT_NAME = WatchdogInspector;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
+		FFD64C5A82738890124F89450794E9EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E835D6585B0442F68137FEC7AD512AB7 /* Pods-TableView.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		F5377DDFAA183BC047AACBC4E9DCC5EB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2EA34DAC860EB52295AE340D50E56442 /* Pods-TableView.release.xcconfig */;
-			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-TableView/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-TableView/Pods-TableView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-TableView/Pods-TableView.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_TableView;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -520,34 +564,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+		33DECAFDB8B25C2EE4626526ECE9DA7A /* Build configuration list for PBXNativeTarget "WatchdogInspector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */,
-				B7324857C38B065FEB1EEE3105C2367A /* Release */,
+				DB807052D99FAB021B301921B9217453 /* Debug */,
+				4C6FCC649D0A99C1D7BD1E50F7F7F798 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55CF714208DC113618F30B112E5852DF /* Build configuration list for PBXNativeTarget "Pods-TableView" */ = {
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				397EA68B373F8D649F2A52B91D5FEC63 /* Debug */,
-				F5377DDFAA183BC047AACBC4E9DCC5EB /* Release */,
+				916E0404255105F480DC4950B7625F7A /* Debug */,
+				8F17DC3A99F99FBAD606CE6963886315 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6F791370F90FBC9D1FBAD36478F962AC /* Build configuration list for PBXNativeTarget "WatchdogInspector" */ = {
+		8F80B8BAEC46DF9461E9EF41B955D3E6 /* Build configuration list for PBXNativeTarget "Pods-TableView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				68FB6C0F1FEAEAF71794389CD592462C /* Debug */,
-				11AB015FD3FD5FD2514DC94BD40BC449 /* Release */,
+				088B226A9CC5D1DF21A5D930828873E4 /* Debug */,
+				FFD64C5A82738890124F89450794E9EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 }
