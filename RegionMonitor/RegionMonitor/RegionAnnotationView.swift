@@ -37,15 +37,15 @@ class RegionAnnotationView: MKPinAnnotationView {
     // MARK: Private Methods
 
     fileprivate func setupPin() {
-        pinColor = MKPinAnnotationColor.red
+        pinTintColor = MKPinAnnotationView.redPinColor()
         animatesDrop = true
         canShowCallout = true
-        let removeButton : UIButton = UIButton(type: UIButtonType.custom)
+        let removeButton : UIButton = UIButton(type: UIButton.ButtonType.custom)
         removeButton.tag = RegionAnnotationViewRemoveButtonTag
         removeButton.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        removeButton.setImage(UIImage(named: "close-icon"), for: UIControlState())
+        removeButton.setImage(UIImage(named: "close-icon"), for: UIControl.State())
         leftCalloutAccessoryView =  removeButton
-        let detailButton : UIButton = UIButton(type: UIButtonType.detailDisclosure)
+        let detailButton : UIButton = UIButton(type: UIButton.ButtonType.detailDisclosure)
         detailButton.tag = RegionAnnotationViewDetailsButtonTag
         rightCalloutAccessoryView = detailButton
     }
@@ -54,7 +54,7 @@ class RegionAnnotationView: MKPinAnnotationView {
     
     func addRadiusOverlay(_ mapView: MKMapView?) {
         let regionAnnotation = annotation as! RegionAnnotation
-        mapView?.add(MKCircle(center: regionAnnotation.coordinate, radius: regionAnnotation.radius))
+        mapView?.addOverlay(MKCircle(center: regionAnnotation.coordinate, radius: regionAnnotation.radius))
     }
 
     func removeRadiusOverlay(_ mapView: MKMapView?) {
@@ -66,7 +66,7 @@ class RegionAnnotationView: MKPinAnnotationView {
                     if coord.latitude == regionAnnotation.coordinate.latitude &&
                         coord.longitude == regionAnnotation.coordinate.longitude &&
                         circleOverlay.radius == regionAnnotation.radius {
-                        mapView?.remove(circleOverlay)
+                        mapView?.removeOverlay(circleOverlay)
                         break
                     }
                 }

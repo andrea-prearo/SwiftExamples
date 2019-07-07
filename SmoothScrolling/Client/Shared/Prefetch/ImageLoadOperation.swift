@@ -8,11 +8,11 @@
 
 import UIKit
 
-typealias ImageLoadOperationCompletionHandlerType = ((UIImage) -> ())?
+typealias ImageLoadOperationCompletionHandlerType = ((UIImage) -> ())
 
 class ImageLoadOperation: Operation {
     var url: String
-    var completionHandler: ImageLoadOperationCompletionHandlerType
+    var completionHandler: ImageLoadOperationCompletionHandlerType?
     var image: UIImage?
 
     init(url: String) {

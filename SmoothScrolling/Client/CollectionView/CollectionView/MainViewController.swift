@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UICollectionViewController {
-    private static let sectionInsets = UIEdgeInsetsMake(0, 2, 0, 2)
+    private static let sectionInsets = UIEdgeInsets.init(top: 0, left: 2, bottom: 0, right: 2)
     private let userViewModelController = UserViewModelController()
 
     // Pre-Fetching Queue
