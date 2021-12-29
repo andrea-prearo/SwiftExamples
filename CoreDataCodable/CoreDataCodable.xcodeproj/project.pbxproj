@@ -12,16 +12,21 @@
 		695FEAEF206D13AC00B42157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEAEE206D13AC00B42157 /* AppDelegate.swift */; };
 		695FEAF1206D13AC00B42157 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEAF0206D13AC00B42157 /* MainViewController.swift */; };
 		695FEAF4206D13AC00B42157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695FEAF2206D13AC00B42157 /* Main.storyboard */; };
-		695FEAF7206D13AC00B42157 /* CoreDataCodable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 695FEAF5206D13AC00B42157 /* CoreDataCodable.xcdatamodeld */; };
 		695FEAF9206D13AC00B42157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 695FEAF8206D13AC00B42157 /* Assets.xcassets */; };
 		695FEAFC206D13AC00B42157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 695FEAFA206D13AC00B42157 /* LaunchScreen.storyboard */; };
 		695FEB07206D13AC00B42157 /* CoreDataCodableTestingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEB06206D13AC00B42157 /* CoreDataCodableTestingHelper.swift */; };
-		695FEB22206D197300B42157 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEB21206D197300B42157 /* User.swift */; };
 		695FEB25206D198500B42157 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEB24206D198400B42157 /* UserController.swift */; };
-		695FEB28206D1A6700B42157 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEB27206D1A6700B42157 /* UserViewModel.swift */; };
 		695FEB2C206D1ABF00B42157 /* NSError+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEB2A206D1ABE00B42157 /* NSError+Util.swift */; };
 		695FEB2D206D1ABF00B42157 /* UIViewController+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695FEB2B206D1ABF00B42157 /* UIViewController+Util.swift */; };
 		696DB6C6277CEAE200A8BA55 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 696DB6C5277CEAE200A8BA55 /* OHHTTPStubsSwift */; };
+		696DB6C8277CEEC400A8BA55 /* CodableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6C7277CEEC400A8BA55 /* CodableModel.swift */; };
+		696DB6CD277CF12B00A8BA55 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6CC277CF12B00A8BA55 /* User.swift */; };
+		696DB6D6277CF2C300A8BA55 /* CoreDataCodable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6D4277CF2C300A8BA55 /* CoreDataCodable.xcdatamodeld */; };
+		696DB6D8277CF2D700A8BA55 /* UserManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6D7277CF2D700A8BA55 /* UserManagedObject.swift */; };
+		696DB6DA277CF2E800A8BA55 /* ManagedObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6D9277CF2E800A8BA55 /* ManagedObjectConvertible.swift */; };
+		696DB6DC277CF43100A8BA55 /* ModelConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6DB277CF43100A8BA55 /* ModelConvertible.swift */; };
+		696DB6DE277CF86700A8BA55 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6DD277CF86700A8BA55 /* UserViewModel.swift */; };
+		696DB6E0277CFD0700A8BA55 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6DF277CFD0700A8BA55 /* Users.swift */; };
 		697230482070521C008E5F87 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697230472070521C008E5F87 /* String+Util.swift */; };
 		69E54F43206ECE410014D9AE /* CodingUserInfoKey+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E54F42206ECE410014D9AE /* CodingUserInfoKey+Util.swift */; };
 /* End PBXBuildFile section */
@@ -43,18 +48,23 @@
 		695FEAEE206D13AC00B42157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		695FEAF0206D13AC00B42157 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		695FEAF3206D13AC00B42157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		695FEAF6206D13AC00B42157 /* CoreDataCodable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCodable.xcdatamodel; sourceTree = "<group>"; };
 		695FEAF8206D13AC00B42157 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		695FEAFB206D13AC00B42157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		695FEAFD206D13AC00B42157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		695FEB02206D13AC00B42157 /* CoreDataCodableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataCodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		695FEB06206D13AC00B42157 /* CoreDataCodableTestingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCodableTestingHelper.swift; sourceTree = "<group>"; };
 		695FEB08206D13AC00B42157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		695FEB21206D197300B42157 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = CoreDataCodable/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		695FEB24206D198400B42157 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = CoreDataCodable/Controllers/UserController.swift; sourceTree = SOURCE_ROOT; };
-		695FEB27206D1A6700B42157 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserViewModel.swift; path = CoreDataCodable/ViewModels/UserViewModel.swift; sourceTree = SOURCE_ROOT; };
 		695FEB2A206D1ABE00B42157 /* NSError+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSError+Util.swift"; path = "CoreDataCodable/Extensions/NSError+Util.swift"; sourceTree = SOURCE_ROOT; };
 		695FEB2B206D1ABF00B42157 /* UIViewController+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Util.swift"; path = "CoreDataCodable/Extensions/UIViewController+Util.swift"; sourceTree = SOURCE_ROOT; };
+		696DB6C7277CEEC400A8BA55 /* CodableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableModel.swift; sourceTree = "<group>"; };
+		696DB6CC277CF12B00A8BA55 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		696DB6D5277CF2C300A8BA55 /* CoreDataCodable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCodable.xcdatamodel; sourceTree = "<group>"; };
+		696DB6D7277CF2D700A8BA55 /* UserManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagedObject.swift; sourceTree = "<group>"; };
+		696DB6D9277CF2E800A8BA55 /* ManagedObjectConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectConvertible.swift; sourceTree = "<group>"; };
+		696DB6DB277CF43100A8BA55 /* ModelConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelConvertible.swift; sourceTree = "<group>"; };
+		696DB6DD277CF86700A8BA55 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		696DB6DF277CFD0700A8BA55 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		697230472070521C008E5F87 /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
 		69E54F42206ECE410014D9AE /* CodingUserInfoKey+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,8 +117,9 @@
 		695FEAED206D13AC00B42157 /* CoreDataCodable */ = {
 			isa = PBXGroup;
 			children = (
-				695FEB29206D1AA900B42157 /* Extensions */,
+				696DB6D1277CF23C00A8BA55 /* CoreData */,
 				695FEB23206D197600B42157 /* Controllers */,
+				695FEB29206D1AA900B42157 /* Extensions */,
 				695FEB20206D195B00B42157 /* Models */,
 				695FEB26206D1A5A00B42157 /* ViewModels */,
 				695FEAEE206D13AC00B42157 /* AppDelegate.swift */,
@@ -117,7 +128,6 @@
 				695FEAF8206D13AC00B42157 /* Assets.xcassets */,
 				695FEAFA206D13AC00B42157 /* LaunchScreen.storyboard */,
 				695FEAFD206D13AC00B42157 /* Info.plist */,
-				695FEAF5206D13AC00B42157 /* CoreDataCodable.xcdatamodeld */,
 			);
 			path = CoreDataCodable;
 			sourceTree = "<group>";
@@ -136,7 +146,9 @@
 		695FEB20206D195B00B42157 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				695FEB21206D197300B42157 /* User.swift */,
+				696DB6C7277CEEC400A8BA55 /* CodableModel.swift */,
+				696DB6CC277CF12B00A8BA55 /* User.swift */,
+				696DB6DF277CFD0700A8BA55 /* Users.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,7 +164,7 @@
 		695FEB26206D1A5A00B42157 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				695FEB27206D1A6700B42157 /* UserViewModel.swift */,
+				696DB6DD277CF86700A8BA55 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -166,6 +178,33 @@
 				697230472070521C008E5F87 /* String+Util.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		696DB6D1277CF23C00A8BA55 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				696DB6D4277CF2C300A8BA55 /* CoreDataCodable.xcdatamodeld */,
+				696DB6D2277CF25700A8BA55 /* Models */,
+				696DB6D3277CF25D00A8BA55 /* Proxy */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		696DB6D2277CF25700A8BA55 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				696DB6D7277CF2D700A8BA55 /* UserManagedObject.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		696DB6D3277CF25D00A8BA55 /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				696DB6D9277CF2E800A8BA55 /* ManagedObjectConvertible.swift */,
+				696DB6DB277CF43100A8BA55 /* ModelConvertible.swift */,
+			);
+			path = Proxy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +255,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Andrea Prearo";
 				TargetAttributes = {
 					695FEAEA206D13AC00B42157 = {
@@ -280,16 +319,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695FEB22206D197300B42157 /* User.swift in Sources */,
 				695FEB2C206D1ABF00B42157 /* NSError+Util.swift in Sources */,
 				697230482070521C008E5F87 /* String+Util.swift in Sources */,
-				695FEB28206D1A6700B42157 /* UserViewModel.swift in Sources */,
 				695FEAF1206D13AC00B42157 /* MainViewController.swift in Sources */,
 				695FEB2D206D1ABF00B42157 /* UIViewController+Util.swift in Sources */,
 				695FEAEF206D13AC00B42157 /* AppDelegate.swift in Sources */,
+				696DB6DE277CF86700A8BA55 /* UserViewModel.swift in Sources */,
+				696DB6D8277CF2D700A8BA55 /* UserManagedObject.swift in Sources */,
+				696DB6E0277CFD0700A8BA55 /* Users.swift in Sources */,
+				696DB6DA277CF2E800A8BA55 /* ManagedObjectConvertible.swift in Sources */,
+				696DB6C8277CEEC400A8BA55 /* CodableModel.swift in Sources */,
 				69E54F43206ECE410014D9AE /* CodingUserInfoKey+Util.swift in Sources */,
-				695FEAF7206D13AC00B42157 /* CoreDataCodable.xcdatamodeld in Sources */,
 				695FEB25206D198500B42157 /* UserController.swift in Sources */,
+				696DB6DC277CF43100A8BA55 /* ModelConvertible.swift in Sources */,
+				696DB6D6277CF2C300A8BA55 /* CoreDataCodable.xcdatamodeld in Sources */,
+				696DB6CD277CF12B00A8BA55 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +401,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -382,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -416,6 +461,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -435,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -572,12 +618,12 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		695FEAF5206D13AC00B42157 /* CoreDataCodable.xcdatamodeld */ = {
+		696DB6D4277CF2C300A8BA55 /* CoreDataCodable.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				695FEAF6206D13AC00B42157 /* CoreDataCodable.xcdatamodel */,
+				696DB6D5277CF2C300A8BA55 /* CoreDataCodable.xcdatamodel */,
 			);
-			currentVersion = 695FEAF6206D13AC00B42157 /* CoreDataCodable.xcdatamodel */;
+			currentVersion = 696DB6D5277CF2C300A8BA55 /* CoreDataCodable.xcdatamodel */;
 			path = CoreDataCodable.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
