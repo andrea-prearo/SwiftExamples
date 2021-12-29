@@ -9,6 +9,7 @@
 import XCTest
 import CoreData
 import OHHTTPStubs
+import OHHTTPStubsSwift
 
 class CoreDataCodableTestingHelper {
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -33,12 +34,11 @@ class CoreDataCodableTestingHelper {
         return container
     }()
 
-    func stubResponse(for fileName: String, statusCode: Int32 = 200) -> OHHTTPStubsResponse {
-        let bundle = Bundle(for: type(of: self))
-        let path = OHPathForFileInBundle(fileName, bundle)
-        let result = OHHTTPStubsResponse(fileAtPath: path!,
-                                         statusCode: statusCode,
-                                         headers: ["Content-Type": "application/json"])
+    func stubResponse(for fileName: String, statusCode: Int32 = 200) -> HTTPStubsResponse {
+        let path = OHPathForFile(fileName, type(of: self))!
+        let result = fixture(filePath: path,
+                             status: statusCode,
+                             headers: ["Content-Type": "application/json"])
         return result
     }
 

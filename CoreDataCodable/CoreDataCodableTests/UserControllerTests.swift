@@ -9,6 +9,7 @@
 import XCTest
 import CoreData
 import OHHTTPStubs
+import OHHTTPStubsSwift
 
 @testable import CoreDataCodable
 
@@ -27,11 +28,11 @@ class UserControllerTests: XCTestCase {
 
         userController = UserController(persistentContainer: coreDataCodableTestingHelper.mockPersistentContainer)
 
-        OHHTTPStubs.stubRequests(passingTest: { request in
+        stub { request in
             return request.url!.path.contains("users")
-        }, withStubResponse: { _ in
+        } response: { _ in
             return self.coreDataCodableTestingHelper.stubResponse(for: "users.json", statusCode: 200)
-        })
+        }
     }
 
     func testFetchCompletionBlock() {
