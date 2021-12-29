@@ -9,39 +9,45 @@
 import Foundation
 import CoreData
 
-class User: NSManagedObject, Codable {
+struct User: Codable, Equatable, CodableModel {
+    typealias Model = User
+    
     enum CodingKeys: String, CodingKey {
         case avatarUrl = "avatar"
         case username
         case role
     }
 
-    // MARK: - Core Data Managed Object
-    @NSManaged var avatarUrl: String?
-    @NSManaged var username: String?
-    @NSManaged var role: String?
+    let avatarUrl: String?
+    let username: String?
+    let role: String?
+}
 
-    // MARK: - Decodable
-    required convenience init(from decoder: Decoder) throws {
-        guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext,
-            let managedObjectContext = decoder.userInfo[codingUserInfoKeyManagedObjectContext] as? NSManagedObjectContext,
-            let entity = NSEntityDescription.entity(forEntityName: "User", in: managedObjectContext) else {
-            fatalError("Failed to decode User")
-        }
-
-        self.init(entity: entity, insertInto: managedObjectContext)
-
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.avatarUrl = try container.decodeIfPresent(String.self, forKey: .avatarUrl)
-        self.username = try container.decodeIfPresent(String.self, forKey: .username)
-        self.role = try container.decodeIfPresent(String.self, forKey: .role)
+extension User {
+    // MARK: - DecodableModel
+    static func decodeModel(from data: Data) throws -> User? {
+        let decoder = JSONDecoder()
+        return try decoder.decode(User.self, from: data)
     }
 
-    // MARK: - Encodable
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(avatarUrl, forKey: .avatarUrl)
-        try container.encode(username, forKey: .username)
-        try container.encode(role, forKey: .role)
+    // MARK: - EncodableModel
+    static func encodeModel(_ value: User) throws -> Data? {
+        let encoder = JSONEncoder()
+        return try encoder.encode(value)
+    }
+}
+
+extension User: ManagedObjectConvertible {
+    func toManagedObject(in context: NSManagedObjectContext) -> UserManagedObject? {
+        let entityName = UserManagedObject.entityName
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: entityName, in: context) else {
+            NSLog("Can't create entity \(entityName)")
+            return nil
+        }
+        let object = UserManagedObject.init(entity: entityDescription, insertInto: context)
+        object.avatarUrl = avatarUrl
+        object.username = username
+        object.role = UserRole.fromString(role)
+        return object
     }
 }
