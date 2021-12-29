@@ -39,7 +39,7 @@ extension UserControllerProtocol {
 // MARK: - UserController
 
 class UserController: UserControllerProtocol {
-    private static let pageSize = 25
+    private static let pageSize = 100
     private static let entityName = "User"
 
     private let persistentContainer: NSPersistentContainer
@@ -66,24 +66,20 @@ class UserController: UserControllerProtocol {
     }
 }
 
-private extension UserController {
+internal extension UserController {
     func parse(_ jsonData: Data) -> Bool {
         do {
-            guard let codingUserInfoKeyManagedObjectContext = CodingUserInfoKey.managedObjectContext else {
-                fatalError("Failed to retrieve managed object context")
-            }
-
             // Clear storage and save managed object instances
             if currentPage == 0 {
                 clearStorage()
             }
 
             // Parse JSON data
+            let users = try Users.decodeModel(from: jsonData)
+
+            // Update CoreData
             let managedObjectContext = persistentContainer.viewContext
-            let decoder = JSONDecoder()
-            decoder.userInfo[codingUserInfoKeyManagedObjectContext] = managedObjectContext
-            _ = try decoder.decode([User].self, from: jsonData)
-            try managedObjectContext.save()
+            _ = users.map { $0?.toManagedObject(in: managedObjectContext) }
 
             return true
         } catch let error {
@@ -92,10 +88,10 @@ private extension UserController {
         }
     }
 
-    func fetchFromStorage() -> [User]? {
+    func fetchFromStorage() -> [UserManagedObject]? {
         let managedObjectContext = persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<User>(entityName: UserController.entityName)
-        let sortDescriptor1 = NSSortDescriptor(key: "role", ascending: true)
+        let fetchRequest = NSFetchRequest<UserManagedObject>(entityName: UserController.entityName)
+        let sortDescriptor1 = NSSortDescriptor(key: "roleValue", ascending: true)
         let sortDescriptor2 = NSSortDescriptor(key: "username", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
         do {
@@ -134,7 +130,7 @@ private extension UserController {
         }
     }
 
-    static func initViewModels(_ users: [User?]) -> [UserViewModel?] {
+    static func initViewModels(_ users: [UserManagedObject?]) -> [UserViewModel?] {
         return users.map { user in
             if let user = user {
                 return UserViewModel(user: user)
@@ -158,25 +154,25 @@ private extension UserController {
         }
         let session = URLSession.shared
         let task = session.dataTask(with: url) { [weak self] (data, response, error) in
-            guard let strongSelf = self else { return }
+            guard let self = self else { return }
             guard let jsonData = data, error == nil else {
                 DispatchQueue.main.async {
-                    strongSelf.fetchItemsCompletionBlock?(false, error as NSError?)
+                    self.fetchItemsCompletionBlock?(false, error as NSError?)
                 }
                 return
             }
-            strongSelf.lastPage += 1
-            if strongSelf.parse(jsonData) {
-                if let users = strongSelf.fetchFromStorage() {
+            self.lastPage += 1
+            if self.parse(jsonData) {
+                if let users = self.fetchFromStorage() {
                     let newUsersPage = UserController.initViewModels(users)
-                    strongSelf.items?.append(contentsOf: newUsersPage)
+                    self.items?.append(contentsOf: newUsersPage)
                 }
                 DispatchQueue.main.async {
-                    strongSelf.fetchItemsCompletionBlock?(true, nil)
+                    self.fetchItemsCompletionBlock?(true, nil)
                 }
             } else {
                 DispatchQueue.main.async {
-                    strongSelf.fetchItemsCompletionBlock?(false, NSError.createError(0, description: "JSON parsing error"))
+                    self.fetchItemsCompletionBlock?(false, NSError.createError(0, description: "JSON parsing error"))
                 }
             }
         }

@@ -28,7 +28,6 @@
 		696DB6DE277CF86700A8BA55 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6DD277CF86700A8BA55 /* UserViewModel.swift */; };
 		696DB6E0277CFD0700A8BA55 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696DB6DF277CFD0700A8BA55 /* Users.swift */; };
 		697230482070521C008E5F87 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697230472070521C008E5F87 /* String+Util.swift */; };
-		69E54F43206ECE410014D9AE /* CodingUserInfoKey+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E54F42206ECE410014D9AE /* CodingUserInfoKey+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +65,6 @@
 		696DB6DD277CF86700A8BA55 /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		696DB6DF277CFD0700A8BA55 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		697230472070521C008E5F87 /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
-		69E54F42206ECE410014D9AE /* CodingUserInfoKey+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+Util.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +170,6 @@
 		695FEB29206D1AA900B42157 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				69E54F42206ECE410014D9AE /* CodingUserInfoKey+Util.swift */,
 				695FEB2A206D1ABE00B42157 /* NSError+Util.swift */,
 				695FEB2B206D1ABF00B42157 /* UIViewController+Util.swift */,
 				697230472070521C008E5F87 /* String+Util.swift */,
@@ -329,7 +326,6 @@
 				696DB6E0277CFD0700A8BA55 /* Users.swift in Sources */,
 				696DB6DA277CF2E800A8BA55 /* ManagedObjectConvertible.swift in Sources */,
 				696DB6C8277CEEC400A8BA55 /* CodableModel.swift in Sources */,
-				69E54F43206ECE410014D9AE /* CodingUserInfoKey+Util.swift in Sources */,
 				695FEB25206D198500B42157 /* UserController.swift in Sources */,
 				696DB6DC277CF43100A8BA55 /* ModelConvertible.swift in Sources */,
 				696DB6D6277CF2C300A8BA55 /* CoreDataCodable.xcdatamodeld in Sources */,
