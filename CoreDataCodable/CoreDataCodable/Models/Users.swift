@@ -11,12 +11,12 @@ import Foundation
 struct Users: Codable, Equatable, CodableModel {
     typealias Model = Users
 
-    let data: [User?]
+    let data: [User]?
 }
 
 extension Users {
     // MARK: - DecodableModel
-    static func decodeModel(from data: Data) throws -> [User?] {
+    static func decodeModel(from data: Data) throws -> [User] {
         let decoder = JSONDecoder()
         return try decoder.decode([User].self, from: data)
     }
