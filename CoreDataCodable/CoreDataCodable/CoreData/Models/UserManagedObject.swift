@@ -21,7 +21,7 @@ enum UserRole: String {
     }
 }
 
-//// MARK: - Core Data Managed Object
+//// MARK: - CoreData Managed Object
 @objc(UserManagedObject)
 class UserManagedObject: NSManagedObject {
     @NSManaged var avatarUrl: String?

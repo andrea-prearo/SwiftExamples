@@ -9,7 +9,7 @@
 import CoreData
 import Foundation
 
-/// Protocol to provide functionality for Core Data managed object conversion.
+/// Protocol to provide functionality for CoreData managed object conversion.
 protocol ManagedObjectConvertible {
     associatedtype ManagedObject
 

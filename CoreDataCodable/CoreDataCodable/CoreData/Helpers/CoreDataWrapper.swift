@@ -39,7 +39,7 @@ class CoreDataWrapper {
     }
 
     private func buildWritableContext() -> NSManagedObjectContext? {
-        // `syncContext` is a child context that supports writing to the Core Data
+        // `syncContext` is a child context that supports writing to CoreData
         // main context from a background thread.
         return syncContext
     }
