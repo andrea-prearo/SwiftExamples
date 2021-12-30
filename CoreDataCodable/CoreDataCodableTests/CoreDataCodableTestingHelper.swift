@@ -11,6 +11,8 @@ import CoreData
 import OHHTTPStubs
 import OHHTTPStubsSwift
 
+@testable import CoreDataCodable
+
 class CoreDataCodableTestingHelper {
     lazy var managedObjectModel: NSManagedObjectModel = {
         let managedObjectModel = NSManagedObjectModel.mergedModel(from: [Bundle.main])!
@@ -32,6 +34,10 @@ class CoreDataCodableTestingHelper {
         }
 
         return container
+    }()
+
+    lazy var coreDataWrapper: CoreDataWrapper = {
+        return  CoreDataWrapper(persistentContainer: mockPersistentContainer)
     }()
 
     func stubResponse(for fileName: String, statusCode: Int32 = 200) -> HTTPStubsResponse {
