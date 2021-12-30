@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
-    // MARK: - Core Data stack
+    // MARK: - CoreData stack
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -57,7 +57,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
-    // MARK: - Core Data Saving support
+    // MARK: - CoreData wrapper
+
+    lazy var coreDataWrapper: CoreDataWrapper = {
+        return  CoreDataWrapper(persistentContainer: persistentContainer)
+    }()
+
+    // MARK: - CoreData Saving support
 
     func saveContext() {
         let context = persistentContainer.viewContext
@@ -66,7 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 try context.save()
             } catch {
                 // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                // fatalError() causes the application to generate a crash log and terminate.
+                // You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
@@ -76,7 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private Methods
 
     private func instantiateMainViewController() {
-        let mainViewController = MainViewController.create(persistentContainer: persistentContainer)
+        let mainViewController = MainViewController.create(persistentContainer: persistentContainer,
+                                                           coreDataWrapper: coreDataWrapper)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = mainViewController
         self.window?.makeKeyAndVisible()

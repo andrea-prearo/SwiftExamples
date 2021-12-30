@@ -13,7 +13,7 @@ struct UserViewModel {
     let username: String
     let role: String
     
-    init(user: User) {
+    init(user: UserManagedObject) {
         // Avatar
         avatarUrl = String.emptyIfNil(user.avatarUrl)
         
@@ -21,7 +21,7 @@ struct UserViewModel {
         username = String.emptyIfNil(user.username)
         
         // Role
-        role = String.emptyIfNil(user.role)
+        role = String.emptyIfNil(user.role.rawValue)
     }
 }
 

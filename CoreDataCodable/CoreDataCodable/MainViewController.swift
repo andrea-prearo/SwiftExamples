@@ -12,12 +12,12 @@ import CoreData
 class MainViewController: UITableViewController {
     private static let UserCellReuseId = "UserCell"
 
-    private var userController: UserControllerProtocol?
+    private var userController: UserController?
 
-    public static func create(persistentContainer: NSPersistentContainer) -> MainViewController {
+    public static func create(persistentContainer: NSPersistentContainer, coreDataWrapper: CoreDataWrapper) -> MainViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        let userController = UserController(persistentContainer: persistentContainer)
+        let userController = UserController(persistentContainer: persistentContainer, coreDataWrapper: coreDataWrapper)
         mainViewController.userController = userController
         return mainViewController
     }
@@ -59,7 +59,7 @@ extension MainViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainViewController.UserCellReuseId, for: indexPath)
 
         if let viewModel = userController?.item(at: indexPath.row) {
-            cell.textLabel?.text = "\(viewModel.username) - \(viewModel.role)"
+            cell.textLabel?.text = "\(viewModel.username) - \(viewModel.role) (#\(indexPath.row))"
         } else {
             cell.textLabel?.text = "???"
         }
