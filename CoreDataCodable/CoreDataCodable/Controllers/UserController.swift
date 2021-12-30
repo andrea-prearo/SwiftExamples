@@ -56,6 +56,7 @@ internal extension UserController {
 
             // Parse JSON data
             let users = try Users.decodeModel(from: jsonData)
+            print("<UserController> - Parsed \(users.count) items")
 
             // Update CoreData
             saveToStorage(models: users)
@@ -165,10 +166,11 @@ extension UserController: DataFetcherDelegate {
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
         do {
             let users = try managedObjectContext.fetch(fetchRequest)
+            print("<UserController> - Fetched \(users.count) items")
             return completion(.success(users))
         } catch let error {
-            print(error)
-                return completion(.failure(error))
+            print("<UserController> - Error=\(error)")
+            return completion(.failure(error))
         }
     }
 }

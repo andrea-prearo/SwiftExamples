@@ -15,7 +15,6 @@ class CoreDataWrapper {
 
     private let persistentContainer: NSPersistentContainer
     private let syncContext: NSManagedObjectContext
-//    private let logger = Logger()
 
     init(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
@@ -26,7 +25,7 @@ class CoreDataWrapper {
 
     func atomic(_ lambdaBlock: ContextBlock) {
         guard let context = buildWritableContext() else {
-//            logger.error("<CoreDataWrapper> - Cannot create writable managed object context")
+            print("<CoreDataWrapper> - Cannot create writable managed object context")
             return
         }
         atomic(context: context, lambdaBlock: lambdaBlock)
@@ -49,9 +48,9 @@ class CoreDataWrapper {
         guard context.hasChanges else { return }
         do {
             try context.save()
-//            logger.trace(("<CoreDataWrapper> - Saved changes."))
+            print("<CoreDataWrapper> - Saved changes.")
         } catch {
-//            logger.error("<CoreDataWrapper> - Could not save changes in context: \(error)")
+            print("<CoreDataWrapper> - Could not save changes in context: \(error)")
         }
     }
 }
