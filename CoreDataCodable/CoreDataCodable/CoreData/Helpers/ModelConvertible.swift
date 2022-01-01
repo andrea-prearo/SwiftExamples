@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Protocol to provide functionality for data model converion.
+/// Protocol to provide functionality for data model conversion.
 protocol ModelConvertible {
     associatedtype Model
 

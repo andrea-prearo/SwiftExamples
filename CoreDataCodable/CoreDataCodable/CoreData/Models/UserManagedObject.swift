@@ -39,7 +39,6 @@ class UserManagedObject: NSManagedObject {
 }
 
 extension UserManagedObject: ModelConvertible {
-    // MARK: - ManagedObjectDelegate
     /// The managed entity name.
     static var entityName = "User"
 
