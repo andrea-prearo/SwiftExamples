@@ -23,20 +23,6 @@ struct User: Codable, Equatable, CodableModel {
     let role: String?
 }
 
-extension User {
-    // MARK: - DecodableModel
-    static func decodeModel(from data: Data) throws -> User? {
-        let decoder = JSONDecoder()
-        return try decoder.decode(User.self, from: data)
-    }
-
-    // MARK: - EncodableModel
-    static func encodeModel(_ value: User) throws -> Data? {
-        let encoder = JSONEncoder()
-        return try encoder.encode(value)
-    }
-}
-
 extension User: ManagedObjectConvertible {
     func toManagedObject(in context: NSManagedObjectContext) -> UserManagedObject? {
         let entityName = UserManagedObject.entityName

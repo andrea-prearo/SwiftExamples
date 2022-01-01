@@ -24,7 +24,7 @@ class CoreDataWrapper {
     }
 
     func atomic(_ lambdaBlock: ContextBlock) {
-        guard let context = buildWritableContext() else {
+        guard let context = writableContext() else {
             print("<CoreDataWrapper> - Cannot create writable managed object context")
             return
         }
@@ -38,7 +38,7 @@ class CoreDataWrapper {
         }
     }
 
-    private func buildWritableContext() -> NSManagedObjectContext? {
+    private func writableContext() -> NSManagedObjectContext? {
         // `syncContext` is a child context that supports writing to CoreData
         // main context from a background thread.
         return syncContext

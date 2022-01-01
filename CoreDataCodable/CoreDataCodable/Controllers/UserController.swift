@@ -58,7 +58,7 @@ internal extension UserController {
             let users = try Users.decodeModel(from: jsonData)
             print("<UserController> - Parsed \(users.count) items")
 
-            // Update CoreData
+            // Update Core Data
             saveToStorage(models: users)
 
             return true
